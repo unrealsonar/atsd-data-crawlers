@@ -1,0 +1,1303 @@
+{
+  "Capacity on transmission lines, MWh/h": {
+    "DK-West to Nordic countries": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-West",
+      "target": "Nordic countries"
+    },
+    "DK-West to Sweden": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-West",
+      "target": "Sweden"
+    },
+    "Germany to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Norway to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Norway",
+      "target": "DK-West"
+    },
+    "DK-East to Sweden": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-East",
+      "target": "Sweden"
+    },
+    "Sweden to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Sweden",
+      "target": "DK-West"
+    },
+    "DK-East to Germany": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West to Germany": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-West to Norway": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "DK-West",
+      "target": "Norway"
+    },
+    "Sweden to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Sweden",
+      "target": "DK-East"
+    },
+    "Nordic countries to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Nordic countries",
+      "target": "DK-West"
+    },
+    "Germany to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Capacity on transmission lines",
+      "source": "Germany",
+      "target": "DK-East"
+    }
+  },
+  "Automatic Load-Frequency Control, EUR/MWh": {
+    "IGCC - down, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "downward",
+      "metric": "Automatic Load-Frequency Control",
+      "name": "IGCC"
+    },
+    "Price IGCC - down": {
+      "unit": "EUR/MWh",
+      "regulation": "downward",
+      "metric": "Automatic Load-Frequency Control - Price",
+      "name": "IGCC"
+    },
+    "Price DK-West LFC - down": {
+      "unit": "EUR/MWh",
+      "regulation": "downward",
+      "metric": "Automatic Load-Frequency Control - Price",
+      "name": "DK-West LFC"
+    },
+    "Price DK-West LFC - up": {
+      "unit": "EUR/MWh",
+      "regulation": "upward",
+      "metric": "Automatic Load-Frequency Control - Price",
+      "name": "DK-West LFC"
+    },
+    "DK-West LFC - up, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "upward",
+      "metric": "Automatic Load-Frequency Control",
+      "name": "DK-West LFC"
+    },
+    "DK-West LFC - down, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "downward",
+      "metric": "Automatic Load-Frequency Control",
+      "name": "DK-West LFC"
+    },
+    "Price IGCC - up": {
+      "unit": "EUR/MWh",
+      "regulation": "upward",
+      "metric": "Automatic Load-Frequency Control - Price",
+      "name": "IGCC"
+    },
+    "IGCC - up, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "upward",
+      "metric": "Automatic Load-Frequency Control",
+      "name": "IGCC"
+    }
+  },
+  "Fixed residualconsumption (grid area 7xx), kWh/h": {
+    "757 Forsyning Helsingør Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Forsyning Helsingør Elnet A/S",
+      "grid_area": "757"
+    },
+    "755 Verdo Hillerød El-Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Verdo Hillerød El-Net A/S",
+      "grid_area": "755"
+    },
+    "791 DONG Energy A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "DONG Energy A/S",
+      "grid_area": "791"
+    },
+    "740 SEAS-NVE Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "SEAS-NVE Net A/S",
+      "grid_area": "740"
+    }
+  },
+  "Real-time market, EUR/MWh": {
+    "DK-West: Elbas - max price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - max price",
+      "name": "DK-West",
+      "market_place": "Elbas"
+    },
+    "DK-East: Elbas - average price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - average price",
+      "name": "DK-East",
+      "market_place": "Elbas"
+    },
+    "DK-West: System imbalance - surplus of power, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Real-time market - System imbalance",
+      "name": "DK-West",
+      "type": "surplus of power"
+    },
+    "DK-West: Price for balancing power for consumption": {
+      "unit": "EUR/MWh",
+      "metric": "Price for balancing power for consumption",
+      "name": "DK-West"
+    },
+    "DK-West: Elbas - min price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - min price",
+      "name": "DK-West",
+      "market_place": "Elbas"
+    },
+    "DK-East: Price for balancing power - down regulation": {
+      "unit": "EUR/MWh",
+      "regulation": "downward",
+      "metric": "Real-time market - Price for balancing power",
+      "name": "DK-East"
+    },
+    "DK-East: Elbas - max price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - max price",
+      "name": "DK-East",
+      "market_place": "Elbas"
+    },
+    "DK-West: Regulating power - downward regulation, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "downward",
+      "metric": "Real-time market - Regulating power",
+      "name": "DK-West"
+    },
+    "DK-West: Elbas - average price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - average price",
+      "name": "DK-West",
+      "market_place": "Elbas"
+    },
+    "DK-East: Price for balancing power - up regulation": {
+      "unit": "EUR/MWh",
+      "regulation": "upward",
+      "metric": "Real-time market - Price for balancing power",
+      "name": "DK-East"
+    },
+    "DK-East: Regulating power - downward regulation, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "downward",
+      "metric": "Real-time market - Regulating power",
+      "name": "DK-East"
+    },
+    "DK-East: Elbas - min price": {
+      "unit": "EUR/MWh",
+      "metric": "Real-time market - min price",
+      "name": "DK-East",
+      "market_place": "Elbas"
+    },
+    "DK-West: Price for balancing power - up regulation": {
+      "unit": "EUR/MWh",
+      "regulation": "upward",
+      "metric": "Real-time market - Price for balancing power",
+      "name": "DK-West"
+    },
+    "DK-East: Price for balancing power for consumption": {
+      "unit": "EUR/MWh",
+      "metric": "Price for balancing power for consumption",
+      "name": "DK-East"
+    },
+    "DK-West: Regulating power - upward regulation, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "upward",
+      "metric": "Real-time market - Regulating power",
+      "name": "DK-West"
+    },
+    "DK-West: Price for balancing power - down regulation": {
+      "unit": "EUR/MWh",
+      "regulation": "downward",
+      "metric": "Real-time market - Price for balancing power",
+      "name": "DK-West"
+    },
+    "DK-West: System imbalance - deficit of power, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Real-time market - System imbalance",
+      "name": "DK-West",
+      "type": "deficit of power"
+    },
+    "DK-East: Regulating power - upward regulation, MWh/h": {
+      "unit": "MWh/h",
+      "regulation": "upward",
+      "metric": "Real-time market - Regulating power",
+      "name": "DK-East"
+    }
+  },
+  "Physical exchange on transmission lines, MWh/h": {
+    "DK-West and Sweden": {
+      "unit": "MWh/h",
+      "metric": "Physical exchange on transmission lines",
+      "source": "DK-West",
+      "target": "Sweden"
+    },
+    "DK-East and Germany": {
+      "unit": "MWh/h",
+      "metric": "Physical exchange on transmission lines",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West and Germany": {
+      "unit": "MWh/h",
+      "metric": "Physical exchange on transmission lines",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-West and Norway": {
+      "unit": "MWh/h",
+      "metric": "Physical exchange on transmission lines",
+      "source": "DK-West",
+      "target": "Norway"
+    },
+    "DK-East and Sweden": {
+      "unit": "MWh/h",
+      "metric": "Physical exchange on transmission lines",
+      "source": "DK-East",
+      "target": "Sweden"
+    }
+  },
+  "Total congestion income on international connections, EUR per hour": {
+    "DK-West and Sweden": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-West",
+      "target": "Sweden"
+    },
+    "DK-West and Germany: Daily auctions": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections - Daily auctions",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-East and Germany": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West and DK-East": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-West",
+      "target": "DK-East"
+    },
+    "DK-West and Germany": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-East and Germany: Monthly auctions": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections - Monthly auctions",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West and Germany: Annual auctions": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections - Annual auctions",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-West and Norway": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-West",
+      "target": "Norway"
+    },
+    "DK-East and Germany: Annual auctions": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections - Annual auctions",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West and Germany: Monthly auctions": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections - Monthly auctions",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-East and Sweden": {
+      "unit": "EUR/h",
+      "metric": "Total congestion income on international connections",
+      "source": "DK-East",
+      "target": "Sweden"
+    }
+  },
+  "Production and consumption, MWh/h": {
+    "DK: Wind power production (onshore)": {
+      "unit": "MWh/h",
+      "metric": "Wind power production",
+      "name": "DK-Onshore"
+    },
+    "DK-West: Solar cell production (estimated)": {
+      "unit": "MWh/h",
+      "metric": "Solar cell production (estimated)",
+      "name": "DK-West"
+    },
+    "DK-East: Local production": {
+      "unit": "MWh/h",
+      "metric": "Local production",
+      "name": "DK-East"
+    },
+    "DK-East: Primary production": {
+      "unit": "MWh/h",
+      "metric": "Primary production",
+      "name": "DK-East"
+    },
+    "DK-East: Wind power production": {
+      "unit": "MWh/h",
+      "metric": "Wind power production",
+      "name": "DK-East"
+    },
+    "DK-West: Wind power production": {
+      "unit": "MWh/h",
+      "metric": "Wind power production",
+      "name": "DK-West"
+    },
+    "DK: Wind power production (offshore)": {
+      "unit": "MWh/h",
+      "metric": "Wind power production",
+      "name": "DK-Offshore"
+    },
+    "DK-East: Solar cell production (estimated)": {
+      "unit": "MWh/h",
+      "metric": "Solar cell production (estimated)",
+      "name": "DK-East"
+    },
+    "DK-East: Net consumption": {
+      "unit": "MWh/h",
+      "metric": "Net consumption",
+      "name": "DK-East"
+    },
+    "DK-West: Local production": {
+      "unit": "MWh/h",
+      "metric": "Local production",
+      "name": "DK-West"
+    },
+    "DK-West: Net consumption": {
+      "unit": "MWh/h",
+      "metric": "Net consumption",
+      "name": "DK-West"
+    },
+    "DK-West: Primary production": {
+      "unit": "MWh/h",
+      "metric": "Primary production",
+      "name": "DK-West"
+    },
+    "DK-West: Gross consumption": {
+      "unit": "MWh/h",
+      "metric": "Gross consumption",
+      "name": "DK-West"
+    },
+    "DK-East: Gross consumption": {
+      "unit": "MWh/h",
+      "metric": "Gross consumption",
+      "name": "DK-East"
+    }
+  },
+  "Fixed residualconsumption (grid area 1xx), kWh/h": {
+    "143 Brabrand Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Brabrand Net A/S",
+      "grid_area": "143"
+    },
+    "146 Bjerringbro Elværk": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Bjerringbro Elværk",
+      "grid_area": "146"
+    },
+    "142 Kjellerup Elnet A/S142 Kjellerup Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Kjellerup Elnet A/S142 Kjellerup Elnet A/S",
+      "grid_area": "142"
+    },
+    "149 ELRO Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "ELRO Net A/S",
+      "grid_area": "149"
+    },
+    "152 Verdo El-net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Verdo El-net A/S",
+      "grid_area": "152"
+    },
+    "154 Energi Viborg Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Energi Viborg Elnet A/S",
+      "grid_area": "154"
+    },
+    "145 GE Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "GE Net A/S",
+      "grid_area": "145"
+    },
+    "144 Viby Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Viby Net A/S",
+      "grid_area": "144"
+    },
+    "141 Hammel Elforsyning": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Hammel Elforsyning",
+      "grid_area": "141"
+    },
+    "151 NRGi Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "NRGi Net A/S",
+      "grid_area": "151"
+    },
+    "131 EnergiMidt Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "EnergiMidt Net A/S",
+      "grid_area": "131"
+    }
+  },
+  "Fixed residualconsumption (grid area 9xx), kWh/h": {
+    "911 Østkraft Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Østkraft Net A/S",
+      "grid_area": "911"
+    }
+  },
+  "Scheduled trade (incl. Intraday) on transmission lines, MWh/h": {
+    "DK-West and Sweden": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-West",
+      "target": "Sweden"
+    },
+    "DK-East and Germany": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "DK-West and Nordic countries": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-West",
+      "target": "Nordic countries"
+    },
+    "DK-West and Germany": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Spot exchange (Spotflow, Nord Pool CBO) DK-West and Germany, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "market_place": "Spot exchange (Spotflow, Nord Pool CBO)",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "DK-West and Norway": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-West",
+      "target": "Norway"
+    },
+    "DK-East and Sweden": {
+      "unit": "MWh/h",
+      "metric": "Scheduled trade (incl. Intraday) on transmission lines",
+      "source": "DK-East",
+      "target": "Sweden"
+    }
+  },
+  "Fixed residualconsumption (grid area 4xx), kWh/h": {
+    "443 Ærø Elforsyning Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Ærø Elforsyning Net A/S",
+      "grid_area": "443"
+    }
+  },
+  "Purchase of frequency controlled reserves - daily auction, EUR/MW per hour": {
+    "DK-East: Total purchase - FNR downward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "downward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Total purchase",
+      "name": "DK-East",
+      "reserve_type": "FNR"
+    },
+    "DK-East: Total purchase - FNR upward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Total purchase",
+      "name": "DK-East",
+      "reserve_type": "FNR"
+    },
+    "DK-West: Total purchase - primary upward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Total purchase",
+      "name": "DK-West",
+      "reserve_type": "primary"
+    },
+    "DK-East: Standby payment - FDR upward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Standby payment",
+      "name": "DK-East",
+      "reserve_type": "FDR"
+    },
+    "DK-West: Standby payment - primary downward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "downward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Standby payment",
+      "name": "DK-West",
+      "reserve_type": "primary"
+    },
+    "DK-East: Standby payment - FNR downward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "downward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Standby payment",
+      "name": "DK-East",
+      "reserve_type": "FNR"
+    },
+    "DK-West: Standby payment - primary upward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Standby payment",
+      "name": "DK-West",
+      "reserve_type": "primary"
+    },
+    "DK-East: Total purchase - FDR upward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Total purchase",
+      "name": "DK-East",
+      "reserve_type": "FDR"
+    },
+    "DK-East: Standby payment - FNR upward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "upward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Standby payment",
+      "name": "DK-East",
+      "reserve_type": "FNR"
+    },
+    "DK-West: Total purchase - primary downward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "downward",
+      "metric": "Purchase of frequency controlled reserves - daily auction - Total purchase",
+      "name": "DK-West",
+      "reserve_type": "primary"
+    }
+  },
+  "Elspot Price, EUR/MWh": {
+    "System price": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "System price",
+      "market_place": "Elspot"
+    },
+    "DK-West": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "DK-West",
+      "market_place": "Elspot"
+    },
+    "Norway": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Norway",
+      "market_place": "Elspot"
+    },
+    "Price differential DK-West - EPEX": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Price differential DK-West - EPEX",
+      "market_place": "Elspot"
+    },
+    "DE European Power Exchange": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "DE European Power Exchange",
+      "market_place": "Elspot"
+    },
+    "Sweden (SE3)": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Sweden (SE3)",
+      "market_place": "Elspot"
+    },
+    "Kontek": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Kontek",
+      "market_place": "Elspot"
+    },
+    "Sweden (SE)": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Sweden (SE)",
+      "market_place": "Elspot"
+    },
+    "Sweden (SE4)": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "Sweden (SE4)",
+      "market_place": "Elspot"
+    },
+    "DK-East": {
+      "unit": "EUR/MWh",
+      "metric": "Energy price",
+      "name": "DK-East",
+      "market_place": "Elspot"
+    }
+  },
+  "Annual and monthly auctions of transmission capacity across the East Danish-German border, MWh/h": {
+    "Sold capacity Germany to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Sold",
+      "source": "Germany",
+      "target": "DK-East"
+    },
+    "Utilised capacity DK-East to Germany": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Utilised",
+      "source": "DK-East",
+      "target": "Germany"
+    },
+    "Utilised capacity Germany to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Utilised",
+      "source": "Germany",
+      "target": "DK-East"
+    },
+    "Sold capacity DK-East to Germany": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Sold",
+      "source": "DK-East",
+      "target": "Germany"
+    }
+  },
+  "Annual and monthly auctions of transmission capacity across the West Danish-German border, MWh/h": {
+    "Utilised capacity Germany to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Utilised",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Utilised capacity DK-West to Germany": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Utilised",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Sold capacity Germany to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Sold",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Sold capacity DK-West to Germany": {
+      "unit": "MWh/h",
+      "metric": "Annual and monthly auctions of transmission capacity - Sold",
+      "source": "DK-West",
+      "target": "Germany"
+    }
+  },
+  "Secondary trade with capacity, MW per hour": {
+    "DK-West and Germany": {
+      "unit": "MW/h",
+      "metric": "Secondary trade with capacity",
+      "source": "DK-West",
+      "target": "Germany"
+    }
+  },
+  "Fixed residualconsumption (grid area 8xx), kWh/h": {
+    "856 Vordingborg Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Vordingborg Elnet A/S",
+      "grid_area": "856"
+    },
+    "853 Nakskov Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Nakskov Elnet A/S",
+      "grid_area": "853"
+    },
+    "860 SK Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "SK Elnet A/S",
+      "grid_area": "860"
+    },
+    "854 NKE-Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "NKE-Elnet A/S",
+      "grid_area": "854"
+    }
+  },
+  "Fixed residualconsumption, MWh/h": {
+    "DK-West": {
+      "unit": "MWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "DK-West",
+      "grid_area": "total"
+    },
+    "DK-East": {
+      "unit": "MWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "DK-East",
+      "grid_area": "total"
+    }
+  },
+  "Fixed residualconsumption (grid area 2xx), kWh/h": {
+    "245 NRGi Net A/S Horsens": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "NRGi Net A/S Horsens",
+      "grid_area": "245"
+    },
+    "232 Østjysk Energi Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Østjysk Energi Net A/S",
+      "grid_area": "232"
+    },
+    "244 TRE-FOR El-net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "TRE-FOR El-net A/S",
+      "grid_area": "244"
+    },
+    "248 VOS Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "VOS Net A/S",
+      "grid_area": "248"
+    },
+    "246 MES Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "MES Net A/S",
+      "grid_area": "246"
+    }
+  },
+  "Daily auction of transmission capacity across the West Danish-German border, EUR/MWh": {
+    "Capacity Germany to DK-West, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Capacity (Nord Pool CBO) DK-West to Germany, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity",
+      "market_place": "Nord Pool CBO",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Sold Germany to DK-West, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity - Sold",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Capacity (Nord Pool CBO) Germany to DK-West, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity",
+      "market_place": "Nord Pool CBO",
+      "source": "Germany",
+      "target": "DK-West"
+    },
+    "Sold DK-West to Germany, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity - Sold",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Utilised capacity (spotflow) DK-West to Germany, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity - Utilised",
+      "market_place": "spotflow",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Price Germnay to DK-West": {
+      "unit": "EUR/MWh",
+      "metric": "Daily auction of transmission capacity - Price",
+      "source": "Germnay",
+      "target": "DK-West"
+    },
+    "Price DK-West to Germany": {
+      "unit": "EUR/MWh",
+      "metric": "Daily auction of transmission capacity - Price",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Capacity DK-West to Germany, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity",
+      "source": "DK-West",
+      "target": "Germany"
+    },
+    "Utilised capacity (spotflow) Germany to DK-West, MWh/h": {
+      "unit": "MWh/h",
+      "metric": "Daily auction of transmission capacity - Utilised",
+      "market_place": "spotflow",
+      "source": "Germany",
+      "target": "DK-West"
+    }
+  },
+  "Purchase of manual reserves - daily auction, EUR/MW per hour": {
+    "DK-East: Total purchase - downward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "downward",
+      "metric": "Purchase of manual reserves - daily auction - Total purchase",
+      "name": "DK-East"
+    },
+    "DK-West: Total purchase - downward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "downward",
+      "metric": "Purchase of manual reserves - daily auction - Total purchase",
+      "name": "DK-West"
+    },
+    "DK-West: Availability compensation - downward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "downward",
+      "metric": "Purchase of manual reserves - daily auction - Availability compensation",
+      "name": "DK-West"
+    },
+    "DK-East: Total purchase - upward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "upward",
+      "metric": "Purchase of manual reserves - daily auction - Total purchase",
+      "name": "DK-East"
+    },
+    "DK-East: Availability compensation - downward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "downward",
+      "metric": "Purchase of manual reserves - daily auction - Availability compensation",
+      "name": "DK-East"
+    },
+    "DK-East: Availability compensation - upward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "upward",
+      "metric": "Purchase of manual reserves - daily auction - Availability compensation",
+      "name": "DK-East"
+    },
+    "DK-West: Availability compensation - upward regulation": {
+      "unit": "EURh/MW",
+      "regulation": "upward",
+      "metric": "Purchase of manual reserves - daily auction - Availability compensation",
+      "name": "DK-West"
+    },
+    "DK-West: Total purchase - upward regulation, MW/h": {
+      "unit": "MW/h",
+      "regulation": "upward",
+      "metric": "Purchase of manual reserves - daily auction - Total purchase",
+      "name": "DK-West"
+    }
+  },
+  "Fixed residualconsumption (grid area 0xx), kWh/h": {
+    "051 Frederikshavn Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Frederikshavn Elnet A/S",
+      "grid_area": "051"
+    },
+    "052 Elforsyningen AKE El-Net": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Elforsyningen AKE El-Net",
+      "grid_area": "052"
+    },
+    "031 Nord Energi Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Nord Energi Net A/S",
+      "grid_area": "031"
+    },
+    "044 HEF Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "HEF Net A/S",
+      "grid_area": "044"
+    },
+    "023 Nyfors Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Nyfors Net A/S",
+      "grid_area": "023"
+    },
+    "042 Thy-Mors Energi Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Thy-Mors Energi Elnet A/S",
+      "grid_area": "042"
+    },
+    "085 Læsø Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Læsø Elnet A/S",
+      "grid_area": "085"
+    },
+    "015 Nibe Elforsyning Net A.m.b.a": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Nibe Elforsyning Net A.m.b.a",
+      "grid_area": "015"
+    },
+    "014 Hornum El-forsyning Netvirksomhed A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Hornum El-forsyning Netvirksomhed A/S",
+      "grid_area": "014"
+    },
+    "096 Taars Elenergi A.m.b.A.": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Taars Elenergi A.m.b.A.",
+      "grid_area": "096"
+    },
+    "095 Hirtshals El-Netselskab A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Hirtshals El-Netselskab A/S",
+      "grid_area": "095"
+    },
+    "084 Aars El-forsyning - Net": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Aars El-forsyning - Net",
+      "grid_area": "084"
+    }
+  },
+  "Great Belt (transmission line), MWh/h": {
+    "Scheduled trade DK-East to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line) - Scheduled trade",
+      "source": "DK-East",
+      "target": "DK-West"
+    },
+    "Physical exchange DK-West to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line) - Physical exchange",
+      "source": "DK-West",
+      "target": "DK-East"
+    },
+    "Physical exchange DK-East to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line) - Physical exchange",
+      "source": "DK-East",
+      "target": "DK-West"
+    },
+    "Scheduled trade DK-West to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line) - Scheduled trade",
+      "source": "DK-West",
+      "target": "DK-East"
+    },
+    "Capacity DK-West to DK-East": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line)",
+      "source": "DK-West",
+      "target": "DK-East"
+    },
+    "Capacity DK-East to DK-West": {
+      "unit": "MWh/h",
+      "metric": "Great Belt (transmission line)",
+      "source": "DK-East",
+      "target": "DK-West"
+    }
+  },
+  "Fixed residualconsumption (grid area 3xx), kWh/h": {
+    "381 Hurup Elværk - Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Hurup Elværk - Net A/S",
+      "grid_area": "381"
+    },
+    "384 Tarm Elværk Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Tarm Elværk Net A/S",
+      "grid_area": "384"
+    },
+    "347 NOE Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "NOE Net A/S",
+      "grid_area": "347"
+    },
+    "359 RAH Net 2 A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "RAH Net 2 A/S",
+      "grid_area": "359"
+    },
+    "357 Struer Forsyning Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Struer Forsyning Elnet A/S",
+      "grid_area": "357"
+    },
+    "396 Sunds Elforsyning": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Sunds Elforsyning",
+      "grid_area": "396"
+    },
+    "348 RAH Net a/s": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "RAH Net a/s",
+      "grid_area": "348"
+    },
+    "351 Vestforsyning Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Vestforsyning Net A/S",
+      "grid_area": "351"
+    },
+    "342 Ikast Værkernes Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Ikast Værkernes Net A/S",
+      "grid_area": "342"
+    },
+    "344 SE Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "SE Net A/S",
+      "grid_area": "344"
+    },
+    "385 Videbæk Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Videbæk Elnet A/S",
+      "grid_area": "385"
+    },
+    "341 GEV NET A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "GEV NET A/S",
+      "grid_area": "341"
+    },
+    "371 Hjerting Transformatorforening": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Hjerting Transformatorforening",
+      "grid_area": "371"
+    },
+    "398 Vildbjerg Elværk A.m.b.a.": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Vildbjerg Elværk A.m.b.a.",
+      "grid_area": "398"
+    },
+    "394 Kibæk Elværk Amba": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Kibæk Elværk Amba",
+      "grid_area": "394"
+    },
+    "353 EnergiMidt Net Vest A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "EnergiMidt Net Vest A/S",
+      "grid_area": "353"
+    },
+    "331 Thy-Mors Energi Elnet A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Thy-Mors Energi Elnet A/S",
+      "grid_area": "331"
+    },
+    "392 Borris El-Forsyning": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Borris El-Forsyning",
+      "grid_area": "392"
+    },
+    "370 Aal El-net A.m.b.a": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Aal El-net A.m.b.a",
+      "grid_area": "370"
+    },
+    "397 Sdr. Felding Elforsyning": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Sdr. Felding Elforsyning",
+      "grid_area": "397"
+    }
+  },
+  "Purchase of frequency controlled reserves - common auction with Sweden, EUR/MW per hour": {
+    "DK-East: Availability compensation - FNR": {
+      "unit": "EURh/MW",
+      "metric": "Purchase of frequency controlled reserves - common auction with Sweden - Availability compensation",
+      "name": "DK-East",
+      "reserve_type": "FNR"
+    },
+    "DK-East: Availability compensation - FDR": {
+      "unit": "EURh/MW",
+      "metric": "Purchase of frequency controlled reserves - common auction with Sweden - Availability compensation",
+      "name": "DK-East",
+      "reserve_type": "FDR"
+    }
+  },
+  "Fixed residualconsumption (grid area 5xx), kWh/h": {
+    "533 SEF Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "SEF Net A/S",
+      "grid_area": "533"
+    },
+    "554 Energi Fyn City Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Energi Fyn City Net A/S",
+      "grid_area": "554"
+    },
+    "543 Energi Fyn Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Energi Fyn Net A/S",
+      "grid_area": "543"
+    },
+    "532 LEF NET A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "LEF NET A/S",
+      "grid_area": "532"
+    },
+    "552 FFV EL A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "FFV EL A/S",
+      "grid_area": "552"
+    },
+    "589 Midtfyns Elforsyning A.m.b.A.": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Midtfyns Elforsyning A.m.b.A.",
+      "grid_area": "589"
+    },
+    "531 Ravdex A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Ravdex A/S",
+      "grid_area": "531"
+    },
+    "591 Midtfyns Elforsyning A.m.b.A.": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Midtfyns Elforsyning A.m.b.A.",
+      "grid_area": "591"
+    },
+    "588 Brenderup Netselskab A.m.b.a": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Brenderup Netselskab A.m.b.a",
+      "grid_area": "588"
+    },
+    "587 Paarup Elforsyning": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Paarup Elforsyning",
+      "grid_area": "587"
+    },
+    "590 Nr. Broby-Vøjstrup Netselskab": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Nr. Broby-Vøjstrup Netselskab",
+      "grid_area": "590"
+    },
+    "584 Midtfyns Elforsyning A.m.b.A.": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Midtfyns Elforsyning A.m.b.A.",
+      "grid_area": "584"
+    },
+    "592 Rolfsted Transformerforening A.m.b.A": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Rolfsted Transformerforening A.m.b.A",
+      "grid_area": "592"
+    },
+    "553 Energi Fyn Nyborg Net A/S": {
+      "unit": "kWh/h",
+      "metric": "Fixed residual consumption",
+      "name": "Energi Fyn Nyborg Net A/S",
+      "grid_area": "553"
+    }
+  },
+  "Nord Pool turnover, MWh/h": {
+    "Nord Pool Sales, DK-East": {
+      "unit": "MWh/h",
+      "metric": "Turnover - Sales",
+      "name": "DK-East",
+      "market_place": "Nord Pool"
+    },
+    "Nord Pool Purchases, DK-East": {
+      "unit": "MWh/h",
+      "metric": "Turnover - Purchases",
+      "name": "DK-East",
+      "market_place": "Nord Pool"
+    },
+    "Nord Pool Sales, DK-West": {
+      "unit": "MWh/h",
+      "metric": "Turnover - Sales",
+      "name": "DK-West",
+      "market_place": "Nord Pool"
+    },
+    "Nord Pool Purchases, DK-West": {
+      "unit": "MWh/h",
+      "metric": "Turnover - Purchases",
+      "name": "DK-West",
+      "market_place": "Nord Pool"
+    }
+  }
+}
