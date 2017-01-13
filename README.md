@@ -12,7 +12,7 @@ Download binary archive from releases page
 ```sh
 wget https://github.com/axibase/atsd-data-crawlers/releases/download/0.0.2/energinet-grabber-0.0.2-bin.tar.gz
 ```
-#Extract and run
+## Extract and run
 ```sh
 tar -xfz energinet-grabber-0.0.2-bin.tar.gz
 ./energinet-grabber-0.0.2/energinet.sh
