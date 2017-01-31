@@ -13,25 +13,25 @@ import java.util.Date;
 
 public class TableParser
         implements Parser<String[][], String> {
-    private static final Logger log = LoggerFactory.getLogger(TableParser.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TableParser.class);
 
 
     public String[][] parse(String source) {
         Date date = new Date();
-        log.info("File: {} ms", new Date().getTime() - date.getTime());
+        LOGGER.info("File: {} ms", new Date().getTime() - date.getTime());
 
         date = new Date();
         Document document;
         document = Jsoup.parse(source, "UTF-8");
-        log.info("Parsing: {} ms", new Date().getTime() - date.getTime());
+        LOGGER.info("Parsing: {} ms", new Date().getTime() - date.getTime());
 
         date = new Date();
         Element tableElement = document.select("table").get(1);
-        log.info("Table: {} ms", new Date().getTime() - date.getTime());
+        LOGGER.info("Table: {} ms", new Date().getTime() - date.getTime());
 
         date = new Date();
         Elements rowsElement = tableElement.select("tr");
-        log.info("{} row(s): {} ms", rowsElement.size(), new Date().getTime() - date.getTime());
+        LOGGER.info("{} row(s): {} ms", rowsElement.size(), new Date().getTime() - date.getTime());
 
         date = new Date();
 
@@ -72,7 +72,7 @@ public class TableParser
             table[0][c] = header1.get(c);
             table[1][c] = header2.get(c);
         }
-        log.info("Header: {} ms", new Date().getTime() - date.getTime());
+        LOGGER.info("Header: {} ms", new Date().getTime() - date.getTime());
         date = new Date();
         for (int r = 2; r < height; r++) {
             Elements colsElement = rowsElement.get(r).select("td");
@@ -81,7 +81,7 @@ public class TableParser
                 table[r][c] = colsElement.get(c).text().replace(",", "").replace(" ", " ");
             }
         }
-        log.info("Data: {} ms", new Date().getTime() - date.getTime());
+        LOGGER.info("Data: {} ms", new Date().getTime() - date.getTime());
         return table;
     }
 }

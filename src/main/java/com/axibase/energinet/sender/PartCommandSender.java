@@ -22,6 +22,7 @@ public class PartCommandSender {
 
     public PartCommandSender(DataService dataService, Integer partSize) {
         this(dataService);
+        this.partSize = partSize;
     }
 
     public Integer getPartSize() {
