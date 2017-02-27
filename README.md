@@ -1,3 +1,9 @@
+# SocrataMaker
+
+Parses some datasets from catalog.data.gov with some info via ATSD Collector
+
+
+
 # atsd-data-crawlers
 A collection of various data crawlers for publicly available online resources: html forms, csv files, web services
 ## List of crawlers
