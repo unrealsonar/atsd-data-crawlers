@@ -73,6 +73,7 @@ public class SocrataMaker {
         String collector = pr.getProperty("collector");
         String username = pr.getProperty("username");
         String password = pr.getProperty("password");
+        String jobName = pr.getProperty("jobName");
         String[] url = pr.getProperty("url").split(";");
         String[] caturl = new String[url.length];
         Arrays.fill(caturl, "");
@@ -123,7 +124,7 @@ public class SocrataMaker {
             WebElement link = driver.findElement(By.linkText("Jobs"));
             link.click();
 
-            link = driver.findElement(By.linkText("autosocrata"));
+            link = driver.findElement(By.linkText(jobName));
             link.click();
 
             link = driver.findElement(By.linkText("Create from URL"));
