@@ -75,8 +75,23 @@ public class SocrataMaker {
         String password = pr.getProperty("password");
         String[] url = pr.getProperty("url").split(";");
         String[] caturl = new String[url.length];
-        Arrays.fill(caturl, "");
 
+
+        try {
+            FileInputStream f = new FileInputStream("src/main/resources/url.properties");
+            pr.load(f);
+        } catch (Exception e) {
+            System.out.println("property file is not loaded");
+        }
+
+        for (int i = 0; i < url.length; i++) {
+            if (pr.getProperty(url[i]) != null)
+                caturl[i] = pr.getProperty(url[i]);
+            else if (pr.getProperty(url[i] + "/rows.json?accessType=DOWNLOAD") != null)
+                    caturl[i] = pr.getProperty(url[i] + "/rows.json?accessType=DOWNLOAD");
+            else caturl[i] = "";
+        }
+/*
         //find url in catalog.data.gov
         String[] pair = pr.getProperty("urlBase").split(";");
         String[] urlBase = new String[pair.length];
@@ -103,7 +118,7 @@ public class SocrataMaker {
         }
 
         log("parsing finished");
-        log("entering collector...");
+*/        log("entering collector...");
 
         //authentication
         WebDriver driver = new PhantomJSDriver(caps);
