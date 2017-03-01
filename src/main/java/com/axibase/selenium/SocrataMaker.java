@@ -169,23 +169,39 @@ public class SocrataMaker {
                 //[dataset]
                 int l, j;
                 int datasetlen = driver.findElements(By.xpath("//*[@id=\"tblSummaryInfo\"]/tbody/tr")).size();
-                String data = "\n", desc = "";
+
+                String documentName = null;
+                StringBuilder dataBuilder = new StringBuilder();
+                String desc = "";
                 WebElement temp;
                 //contents
                 for (l = 2; l <= datasetlen; l++) {
                     temp = driver.findElement(By.xpath("//*[@id=\"tblSummaryInfo\"]/tbody/tr[" + l + "]/td[1]"));
-                    if (!temp.getText().equals("Description")) {
-                        data += temp.getText();
-                        data += " = ";
+
+                    String elementText = temp.getText();
+
+                    if (!elementText.equals("Description")) {
+                        dataBuilder.append("* ");
+                        dataBuilder.append(elementText);
+                        dataBuilder.append(" = ");
                         temp = driver.findElement(By.xpath("//*[@id=\"tblSummaryInfo\"]/tbody/tr[" + l + "]/td[2]"));
-                        data += temp.getText();
-                        data += "\n";
+
+                        String text = temp.getText();
+                        dataBuilder.append(text);
+
+                        if (elementText.equals("Name")) {
+                            documentName = text;
+                        }
+
+                        dataBuilder.append("\n");
                     } else {
                         temp = driver.findElement(By.xpath("//*[@id=\"tblSummaryInfo\"]/tbody/tr[" + l + "]/td[2]/a"));
                         desc = temp.getAttribute("data-content").substring(92,
                                 temp.getAttribute("data-content").length()-6);
                     }
                 }
+
+                String data = dataBuilder.toString();
 
                 log("parsing columns...");
 
@@ -243,14 +259,14 @@ public class SocrataMaker {
 
                 for (j = 0; j < commandsNumber; j++) {
                     if (strings[j].substring(0, 6).equals("series")) {
-                        commands[count++] = "\n" + strings[j];
+                        commands[count++] = strings[j];
                     }
                 }
 
                 count = 0;
                 for (j = strings.length-1; j >= 0; j--) {
                     if (!strings[j].substring(0, 6).equals("series")) {
-                        metacommands[count++] = "\n" + strings[j];
+                        metacommands[count++] = strings[j];
                     }
                 }
                 int mcN = count;
@@ -267,12 +283,25 @@ public class SocrataMaker {
                     }
                     PrintWriter out = new PrintWriter(file.getAbsoluteFile());
                     try {
-                        out.print("[dataset]\n```property" +
-                                "\nURL = " + url[i] +
-                                "\nCatalog URL = " + caturl[i] +
-                                data + "```\n\n");
-                        out.print("[description]\n```ls\n" + desc + "\n```\n\n");
-                        out.print("[columns]\n```ls\n");
+                        out.println("# " + (documentName != null ? documentName : "No name"));
+                        out.println();
+
+                        out.println("## Dataset");
+                        out.println();
+
+                        out.println("* URL = " + url[i]);
+                        out.println("* Catalog URL = " + caturl[i]);
+                        out.println(data);
+
+                        out.println("## Description");
+                        out.println();
+                        out.println(desc);
+                        out.println();
+
+                        out.println("## Columns");
+                        out.println();
+                        out.println("```ls");
+
                         for (int i1 = 0; i1 < columnsNumber; i1++) {
                             max = 0;
                             for (int i2 = 0; i2 < rowsNumber - 1; i2++) {
@@ -291,34 +320,64 @@ public class SocrataMaker {
                                     }
                                     out.print(" | ");
                                 }
-                                out.print("\n");
+                                out.println();
                             }
                             out.print("| ");
                             for (int i2 = 0; i2 < columnsNumber; i2++) {
                                 out.printf("%-" + offset[i2] + "s | ", cols[i1][i2]);
                             }
-                            out.print("\n");
+                            out.println();
                         }
-                        out.print("```\n");
+                        out.println("```");
+                        out.println();
 
-                        out.print("\n[time]\n```ls" +
-                                "\nValue = " + time +
-                                "\nFormat & Zone = " + format + "\n```\n");
-                        out.print("\n[series]\n```ls" +
-                                "\nMetric Prefix = " + prefix +
-                                "\nIncluded Fields = " + included +
-                                "\nExcluded Fields = " + excluded +
-                                "\nAnnotation Fields = " + annotation + "\n```\n");
-                        out.print("\n[commands]\n```ls");
+                        out.println("## Time Field");
+                        out.println();
+                        out.println("```ls");
+                        out.println("Value = " + time);
+                        out.println("Format & Zone = " + format);
+                        out.println("```");
+                        out.println();
+
+                        out.println("## Series Fields");
+                        out.println();
+                        out.println("```ls");
+                        out.println("Metric Prefix = " + prefix);
+                        out.println("Included Fields = " + included);
+                        out.println("Excluded Fields = " + excluded);
+                        out.println("Annotation Fields = " + annotation);
+                        out.println("```");
+                        out.println();
+
+                        out.println("## Data Commands");
+                        out.println();
+                        out.println("```ls");
+
                         for (int k = 0; k < commands.length; k++) {
-                            out.print(commands[k] == null ? "" : commands[k] + "\n");
+                            out.println(commands[k] == null ? "" : commands[k]);
+
+                            if (k != commands.length - 1) {
+                                out.println();
+                            }
                         }
-                        out.print("\n```\n");
-                        out.print("\n[meta-commands]\n```ls");
+
+                        out.println("```");
+                        out.println();
+
+                        out.println("## Meta Commands");
+                        out.println();
+                        out.println("```ls");
+
                         for (int k = mcN-1; k >= 0; k--) {
-                            out.print(metacommands[k] == null ? "" : metacommands[k] + "\n");
+                            out.println(metacommands[k] == null ? "" : metacommands[k]);
+
+                            if (k != 0) {
+                                out.println();
+                            }
                         }
-                        out.print("\n```");
+
+                        out.print("```");
+
                     } finally {
                         out.close();
                     }
