@@ -289,8 +289,8 @@ public class SocrataMaker {
                         out.println("## Dataset");
                         out.println();
 
-                        out.println("* URL = " + url[i]);
-                        out.println("* Catalog URL = " + caturl[i]);
+                        out.println("* [Dataset URL](" + url[i] + ")");
+                        out.println("* [Catalog URL](" + caturl[i] + ")");
                         out.println(data);
 
                         out.println("## Description");
