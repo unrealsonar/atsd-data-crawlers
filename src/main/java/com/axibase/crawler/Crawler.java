@@ -208,7 +208,13 @@ class Crawler {
                     lastPrice = orderInfo.originalPrice;
                 }
 
-                Result<Boolean> updateResult = provider.updatePrice(productUrl.id, lastPrice, priceData.discount, priceData.zone);
+                Result<Boolean> updateResult = provider.updatePrice(
+                        productUrl.id,
+                        lastPrice,
+                        priceData.discount,
+                        priceData.zone,
+                        priceData.price != null);
+
                 if (updateResult.errorText != null) {
                     Logger.log("Error updating database for product \"%1s\": \"%2s\"", productUrl.name, updateResult.errorText);
                 }

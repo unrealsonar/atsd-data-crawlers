@@ -85,7 +85,8 @@ public class DataProvider {
                         data.id,
                         data.price != null ? data.price : product.lastPrice,
                         data.discount != null ? data.discount : product.lastDiscount,
-                        data.zone);
+                        data.zone,
+                        data.price != null);
             }
 
         } catch (Exception ex) {
@@ -136,7 +137,7 @@ public class DataProvider {
         return new Result<>(null, true);
     }
 
-    public Result<Boolean> updatePrice(int productId, double lastPrice, Double discount, String zone) {
+    public Result<Boolean> updatePrice(int productId, double lastPrice, Double discount, String zone, boolean productAvailable) {
         if (!started) return new Result<>("Provider not started", false);
 
         DateTime date = DateTime.now().withZone(DateTimeZone.UTC).withTimeAtStartOfDay().toDateTimeISO();
@@ -145,12 +146,21 @@ public class DataProvider {
         try {
 
             sendPrice(dateString, productId, lastPrice, zone);
+
             if (discount != null) {
                 sendDiscount(dateString, productId, discount, zone);
             }
             else {
                 sendDiscount(dateString, productId, 0.0, zone);
             }
+
+            HashMap<String, String> properties = new HashMap<>();
+
+            properties.put("is_available", String.valueOf(productAvailable));
+
+            client.sendEntity(
+                    String.valueOf(productId),
+                    properties);
 
         } catch (IOException e) {
             return new Result<>(e.getMessage(), false);
