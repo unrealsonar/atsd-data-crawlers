@@ -44,7 +44,7 @@ public class Crawler {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "phantomjs");
         caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,
-                new String[]{"--web-security=no", "--ignore-ssl-errors=yes"});
+                new String[]{"--web-security=no", "--ignore-ssl-errors=yes", "--webdriver-loglevel=NONE"});
 
         driver = new PhantomJSDriver(caps);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
@@ -156,9 +156,14 @@ public class Crawler {
         File file = new File("reports/datasets/" + datasetMetadata.id + ".md");
 
         if (!file.exists()) {
+
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
+
             file.createNewFile();
         }
-        try (PrintWriter writer = new PrintWriter(file.getAbsoluteFile())) {
+
+        try (PrintWriter writer = new PrintWriter(file)) {
 
             writeNameSection(datasetMetadata.name, writer);
 

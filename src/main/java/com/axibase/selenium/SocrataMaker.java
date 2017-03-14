@@ -38,20 +38,23 @@ public class SocrataMaker {
         log("Initializing...");
 
         //load properties
+        String dataPropertiesFile = "src/main/resources/data.properties";
+        String urlPropertiesFile = "src/main/resources/url.properties";
+
         final Properties settingsProperties = new Properties();
         try {
-            FileInputStream f = new FileInputStream("src/main/resources/data.properties");
+            FileInputStream f = new FileInputStream(dataPropertiesFile);
             settingsProperties.load(f);
         } catch (Exception e) {
-            System.out.println("property file is not loaded");
+            log(String.format("property file %1s not found in %2s", dataPropertiesFile, System.getProperty("user.dir")));
         }
 
         final Properties urlProperties = new Properties();
         try {
-            FileInputStream f = new FileInputStream("src/main/resources/url.properties");
+            FileInputStream f = new FileInputStream(urlPropertiesFile);
             urlProperties.load(f);
         } catch (Exception e) {
-            System.out.println("property file is not loaded");
+            log(String.format("property file %1s not found in %2s", urlPropertiesFile, System.getProperty("user.dir")));
         }
 
         final Set<String> urls = urlProperties.stringPropertyNames();
@@ -158,7 +161,17 @@ public class SocrataMaker {
             }
         }
 
-        try (PrintWriter writer = new PrintWriter("reports/README.md")) {
+        File file = new File("reports/README.md");
+
+        if (!file.exists()) {
+
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
+
+            file.createNewFile();
+        }
+
+        try (PrintWriter writer = new PrintWriter(file)) {
 
             for (Map.Entry<String, ArrayList<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
                 writer.println(String.format("## %1s", infoByHost.getKey()));
