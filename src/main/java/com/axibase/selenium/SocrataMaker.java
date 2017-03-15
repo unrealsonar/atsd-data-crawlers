@@ -1,5 +1,6 @@
 package com.axibase.selenium;
 
+import com.google.common.collect.TreeMultiset;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
@@ -148,14 +149,27 @@ public class SocrataMaker {
             datasetInfos.addAll(collection.infos);
         }
 
-        HashMap<String, ArrayList<DatasetSummaryInfo>> infosByHost = new HashMap<>();
+        writeTableOfContents(datasetInfos);
+    }
+
+    private static void writeTableOfContents(List<DatasetSummaryInfo> datasetInfos) throws IOException {
+
+        // using sorted collections for alphabetic sorting hosts and datasets inside them
+        Comparator<DatasetSummaryInfo> datasetSummaryInfoComparator = new Comparator<DatasetSummaryInfo>() {
+            @Override
+            public int compare(DatasetSummaryInfo o1, DatasetSummaryInfo o2) {
+                return o1.name.compareTo(o2.name);
+            }
+        };
+
+        TreeMap<String, TreeMultiset<DatasetSummaryInfo>> infosByHost = new TreeMap<>();
         for (DatasetSummaryInfo info : datasetInfos) {
 
-            ArrayList<DatasetSummaryInfo> infosCollection = infosByHost.get(info.host);
+            TreeMultiset<DatasetSummaryInfo> infosCollection = infosByHost.get(info.host);
             if (infosCollection != null) {
                 infosCollection.add(info);
             } else {
-                infosCollection = new ArrayList<>();
+                infosCollection = TreeMultiset.create(datasetSummaryInfoComparator);
                 infosCollection.add(info);
                 infosByHost.put(info.host, infosCollection);
             }
@@ -173,7 +187,7 @@ public class SocrataMaker {
 
         try (PrintWriter writer = new PrintWriter(file)) {
 
-            for (Map.Entry<String, ArrayList<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
+            for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
                 writer.println(String.format("## %1s", infoByHost.getKey()));
                 writer.println();
                 writer.println("Name | Category | Updated");
@@ -205,6 +219,7 @@ public class SocrataMaker {
         } catch (Exception ex) {
             log(ex.getMessage());
         }
+
     }
 
     private static class DatasetSummaryInfoCollection {
