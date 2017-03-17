@@ -64,27 +64,28 @@ public class Crawler {
         driver.close();
     }
 
-    public DatasetSummaryInfo process(String url) {
+    public boolean process(String url) {
 
         try {
 
-            DatasetSummaryInfo info = processUrl(url);
+            boolean success = processUrl(url);
 
-            if (info == null) {
+            if (!success) {
                 driver.get(collectorMainPageUrl);
+                return false;
             }
 
-            return info;
+            return true;
 
         } catch (Exception ex) {
             driver.get(collectorMainPageUrl);
-            return null;
+            return false;
         }
     }
 
-    private DatasetSummaryInfo processUrl(String urlPropertyName) throws IOException, URISyntaxException {
+    private boolean processUrl(String urlPropertyName) throws IOException, URISyntaxException {
 
-        if (driver == null || wait == null || urlProperties == null) return null;
+        if (driver == null || wait == null || urlProperties == null) return false;
 
         WebElement link = driver.findElement(By.linkText("Jobs"));
         link.click();
@@ -104,7 +105,7 @@ public class Crawler {
         WebElement nameField = driver.findElement(By.id("name"));
         String check = nameField.getAttribute("value");
 
-        if (check.equals("")) return null;
+        if (check.equals("")) return false;
 
         //[dataset]
         DatasetMetadata datasetMetadata = getDatasetMetadata(driver, urlPropertyName, urlProperties);
@@ -182,12 +183,7 @@ public class Crawler {
             writeMetadataCommandsSection(metacommands, writer);
         }
 
-        return new DatasetSummaryInfo(
-                datasetMetadata.host,
-                datasetMetadata.name,
-                "datasets/" + datasetMetadata.id + ".md",
-                datasetMetadata.category,
-                datasetMetadata.rowsUpdatedDate);
+        return true;
     }
 
     private DatasetMetadata getDatasetMetadata(WebDriver driver, String urlPropertyName, Properties pr) {

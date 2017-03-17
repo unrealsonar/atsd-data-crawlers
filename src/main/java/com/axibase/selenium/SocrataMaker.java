@@ -75,13 +75,14 @@ public class SocrataMaker {
         final String password = settingsProperties.getProperty("password");
         final String jobName = settingsProperties.getProperty("jobName");
 
-        List<Callable<DatasetSummaryInfoCollection>> tasks = new ArrayList<>(threadsCount);
+        ExecutorService executorService = Executors.newFixedThreadPool(threadsCount);
+
         for (int i = 0; i < threadsCount; i++) {
 
-            tasks.add(new Callable<DatasetSummaryInfoCollection>() {
+            executorService.execute(new Runnable() {
 
                 @Override
-                public DatasetSummaryInfoCollection call() throws Exception {
+                public void run() {
 
                     Crawler crawler = new Crawler();
 
@@ -94,13 +95,13 @@ public class SocrataMaker {
                                 jobName,
                                 urlProperties
                         );
-                        List<DatasetSummaryInfo> infos = new ArrayList<>();
+
                         String currentUrl = urlsToProcess.poll();
 
                         while (currentUrl != null) {
 
-                            DatasetSummaryInfo info = crawler.process(currentUrl);
-                            if (info == null) {
+                            boolean success = crawler.process(currentUrl);
+                            if (!success) {
                                 log(String.format("Error processing url %1s", currentUrl));
                                 currentUrl = urlsToProcess.poll();
 
@@ -109,17 +110,13 @@ public class SocrataMaker {
                                 continue;
                             }
 
-                            infos.add(info);
                             currentUrl = urlsToProcess.poll();
 
                             System.out.println(String.format("Urls remaining: %1s", remainingUrlsCount.decrementAndGet()));
                         }
 
-                        return new DatasetSummaryInfoCollection(infos);
-
                     } catch (Exception ex) {
                         log(ex.getMessage());
-                        return null;
                     } finally {
                         crawler.close();
                     }
@@ -128,31 +125,80 @@ public class SocrataMaker {
             });
         }
 
-        ExecutorService executorService = Executors.newFixedThreadPool(threadsCount);
-        List<Future<DatasetSummaryInfoCollection>> result = executorService.invokeAll(tasks);
         executorService.shutdown();
 
-        List<DatasetSummaryInfo> datasetInfos = new ArrayList<>();
-        for (Future<DatasetSummaryInfoCollection> future : result) {
+        // 30 sec per URL
+        executorService.awaitTermination(urls.size() * 30, TimeUnit.SECONDS);
 
-            DatasetSummaryInfoCollection collection;
-
-            try {
-                collection = future.get();
-            } catch (ExecutionException ex) {
-                log(ex.getMessage());
-                continue;
-            }
-
-            if (collection == null || collection.infos == null) continue;
-
-            datasetInfos.addAll(collection.infos);
-        }
-
-        writeTableOfContents(datasetInfos);
+        writeTableOfContents();
     }
 
-    private static void writeTableOfContents(List<DatasetSummaryInfo> datasetInfos) throws IOException {
+    private static void writeTableOfContents() throws IOException {
+
+        File datasetsFolder = new File("reports/datasets/");
+        File[] datasetFiles = datasetsFolder.listFiles();
+        List<DatasetSummaryInfo> datasetInfos = new ArrayList<>(datasetFiles.length);
+
+        for (File datasetFile : datasetFiles) {
+            try (FileReader fileReader = new FileReader(datasetFile)) {
+                try (BufferedReader reader = new BufferedReader(fileReader)) {
+
+                    String host = null;
+                    String name = null;
+                    String category = null;
+                    String rowsUpdated = null;
+
+                    // reading dataset section
+                    while (true) {
+
+                        String currentLine = reader.readLine();
+
+                        if (currentLine == null || currentLine.startsWith("## Description")) {
+                            break;
+                        }
+
+                        if (currentLine.startsWith("| Host |")) {
+                            String[] rowElements = currentLine.split("\\|");
+                            if (rowElements.length < 2) continue;
+
+                            host = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            continue;
+                        }
+
+                        if (currentLine.startsWith("| Name |") && !currentLine.equals("| Name | Value |")) {
+                            String[] rowElements = currentLine.split("\\|");
+                            if (rowElements.length < 2) continue;
+
+                            name = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            continue;
+                        }
+
+                        if (currentLine.startsWith("| Category |")) {
+                            String[] rowElements = currentLine.split("\\|");
+                            if (rowElements.length < 2) continue;
+
+                            category = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            continue;
+                        }
+
+                        if (currentLine.startsWith("| Rows Updated |")) {
+                            String[] rowElements = currentLine.split("\\|");
+                            if (rowElements.length < 2) continue;
+
+                            rowsUpdated = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            continue;
+                        }
+                    }
+
+                    datasetInfos.add(new DatasetSummaryInfo(
+                            host,
+                            name,
+                            "datasets/" + datasetFile.getName(),
+                            category,
+                            rowsUpdated));
+                }
+            }
+        }
 
         // using sorted collections for alphabetic sorting hosts and datasets inside them
         Comparator<DatasetSummaryInfo> datasetSummaryInfoComparator = new Comparator<DatasetSummaryInfo>() {
@@ -218,16 +264,6 @@ public class SocrataMaker {
 
         } catch (Exception ex) {
             log(ex.getMessage());
-        }
-
-    }
-
-    private static class DatasetSummaryInfoCollection {
-
-        public final List<DatasetSummaryInfo> infos;
-
-        public DatasetSummaryInfoCollection(List<DatasetSummaryInfo> infos) {
-            this.infos = infos;
         }
 
     }
