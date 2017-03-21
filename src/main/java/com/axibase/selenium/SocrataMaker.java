@@ -102,7 +102,7 @@ public class SocrataMaker {
 
                             boolean success = crawler.process(currentUrl);
                             if (!success) {
-                                log(String.format("Error processing url %1s", currentUrl));
+                                System.out.println(String.format("Error processing url %1s", currentUrl));
                                 currentUrl = urlsToProcess.poll();
 
                                 System.out.println(String.format("Urls remaining: %1s", remainingUrlsCount.decrementAndGet()));

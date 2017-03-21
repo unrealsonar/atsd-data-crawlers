@@ -133,25 +133,8 @@ public class Crawler {
         field = driver.findElement(By.id("annotationFields_0"));
         String annotation = field.getAttribute("value");
 
-        //[commands] & [meta-commands]
-        ArrayList<String> commands = new ArrayList<>(commandsNumber);
-        ArrayList<String> metacommands = new ArrayList<>(metacommandsNumber);
+        DatasetCommands commands = getDatasetCommands(driver);
 
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"testRow_2\"]/td/table/tbody/tr[3]/td[2]"));
-        String[] lines = element.getText().split("\n");
-
-        for (String line : lines) {
-            if (line.startsWith("series") && commands.size() < commandsNumber) {
-                commands.add(line);
-                continue;
-            }
-
-            if (line.startsWith("metric") ||
-                    line.startsWith("entity") ||
-                    line.startsWith("property")) {
-                metacommands.add(line);
-            }
-        }
 
         //write in file
         File file = new File("reports/datasets/" + datasetMetadata.id + ".md");
@@ -178,13 +161,15 @@ public class Crawler {
 
             writeSeriesFieldSection(prefix, included, excluded, annotation, writer);
 
-            writeDataCommandsSection(commands, writer);
+            writeDataCommandsSection(commands.commands, writer);
 
-            writeMetadataCommandsSection(metacommands, writer);
+            writeMetadataCommandsSection(commands.metacommands, writer);
         }
 
         return true;
     }
+
+    //region Parsing
 
     private DatasetMetadata getDatasetMetadata(WebDriver driver, String urlPropertyName, Properties pr) {
         String catalogUrl = pr.getProperty(urlPropertyName);
@@ -324,6 +309,70 @@ public class Crawler {
         String linkText = linkElements.get(0).getAttribute("data-content");
         return linkText.substring(92, linkText.length() - 6);
     }
+
+    private DatasetCommands getDatasetCommands(WebDriver driver) {
+
+        ArrayList<String> commands = new ArrayList<>(commandsNumber);
+        ArrayList<String> metacommands = new ArrayList<>(metacommandsNumber);
+
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"testRow_2\"]/td/table/tbody/tr[3]/td[2]"));
+        String[] lines = element.getText().split("\n");
+
+        List<String> singleLineCommands = new ArrayList<>(lines.length);
+
+        StringBuilder commandBuilder = null;
+        for (String line : lines) {
+
+            if (line == null) continue;
+
+            int quotesCount = StringUtils.countMatches(line, "\"");
+
+            // is line is a part of multiline command
+            if (commandBuilder != null) {
+
+                // end of command
+                if (quotesCount % 2 != 0) {
+                    commandBuilder.append(line);
+                    singleLineCommands.add(commandBuilder.toString());
+                    commandBuilder = null;
+                    continue;
+                }
+
+                commandBuilder.append(line);
+                commandBuilder.append("\n");
+            }
+
+            // start of multiline command
+            if (commandBuilder == null && quotesCount % 2 != 0) {
+                commandBuilder = new StringBuilder();
+                commandBuilder.append(line);
+                commandBuilder.append("\n");
+                continue;
+            }
+
+            singleLineCommands.add(line);
+        }
+
+        for (String line : singleLineCommands) {
+
+            if (line.startsWith("series") && commands.size() < commandsNumber) {
+                commands.add(line);
+                continue;
+            }
+
+            if (line.startsWith("metric") ||
+                    line.startsWith("entity") ||
+                    line.startsWith("property")) {
+                metacommands.add(line);
+            }
+        }
+
+        return new DatasetCommands(metacommands, commands);
+    }
+
+    //endregion
+
+    //region Writing
 
     private void writeNameSection(String name, PrintWriter writer) {
         writer.println("# " + (name != null ? name : "No name"));
@@ -576,6 +625,8 @@ public class Crawler {
         writer.print("```");
     }
 
+    //endregion
+
     private class DatasetMetadata {
 
         final String catalogUrl;
@@ -646,6 +697,18 @@ public class Crawler {
             this.renderType = renderType;
             this.schemaType = schemaType;
             this.included = included;
+        }
+    }
+
+    private class DatasetCommands {
+
+        public final List<String> metacommands;
+
+        public final List<String> commands;
+
+        private DatasetCommands(List<String> metacommands, List<String> commands) {
+            this.metacommands = metacommands;
+            this.commands = commands;
         }
     }
 }
