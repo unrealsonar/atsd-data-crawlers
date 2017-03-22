@@ -107,31 +107,13 @@ public class Crawler {
 
         if (check.equals("")) return false;
 
-        //[dataset]
         DatasetMetadata datasetMetadata = getDatasetMetadata(driver, urlPropertyName, urlProperties);
 
-        //[columns]
         List<DatasetColumn> datasetColumns = getDatasetColumns(driver);
 
-        //[time]
-        field = driver.findElement(By.id("timeField_0"));
-        String time = field.getAttribute("value");
+        DatasetTime datasetTime = getDatasetTime(driver);
 
-        field = driver.findElement(By.id("timeFormat_0"));
-        String format = field.getAttribute("value");
-
-        //[series]
-        field = driver.findElement(By.id("metricPrefix_0"));
-        String prefix = field.getAttribute("value");
-
-        field = driver.findElement(By.id("includedFields_0"));
-        String included = field.getAttribute("value");
-
-        field = driver.findElement(By.id("excludedFields_0"));
-        String excluded = field.getAttribute("value");
-
-        field = driver.findElement(By.id("annotationFields_0"));
-        String annotation = field.getAttribute("value");
+        DatasetSeriesField datasetSeriesField = getDatasetSeriesField(driver);
 
         DatasetCommands commands = getDatasetCommands(driver);
 
@@ -157,9 +139,9 @@ public class Crawler {
 
             writeColumnsSection(datasetColumns, writer);
 
-            writeTimeFieldSection(time, format, writer);
+            writeTimeFieldSection(datasetTime, writer);
 
-            writeSeriesFieldSection(prefix, included, excluded, annotation, writer);
+            writeSeriesFieldSection(datasetSeriesField, writer);
 
             writeDataCommandsSection(commands.commands, writer);
 
@@ -171,7 +153,7 @@ public class Crawler {
 
     //region Parsing
 
-    private DatasetMetadata getDatasetMetadata(WebDriver driver, String urlPropertyName, Properties pr) {
+    private static DatasetMetadata getDatasetMetadata(WebDriver driver, String urlPropertyName, Properties pr) {
         String catalogUrl = pr.getProperty(urlPropertyName);
 
         int metadataLinkLength = urlPropertyName.indexOf("/rows");
@@ -267,7 +249,7 @@ public class Crawler {
         );
     }
 
-    private List<DatasetColumn> getDatasetColumns(WebDriver driver) {
+    private static List<DatasetColumn> getDatasetColumns(WebDriver driver) {
         WebElement columnsTable = driver.findElement(By.id("tblColumnInfos"));
         List<WebElement> rows = columnsTable.findElements(By.tagName("tr"));
 
@@ -298,7 +280,7 @@ public class Crawler {
         return datasetColumns;
     }
 
-    private String getDescription(WebDriver driver, int descriptionRowIndex) {
+    private static String getDescription(WebDriver driver, int descriptionRowIndex) {
         WebElement element = driver.findElement(By.xpath("//*[@id=\"tblSummaryInfo\"]/tbody/tr[" + descriptionRowIndex + "]/td[2]"));
 
         List<WebElement> linkElements = element.findElements(By.tagName("a"));
@@ -310,7 +292,7 @@ public class Crawler {
         return linkText.substring(92, linkText.length() - 6);
     }
 
-    private DatasetCommands getDatasetCommands(WebDriver driver) {
+    private static DatasetCommands getDatasetCommands(WebDriver driver) {
 
         ArrayList<String> commands = new ArrayList<>(commandsNumber);
         ArrayList<String> metacommands = new ArrayList<>(metacommandsNumber);
@@ -370,16 +352,49 @@ public class Crawler {
         return new DatasetCommands(metacommands, commands);
     }
 
+    private static DatasetTime getDatasetTime(WebDriver driver) {
+
+        WebElement field = driver.findElement(By.id("timeField_0"));
+        String time = field.getAttribute("value");
+
+        if (StringUtils.isEmpty(time)) {
+            field = driver.findElement(By.id("timeDefault_0"));
+            time = field.getAttribute("value");
+        }
+
+        field = driver.findElement(By.id("timeFormat_0"));
+        String format = field.getAttribute("value");
+
+        return new DatasetTime(time, format);
+    }
+
+    private static DatasetSeriesField getDatasetSeriesField(WebDriver driver) {
+
+        WebElement field = driver.findElement(By.id("metricPrefix_0"));
+        String prefix = field.getAttribute("value");
+
+        field = driver.findElement(By.id("includedFields_0"));
+        String included = field.getAttribute("value");
+
+        field = driver.findElement(By.id("excludedFields_0"));
+        String excluded = field.getAttribute("value");
+
+        field = driver.findElement(By.id("annotationFields_0"));
+        String annotation = field.getAttribute("value");
+
+        return new DatasetSeriesField(prefix, included, excluded, annotation);
+    }
+
     //endregion
 
     //region Writing
 
-    private void writeNameSection(String name, PrintWriter writer) {
+    private static void writeNameSection(String name, PrintWriter writer) {
         writer.println("# " + (name != null ? name : "No name"));
         writer.println();
     }
 
-    private void writeDatasetSection(DatasetMetadata datasetMetadata, PrintWriter writer) {
+    private static void writeDatasetSection(DatasetMetadata datasetMetadata, PrintWriter writer) {
         writer.println("## Dataset");
         writer.println();
         writer.println("| Name | Value |");
@@ -440,7 +455,7 @@ public class Crawler {
         writer.println();
     }
 
-    private void writeDescriptionSection(String description, PrintWriter writer) {
+    private static void writeDescriptionSection(String description, PrintWriter writer) {
         if (StringUtils.isEmpty(description)) return;
 
         writer.println("## Description");
@@ -449,7 +464,7 @@ public class Crawler {
         writer.println();
     }
 
-    private void writeColumnsSection(List<DatasetColumn> columns, PrintWriter writer) {
+    private static void writeColumnsSection(List<DatasetColumn> columns, PrintWriter writer) {
 
         writer.println("## Columns");
         writer.println();
@@ -537,17 +552,22 @@ public class Crawler {
         writer.println();
     }
 
-    private void writeTimeFieldSection(String time, String format, PrintWriter writer) {
+    private static void writeTimeFieldSection(DatasetTime datasetTime, PrintWriter writer) {
         writer.println("## Time Field");
         writer.println();
         writer.println("```ls");
-        writer.println("Value = " + time);
-        writer.println("Format & Zone = " + format);
+        writer.println("Value = " + datasetTime.time);
+        writer.println("Format & Zone = " + datasetTime.format);
         writer.println("```");
         writer.println();
     }
 
-    private void writeSeriesFieldSection(String prefix, String included, String excluded, String annotation, PrintWriter writer) {
+    private static void writeSeriesFieldSection(DatasetSeriesField datasetSeriesField, PrintWriter writer) {
+
+        String prefix = datasetSeriesField.prefix;
+        String included = datasetSeriesField.included;
+        String excluded = datasetSeriesField.excluded;
+        String annotation = datasetSeriesField.annotation;
 
         if (StringUtils.isEmpty(prefix) &&
                 (StringUtils.isEmpty(included) || included.equals("*")) &&
@@ -578,7 +598,7 @@ public class Crawler {
         writer.println();
     }
 
-    private void writeDataCommandsSection(List<String> commands, PrintWriter writer) {
+    private static void writeDataCommandsSection(List<String> commands, PrintWriter writer) {
         writer.println("## Data Commands");
         writer.println();
         writer.println("```ls");
@@ -595,7 +615,7 @@ public class Crawler {
         writer.println();
     }
 
-    private void writeMetadataCommandsSection(List<String> metacommands, PrintWriter writer) {
+    private static void writeMetadataCommandsSection(List<String> metacommands, PrintWriter writer) {
         writer.println("## Meta Commands");
         writer.println();
         writer.println("```ls");
@@ -627,7 +647,7 @@ public class Crawler {
 
     //endregion
 
-    private class DatasetMetadata {
+    private static class DatasetMetadata {
 
         final String catalogUrl;
         final String metadataUrl;
@@ -675,7 +695,7 @@ public class Crawler {
         }
     }
 
-    private class DatasetColumn {
+    private static class DatasetColumn {
 
         final String name;
         final String fieldName;
@@ -700,7 +720,7 @@ public class Crawler {
         }
     }
 
-    private class DatasetCommands {
+    private static class DatasetCommands {
 
         public final List<String> metacommands;
 
@@ -709,6 +729,36 @@ public class Crawler {
         private DatasetCommands(List<String> metacommands, List<String> commands) {
             this.metacommands = metacommands;
             this.commands = commands;
+        }
+    }
+
+    private static class DatasetTime {
+
+        public final String time;
+
+        public final String format;
+
+        private DatasetTime(String time, String format) {
+            this.time = time;
+            this.format = format;
+        }
+    }
+
+    private static class DatasetSeriesField {
+
+        public final String prefix;
+
+        public final String included;
+
+        public final String excluded;
+
+        public final String annotation;
+
+        private DatasetSeriesField(String prefix, String included, String excluded, String annotation) {
+            this.prefix = prefix;
+            this.included = included;
+            this.excluded = excluded;
+            this.annotation = annotation;
         }
     }
 }
