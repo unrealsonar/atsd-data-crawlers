@@ -176,7 +176,9 @@ public class SocrataMaker {
                     while (true) {
                         currentLine = reader.readLine();
 
-                        if (currentLine == null || currentLine.startsWith("## Description")) {
+                        if (currentLine == null ||
+                                currentLine.startsWith("## Description") ||
+                                currentLine.startsWith("## Columns")) {
                             break;
                         }
 
@@ -385,11 +387,29 @@ public class SocrataMaker {
 
                 writer.println();
                 writer.println("```ls");
-                writer.println(info.firstSeriesCommand);
+                writer.println(formatCommand(info.firstSeriesCommand));
                 writer.println("```");
-                writer.println();
                 writer.println();
             }
         }
+    }
+
+    private static String formatCommand(String command) {
+        if (command == null) return null;
+
+        StringBuilder formattedCommand = new StringBuilder();
+        // splitting all metrics and tags to a new string
+        String[] commandParts = command.split("(?= [t,m]:)");
+
+        for (String commandPart : commandParts) {
+            String[] limitedLengthParts = commandPart.split("(?<=\\G.{108})");
+
+            for (String limitedCommandPart : limitedLengthParts) {
+                formattedCommand.append(limitedCommandPart);
+                formattedCommand.append("\n");
+            }
+        }
+
+        return formattedCommand.toString();
     }
 }
