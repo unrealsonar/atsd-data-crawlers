@@ -163,6 +163,7 @@ public class SocrataMaker {
             try (FileReader fileReader = new FileReader(datasetFile)) {
                 try (BufferedReader reader = new BufferedReader(fileReader)) {
 
+                    String id = null;
                     String host = null;
                     String name = null;
                     String category = null;
@@ -177,6 +178,14 @@ public class SocrataMaker {
 
                         if (currentLine == null || currentLine.startsWith("## Description")) {
                             break;
+                        }
+
+                        if (currentLine.startsWith("| Id |")) {
+                            String[] rowElements = currentLine.split("\\|");
+                            if (rowElements.length < 2) continue;
+
+                            id = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            continue;
                         }
 
                         if (currentLine.startsWith("| Host |")) {
@@ -233,6 +242,7 @@ public class SocrataMaker {
                     // reached EOF
                     if (currentLine == null) {
                         datasetInfos.add(new DatasetSummaryInfo(
+                                id,
                                 host,
                                 name,
                                 "datasets/" + datasetFile.getName(),
@@ -273,7 +283,7 @@ public class SocrataMaker {
                     firstSeriesCommand = commandBuilder.toString();
 
                     datasetInfos.add(new DatasetSummaryInfo(
-                            host,
+                            id, host,
                             name,
                             "datasets/" + datasetFile.getName(),
                             category,
@@ -368,16 +378,16 @@ public class SocrataMaker {
         }
 
         try (PrintWriter writer = new PrintWriter(file)) {
-            writer.println("Name | First command");
-            writer.println("---- | -------------");
-
             for (DatasetSummaryInfo info : datasetInfos) {
-                if (info.firstSeriesCommand == null) continue;;
+                writer.println(String.format("[%s.md](%s)",
+                        info.id,
+                        info.descriptionFilePath));
 
-                writer.println(String.format("[%s](%s) | %s",
-                        info.name,
-                        info.descriptionFilePath,
-                        info.firstSeriesCommand));
+                writer.println();
+                writer.println("```ls");
+                writer.println(info.firstSeriesCommand);
+                writer.println("```");
+                writer.println();
             }
         }
     }
