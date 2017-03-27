@@ -72,8 +72,8 @@ public class SocrataMaker {
             return;
         }
         final String collector = settingsProperties.getProperty("collector");
-        final String username = settingsProperties.getProperty("username");
-        final String password = settingsProperties.getProperty("password");
+        final String username = settingsProperties.getProperty("collector_username");
+        final String password = settingsProperties.getProperty("collector_password");
         final String jobName = settingsProperties.getProperty("jobName");
 
         ExecutorService executorService = Executors.newFixedThreadPool(threadsCount);
