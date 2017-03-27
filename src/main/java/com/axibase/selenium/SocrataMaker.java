@@ -2,6 +2,7 @@ package com.axibase.selenium;
 
 import com.google.common.collect.TreeMultiset;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -130,11 +131,30 @@ public class SocrataMaker {
         // 30 sec per URL
         executorService.awaitTermination(urls.size() * 30, TimeUnit.SECONDS);
 
-        writeTableOfContents();
+        List<DatasetSummaryInfo> infos;
+        try {
+            infos = getDatasetsInfo();
+        } catch (IOException ex) {
+            System.out.println(String.format("Unable to read dataset files. %s", ex.getMessage()));
+            return;
+        }
+
+        try {
+            writeTableOfContents(infos);
+        } catch (IOException ex) {
+            System.out.println(String.format("Unable to write TOC file. %s", ex.getMessage()));
+            return;
+        }
+
+        try {
+            writeCommandsFile(infos);
+        } catch (IOException ex) {
+            System.out.println(String.format("Unable to write commands file. %s", ex.getMessage()));
+            return;
+        }
     }
 
-    private static void writeTableOfContents() throws IOException {
-
+    private static List<DatasetSummaryInfo> getDatasetsInfo() throws IOException {
         File datasetsFolder = new File("reports/datasets/");
         File[] datasetFiles = datasetsFolder.listFiles();
         List<DatasetSummaryInfo> datasetInfos = new ArrayList<>(datasetFiles.length);
@@ -146,12 +166,14 @@ public class SocrataMaker {
                     String host = null;
                     String name = null;
                     String category = null;
-                    String rowsUpdated = null;
+                    String publicationDate = null;
+                    String firstSeriesCommand = null;
+
+                    String currentLine = null;
 
                     // reading dataset section
                     while (true) {
-
-                        String currentLine = reader.readLine();
+                        currentLine = reader.readLine();
 
                         if (currentLine == null || currentLine.startsWith("## Description")) {
                             break;
@@ -181,24 +203,90 @@ public class SocrataMaker {
                             continue;
                         }
 
-                        if (currentLine.startsWith("| Rows Updated |")) {
+                        if (currentLine.startsWith("| Publication Date |")) {
                             String[] rowElements = currentLine.split("\\|");
                             if (rowElements.length < 2) continue;
 
-                            rowsUpdated = rowElements[2].substring(1, rowElements[2].length() - 1);
+                            publicationDate = rowElements[2].substring(1, rowElements[2].length() - 1);
                             continue;
                         }
                     }
+
+                    // searching for data commands block
+                    while (true) {
+                        currentLine = reader.readLine();
+
+                        if (currentLine == null || currentLine.startsWith("## Data Commands")) {
+                            break;
+                        }
+                    }
+
+                    // searching for first series command
+                    while (true) {
+                        currentLine = reader.readLine();
+
+                        if (currentLine == null || currentLine.startsWith("series")) {
+                            break;
+                        }
+                    }
+
+                    // reached EOF
+                    if (currentLine == null) {
+                        datasetInfos.add(new DatasetSummaryInfo(
+                                host,
+                                name,
+                                "datasets/" + datasetFile.getName(),
+                                category,
+                                publicationDate,
+                                null));
+
+                        continue;
+                    }
+
+                    StringBuilder commandBuilder = null;
+
+                    while (currentLine != null) {
+                        int quotesCount = StringUtils.countMatches(currentLine, "\"");
+
+                        if (commandBuilder == null) {
+                            commandBuilder = new StringBuilder(currentLine);
+
+                            // single-line command
+                            if (quotesCount % 2 == 0) {
+                                break;
+                            }
+
+                            currentLine = reader.readLine();
+                            continue;
+                        }
+
+                        if (quotesCount % 2 != 0) {
+                            commandBuilder.append(currentLine);
+                            currentLine = reader.readLine();
+                            continue;
+                        }
+
+                        commandBuilder.append(currentLine);
+                        break;
+                    }
+
+                    firstSeriesCommand = commandBuilder.toString();
 
                     datasetInfos.add(new DatasetSummaryInfo(
                             host,
                             name,
                             "datasets/" + datasetFile.getName(),
                             category,
-                            rowsUpdated));
+                            publicationDate,
+                            firstSeriesCommand));
                 }
             }
         }
+
+        return datasetInfos;
+    }
+
+    private static void writeTableOfContents(List<DatasetSummaryInfo> datasetInfos) throws IOException {
 
         // using sorted collections for alphabetic sorting hosts and datasets inside them
         Comparator<DatasetSummaryInfo> datasetSummaryInfoComparator = new Comparator<DatasetSummaryInfo>() {
@@ -236,17 +324,17 @@ public class SocrataMaker {
             for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
                 writer.println(String.format("## %1s", infoByHost.getKey()));
                 writer.println();
-                writer.println("Name | Category | Updated");
-                writer.println("---- | -------- | -------");
+                writer.println("Name | Category | Published");
+                writer.println("---- | -------- | ---------");
 
                 SimpleDateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                 SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
                 for (DatasetSummaryInfo datasetInfo : infoByHost.getValue()) {
 
-                    Date rowsUpdateDate = null;
+                    Date publicationDate = null;
                     try {
-                        rowsUpdateDate = inputDateFormat.parse(datasetInfo.rowsUpdatedTime);
+                        publicationDate = inputDateFormat.parse(datasetInfo.publicationDate);
                     } catch (Exception ex) {
                         log(ex.getMessage());
                     }
@@ -256,7 +344,7 @@ public class SocrataMaker {
                                     datasetInfo.name,
                                     datasetInfo.descriptionFilePath,
                                     datasetInfo.category != null ? datasetInfo.category : "",
-                                    rowsUpdateDate != null ? outputDateFormat.format(rowsUpdateDate) : ""));
+                                    publicationDate != null ? outputDateFormat.format(publicationDate) : ""));
                 }
 
                 writer.println();
@@ -266,5 +354,31 @@ public class SocrataMaker {
             log(ex.getMessage());
         }
 
+    }
+
+    private static void writeCommandsFile(List<DatasetSummaryInfo> datasetInfos) throws IOException {
+        File file = new File("reports/series-commands.md");
+
+        if (!file.exists()) {
+
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
+
+            file.createNewFile();
+        }
+
+        try (PrintWriter writer = new PrintWriter(file)) {
+            writer.println("Name | First command");
+            writer.println("---- | -------------");
+
+            for (DatasetSummaryInfo info : datasetInfos) {
+                if (info.firstSeriesCommand == null) continue;;
+
+                writer.println(String.format("[%s](%s) | %s",
+                        info.name,
+                        info.descriptionFilePath,
+                        info.firstSeriesCommand));
+            }
+        }
     }
 }

@@ -177,7 +177,6 @@ public class Crawler {
 
         String name = null;
         String category = null;
-        String rowsUpdatedDate = null;
         String description = null;
         String tags = null;
         String attribution = null;
@@ -203,10 +202,6 @@ public class Crawler {
                 }
                 case "Category": {
                     category = itemValue;
-                    break;
-                }
-                case "Rows Updated": {
-                    rowsUpdatedDate = itemValue;
                     break;
                 }
                 case "Attribution": {
@@ -244,8 +239,7 @@ public class Crawler {
                 attribution,
                 category,
                 createdDate,
-                publicationDate,
-                rowsUpdatedDate
+                publicationDate
         );
     }
 
@@ -446,10 +440,6 @@ public class Crawler {
 
         if (datasetMetadata.publicationDate != null) {
             writer.println(String.format("| Publication Date | %1s |", datasetMetadata.publicationDate));
-        }
-
-        if (datasetMetadata.rowsUpdatedDate != null) {
-            writer.println(String.format("| Rows Updated | %1s |", datasetMetadata.rowsUpdatedDate));
         }
 
         writer.println();
@@ -662,7 +652,6 @@ public class Crawler {
         final String category;
         final String createdDate;
         final String publicationDate;
-        final String rowsUpdatedDate;
 
         private DatasetMetadata(
                 String catalogUrl,
@@ -676,8 +665,7 @@ public class Crawler {
                 String tags, String attribution,
                 String category,
                 String createdDate,
-                String publicationDate,
-                String rowsUpdatedDate) {
+                String publicationDate) {
             this.catalogUrl = catalogUrl;
             this.metadataUrl = metadataUrl;
             this.dataJsonUrl = dataJsonUrl;
@@ -691,7 +679,6 @@ public class Crawler {
             this.category = category;
             this.createdDate = createdDate;
             this.publicationDate = publicationDate;
-            this.rowsUpdatedDate = rowsUpdatedDate;
         }
     }
 
