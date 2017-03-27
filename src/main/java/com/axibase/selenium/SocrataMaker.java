@@ -388,6 +388,7 @@ public class SocrataMaker {
                 writer.println(info.firstSeriesCommand);
                 writer.println("```");
                 writer.println();
+                writer.println();
             }
         }
     }
