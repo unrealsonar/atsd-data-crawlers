@@ -107,46 +107,23 @@ public class Crawler {
 
         if (check.equals("")) return false;
 
+        String pageSource = driver.getPageSource();
         DatasetMetadata datasetMetadata = getDatasetMetadata(driver, urlPropertyName, urlProperties);
-
         List<DatasetColumn> datasetColumns = getDatasetColumns(driver);
-
         DatasetTime datasetTime = getDatasetTime(driver);
-
         DatasetSeriesField datasetSeriesField = getDatasetSeriesField(driver);
-
         DatasetCommands commands = getDatasetCommands(driver);
+        DatasetTopRecordsTable datasetTopRecordsTable = getDatasetTopRecordsTable(driver);
 
+        writeDatasetFile(
+                datasetMetadata,
+                datasetColumns,
+                datasetTime,
+                datasetSeriesField,
+                commands,
+                datasetTopRecordsTable);
 
-        //write in file
-        File file = new File("reports/datasets/" + datasetMetadata.id + ".md");
-
-        if (!file.exists()) {
-
-            File parentFile = file.getParentFile();
-            parentFile.mkdirs();
-
-            file.createNewFile();
-        }
-
-        try (PrintWriter writer = new PrintWriter(file)) {
-
-            writeNameSection(datasetMetadata.name, writer);
-
-            writeDatasetSection(datasetMetadata, writer);
-
-            writeDescriptionSection(datasetMetadata.description, writer);
-
-            writeColumnsSection(datasetColumns, writer);
-
-            writeTimeFieldSection(datasetTime, writer);
-
-            writeSeriesFieldSection(datasetSeriesField, writer);
-
-            writeDataCommandsSection(commands.commands, writer);
-
-            writeMetadataCommandsSection(commands.metacommands, writer);
-        }
+        writePageSource(datasetMetadata.id, pageSource);
 
         return true;
     }
@@ -379,9 +356,104 @@ public class Crawler {
         return new DatasetSeriesField(prefix, included, excluded, annotation);
     }
 
+    private static DatasetTopRecordsTable getDatasetTopRecordsTable(WebDriver driver) {
+        WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"testRow_2\"]/td/table/tbody/tr[5]/td[2]"));
+        if (tableElement == null) return null;
+
+        List<WebElement> rowsElements = tableElement.findElements(By.tagName("tr"));
+        if (rowsElements == null || rowsElements.size() == 0) return null;
+
+        WebElement headersContainer = rowsElements.get(0);
+        if (headersContainer == null) return null;
+
+        List<WebElement> headersElements = headersContainer.findElements(By.tagName("th"));
+        if (headersElements == null || headersElements.size() == 0) return null;
+
+        List<String> headers = new ArrayList<>(headersElements.size());
+        for (WebElement element : headersElements) {
+            if (element == null) {
+                headers.add("null");
+                continue;
+            }
+
+            headers.add(element.getText());
+        }
+
+        if (rowsElements.size() == 1) {
+            return new DatasetTopRecordsTable(headers, new ArrayList<List<String>>());
+        }
+
+        ArrayList<List<String>> rows = new ArrayList<>(rowsElements.size() - 1);
+        for (int i = 1; i < rowsElements.size(); i++) {
+            WebElement rowElement = rowsElements.get(i);
+            if (rowElement == null) continue;
+
+            List<WebElement> rowElements = rowElement.findElements(By.tagName("td"));
+            if (rowElements == null || rowElements.size() == 0) continue;
+
+            ArrayList<String> rowValues = new ArrayList<>(rowElements.size());
+            for (WebElement rowValueElement : rowElements) {
+                if (rowValueElement == null) {
+                    rowValues.add("null");
+                    continue;
+                }
+
+                rowValues.add(rowValueElement.getText());
+            }
+
+            rows.add(rowValues);
+        }
+
+        return new DatasetTopRecordsTable(headers, rows);
+    }
+
     //endregion
 
     //region Writing
+
+    private static void writeDatasetFile(
+            DatasetMetadata datasetMetadata,
+            List<DatasetColumn> datasetColumns,
+            DatasetTime datasetTime,
+            DatasetSeriesField datasetSeriesField,
+            DatasetCommands commands,
+            DatasetTopRecordsTable datasetTopRecordsTable) throws IOException {
+        File file = new File("reports/datasets/" + datasetMetadata.id + ".md");
+
+        if (!file.exists()) {
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
+
+            file.createNewFile();
+        }
+
+        try (PrintWriter writer = new PrintWriter(file)) {
+            writeNameSection(datasetMetadata.name, writer);
+            writeDatasetSection(datasetMetadata, writer);
+            writeDescriptionSection(datasetMetadata.description, writer);
+            writeColumnsSection(datasetColumns, writer);
+            writeTimeFieldSection(datasetTime, writer);
+            writeSeriesFieldSection(datasetSeriesField, writer);
+            writeDataCommandsSection(commands.commands, writer);
+            writeMetadataCommandsSection(commands.metacommands, writer);
+            writeTopRecordsSection(datasetTopRecordsTable, writer);
+        }
+    }
+
+    private static void writePageSource(String datasetId, String pageSource) throws IOException {
+        File file = new File("reports/webpages/" + datasetId + ".htm");
+
+        if (!file.exists()) {
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
+
+            file.createNewFile();
+        }
+
+        try (PrintWriter writer = new PrintWriter(file)) {
+            writer.write(pageSource);
+        }
+    }
 
     private static void writeNameSection(String name, PrintWriter writer) {
         writer.println("# " + (name != null ? name : "No name"));
@@ -632,13 +704,74 @@ public class Crawler {
             }
         }
 
+        writer.println("```");
+        writer.println();
+    }
+
+    private static void writeTopRecordsSection(DatasetTopRecordsTable datasetTopRecordsTable, PrintWriter writer) {
+        writer.println("## Top Records");
+        writer.println();
+        writer.println("```ls");
+
+        if (datasetTopRecordsTable == null) {
+            writer.print("```");
+            return;
+        }
+
+        List<Integer> columnsMaxWidth = new ArrayList<>(datasetTopRecordsTable.headers.size());
+        for (String header : datasetTopRecordsTable.headers) {
+            columnsMaxWidth.add(header.length());
+        }
+
+        for (List<String> row : datasetTopRecordsTable.rows) {
+            for (int i = 0; i < row.size(); i++) {
+                String rowValue = row.get(i);
+                int maxColumnWidth = columnsMaxWidth.get(i);
+                if (rowValue.length() > maxColumnWidth) {
+                    columnsMaxWidth.set(i, rowValue.length());
+                }
+            }
+        }
+
+        StringBuilder headerBuilder = new StringBuilder();
+        headerBuilder.append("| ");
+        List<String> headers = datasetTopRecordsTable.headers;
+        for (int i = 0; i < headers.size(); i++) {
+            String header = headers.get(i);
+            int columnWidth = columnsMaxWidth.get(i);
+            headerBuilder.append(StringUtils.rightPad(header, columnWidth));
+            headerBuilder.append(" | ");
+        }
+        headerBuilder.append("\n");
+
+        headerBuilder.append("| ");
+        for (int i = 0; i < datasetTopRecordsTable.headers.size(); i++) {
+            int columnWidth = columnsMaxWidth.get(i);
+            headerBuilder.append(StringUtils.repeat('=', columnWidth));
+            headerBuilder.append(" | ");
+        }
+        writer.println(headerBuilder.toString());
+
+        for (List<String> row : datasetTopRecordsTable.rows) {
+            StringBuilder rowBuilder = new StringBuilder();
+            rowBuilder.append("| ");
+
+            for (int i = 0; i < row.size(); i++) {
+                String rowValue = row.get(i);
+                int columnWidth = columnsMaxWidth.get(i);
+                rowBuilder.append(StringUtils.rightPad(rowValue, columnWidth));
+                rowBuilder.append(" | ");
+            }
+
+            writer.println(rowBuilder.toString());
+        }
+
         writer.print("```");
     }
 
     //endregion
 
     private static class DatasetMetadata {
-
         final String catalogUrl;
         final String metadataUrl;
         final String dataJsonUrl;
@@ -683,7 +816,6 @@ public class Crawler {
     }
 
     private static class DatasetColumn {
-
         final String name;
         final String fieldName;
         final String dataType;
@@ -708,9 +840,7 @@ public class Crawler {
     }
 
     private static class DatasetCommands {
-
         public final List<String> metacommands;
-
         public final List<String> commands;
 
         private DatasetCommands(List<String> metacommands, List<String> commands) {
@@ -720,9 +850,7 @@ public class Crawler {
     }
 
     private static class DatasetTime {
-
         public final String time;
-
         public final String format;
 
         private DatasetTime(String time, String format) {
@@ -732,13 +860,9 @@ public class Crawler {
     }
 
     private static class DatasetSeriesField {
-
         public final String prefix;
-
         public final String included;
-
         public final String excluded;
-
         public final String annotation;
 
         private DatasetSeriesField(String prefix, String included, String excluded, String annotation) {
@@ -746,6 +870,16 @@ public class Crawler {
             this.included = included;
             this.excluded = excluded;
             this.annotation = annotation;
+        }
+    }
+
+    private static class DatasetTopRecordsTable {
+        public final List<String> headers;
+        public final List<List<String>> rows;
+
+        private DatasetTopRecordsTable(List<String> headers, List<List<String>> rows) {
+            this.headers = headers;
+            this.rows = rows;
         }
     }
 }
