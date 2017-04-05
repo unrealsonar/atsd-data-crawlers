@@ -1,7 +1,5 @@
 package com.axibase.irscrawler.common;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +10,6 @@ import java.net.URL;
 
 public class HtmlPageLoader {
 
-    @NotNull
     public Result<String> loadHtml(URL url) {
 
         Result<String> pageLoadingResult = null;
