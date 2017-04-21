@@ -247,7 +247,7 @@ public class SocrataMaker {
                                 id,
                                 host,
                                 name,
-                                "datasets/" + datasetFile.getName(),
+                                "../datasets/" + datasetFile.getName(),
                                 category,
                                 publicationDate,
                                 null));
@@ -287,7 +287,7 @@ public class SocrataMaker {
                     datasetInfos.add(new DatasetSummaryInfo(
                             id, host,
                             name,
-                            "datasets/" + datasetFile.getName(),
+                            "../datasets/" + datasetFile.getName(),
                             category,
                             publicationDate,
                             firstSeriesCommand));
@@ -308,9 +308,21 @@ public class SocrataMaker {
             }
         };
 
+        TreeMap<String, TreeMultiset<DatasetSummaryInfo>> infosByCategory = new TreeMap<>();
+        for (DatasetSummaryInfo info : datasetInfos) {
+            String category = StringUtils.isNotEmpty(info.category) ? info.category : "Other";
+            TreeMultiset<DatasetSummaryInfo> infosCollection = infosByCategory.get(category);
+            if (infosCollection != null) {
+                infosCollection.add(info);
+            } else {
+                infosCollection = TreeMultiset.create(datasetSummaryInfoComparator);
+                infosCollection.add(info);
+                infosByCategory.put(category, infosCollection);
+            }
+        }
+
         TreeMap<String, TreeMultiset<DatasetSummaryInfo>> infosByHost = new TreeMap<>();
         for (DatasetSummaryInfo info : datasetInfos) {
-
             TreeMultiset<DatasetSummaryInfo> infosCollection = infosByHost.get(info.host);
             if (infosCollection != null) {
                 infosCollection.add(info);
@@ -332,9 +344,91 @@ public class SocrataMaker {
         }
 
         try (PrintWriter writer = new PrintWriter(file)) {
+            writer.println("# Categories");
+            writer.println();
+            writer.println("Name | Datasets count");
+            writer.println("---- | --------------");
+
+            for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByCategory : infosByCategory.entrySet()) {
+                writer.println(String.format(
+                        "[%s](data-categories/%s.md) | %s",
+                        infoByCategory.getKey(),
+                        infoByCategory.getKey().replaceAll("\\W+", ""),
+                        infoByCategory.getValue().size()));
+            }
+
+            writer.println();
+
+            writer.println("# Hosts");
+            writer.println();
+            writer.println("Name | Datasets count");
+            writer.println("---- | --------------");
 
             for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
-                writer.println(String.format("## %1s", infoByHost.getKey()));
+                writer.println(
+                        String.format(
+                                "[%1$s](data-hosts/%1$s.md) | %2$s",
+                                infoByHost.getKey(),
+                                infoByHost.getValue().size()));
+            }
+        }
+
+        writeCategoryGroupedFiles(infosByCategory);
+        writeHostGroupedFiles(infosByHost);
+    }
+
+    private static void writeCategoryGroupedFiles(TreeMap<String, TreeMultiset<DatasetSummaryInfo>> infosByCategory) throws IOException {
+        for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByCategory : infosByCategory.entrySet()) {
+            File categoryDatasetsFile = new File(String.format("reports/data-categories/%s.md", infoByCategory.getKey().replaceAll("\\W+", "")));
+            if (!categoryDatasetsFile.exists()) {
+                File parentFile = categoryDatasetsFile.getParentFile();
+                parentFile.mkdirs();
+
+                categoryDatasetsFile.createNewFile();
+            }
+            try (PrintWriter writer = new PrintWriter(categoryDatasetsFile)) {
+                writer.println(String.format("# %1s", infoByCategory.getKey()));
+                writer.println();
+                writer.println("Name | Published");
+                writer.println("---- | ---------");
+
+                SimpleDateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                for (DatasetSummaryInfo datasetInfo : infoByCategory.getValue()) {
+
+                    Date publicationDate = null;
+                    try {
+                        publicationDate = inputDateFormat.parse(datasetInfo.publicationDate);
+                    } catch (Exception ex) {
+                        log(ex.getMessage());
+                    }
+
+                    writer.println(
+                            String.format("[%1s](%2s) | %3s ",
+                                    datasetInfo.name,
+                                    datasetInfo.descriptionFilePath,
+                                    publicationDate != null ? outputDateFormat.format(publicationDate) : ""));
+                }
+
+                writer.println();
+            } catch (Exception ex) {
+                log(ex.getMessage());
+            }
+        }
+    }
+
+    private static void writeHostGroupedFiles(TreeMap<String, TreeMultiset<DatasetSummaryInfo>> infosByHost) throws IOException {
+        for (Map.Entry<String, TreeMultiset<DatasetSummaryInfo>> infoByHost : infosByHost.entrySet()) {
+            File hostDatasetsFile = new File(String.format("reports/data-hosts/%s.md", infoByHost.getKey()));
+            if (!hostDatasetsFile.exists()) {
+                File parentFile = hostDatasetsFile.getParentFile();
+                parentFile.mkdirs();
+
+                hostDatasetsFile.createNewFile();
+            }
+            try (PrintWriter writer = new PrintWriter(hostDatasetsFile)) {
+                writer.println(String.format("# %1s", infoByHost.getKey()));
                 writer.println();
                 writer.println("Name | Category | Published");
                 writer.println("---- | -------- | ---------");
@@ -360,12 +454,10 @@ public class SocrataMaker {
                 }
 
                 writer.println();
+            } catch (Exception ex) {
+                log(ex.getMessage());
             }
-
-        } catch (Exception ex) {
-            log(ex.getMessage());
         }
-
     }
 
     private static void writeCommandsFile(List<DatasetSummaryInfo> datasetInfos) throws IOException {
