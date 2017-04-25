@@ -1,5 +1,7 @@
 package com.axibase.selenium;
 
+import java.util.List;
+
 public class DatasetSummaryInfo {
     final String id;
     final String host;
@@ -8,6 +10,7 @@ public class DatasetSummaryInfo {
     final String category;
     final String publicationDate;
     final String firstSeriesCommand;
+    final List<String> tags;
 
     public DatasetSummaryInfo(
             String id,
@@ -15,7 +18,9 @@ public class DatasetSummaryInfo {
             String name,
             String descriptionFilePath,
             String category,
-            String publicationDate, String firstSeriesCommand) {
+            String publicationDate,
+            String firstSeriesCommand,
+            List<String> tags) {
         this.id = id;
         this.host = host;
         this.name = name;
@@ -23,5 +28,6 @@ public class DatasetSummaryInfo {
         this.category = category;
         this.publicationDate = publicationDate;
         this.firstSeriesCommand = firstSeriesCommand;
+        this.tags = tags;
     }
 }

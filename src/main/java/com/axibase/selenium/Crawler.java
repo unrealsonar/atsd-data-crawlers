@@ -683,19 +683,8 @@ public class Crawler {
         writer.println("```ls");
 
         for (int i = 0; i < metacommands.size(); i++) {
-
-            // TODO removed date, delete this in the release version
             String metacommand = metacommands.get(i);
             if (metacommand == null) continue;
-
-            if (metacommand.startsWith("property")) {
-
-                int dateFieldIndex = metacommand.indexOf(" d:");
-
-                if (dateFieldIndex >= 0) {
-                    metacommand = metacommand.substring(0, dateFieldIndex) + metacommand.substring(dateFieldIndex + " d:2017-01-01T00:00:00.000Z".length());
-                }
-            }
 
             writer.println(metacommand);
 
