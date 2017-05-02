@@ -10,9 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-/**
- * Created by alexey on 17.01.17.
- */
 public class HtmlPageLoader {
 
     @NotNull
@@ -23,6 +20,12 @@ public class HtmlPageLoader {
         while (triesCount > 0)
         {
             pageLoadingResult = loadPage(url);
+            // wait for reduce server load
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (pageLoadingResult != null && pageLoadingResult.errorText == null)
             {
                 break;
