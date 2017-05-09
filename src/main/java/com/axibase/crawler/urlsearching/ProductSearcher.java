@@ -67,11 +67,19 @@ class ProductSearcher {
     }
 
     Result<String> searchProductUrl(int storeId, String productName) {
-        String urlString = "https://www.okeydostavka.ru/webapp/wcs/stores/servlet/SearchDisplay?categoryId=&catalogId=12052&langId=-20&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&pageSize=20";
+        String urlString = "https://www.okeydostavka.ru/webapp/wcs/stores/servlet/SearchDisplay?categoryId=&catalogId=12052&langId=-20&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&pageSize=20&orderBy=2";
         URL url;
         try {
+            String[] nameParts = productName.split(" ");
+            StringBuilder name = new StringBuilder();
+            for (int i = 0; i < 3; i ++) {
+                if (i == nameParts.length) break;
+                name.append(nameParts[i]);
+                if (i == 2) break;
+                name.append(" ");
+            }
 
-            String request = URLEncoder.encode(productName, "UTF-8");
+            String request = URLEncoder.encode(name.toString(), "UTF-8");
             String uriBuilder = urlString + "&searchTerm=" +
                     request +
                     "&storeId=" +
