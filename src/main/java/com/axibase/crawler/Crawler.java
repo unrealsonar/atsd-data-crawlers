@@ -26,13 +26,27 @@ public class Crawler {
     }
 
     public void process() {
-        String[] urls = readUrls();
+        UrlsCollection urlsCollection = readUrls();
+
         ArrayList<String> resultSeries = new ArrayList<>();
         int i = 0;
-        for (String url : urls) {
+        int totalLength = urlsCollection.urls.length + urlsCollection.obsoleteUrls.length;
+        for (String url : urlsCollection.obsoleteUrls) {
             try {
                 i++;
-                System.out.println(String.format("Processing %s/%s", i, urls.length));
+                System.out.println(String.format("Processing %s/%s", i, totalLength));
+                List<String> result = processObsoleteUrl(url);
+                resultSeries.addAll(result);
+            } catch (Exception ex) {
+                System.out.println(String.format("Error processing url %1s", url));
+                ex.printStackTrace();
+            }
+        }
+
+        for (String url : urlsCollection.urls) {
+            try {
+                i++;
+                System.out.println(String.format("Processing %s/%s", i, totalLength));
                 List<String> result = processUrl(url);
                 resultSeries.addAll(result);
             } catch (Exception ex) {
@@ -65,7 +79,7 @@ public class Crawler {
         try {
             for (int chunkIndex = 0; chunkIndex < chunkedSeries.size(); chunkIndex++) {
                 ArrayList<Byte> chunk = chunkedSeries.get(chunkIndex);
-                try (FileWriter fileWriter = new FileWriter(String.format("result\\series_%s.txt", chunkIndex))) {
+                try (FileWriter fileWriter = new FileWriter(String.format("result/series_%s.txt", chunkIndex))) {
                     try (BufferedWriter writer = new BufferedWriter(fileWriter)) {
                         for (Byte currentByte : chunk) {
                             writer.write(currentByte);
@@ -78,7 +92,7 @@ public class Crawler {
         }
     }
 
-    private String[] readUrls() {
+    private UrlsCollection readUrls() {
         Properties properties = new Properties();
         try {
             String propFileName = "urls.properties";
@@ -93,7 +107,10 @@ public class Crawler {
             e.printStackTrace();
         }
 
-        return properties.getProperty("urls").split(";");
+        String[] urls = properties.getProperty("urls").split(";");
+        String[] obsoleteUrls = properties.getProperty("obsolete_urls").split(";");
+
+        return new UrlsCollection(urls, obsoleteUrls);
     }
 
     private List<String> processUrl(String urlString) throws
@@ -153,6 +170,96 @@ public class Crawler {
         return series;
     }
 
+    private List<String> processObsoleteUrl(String urlString) throws
+            IOException,
+            SAXException,
+            ParserConfigurationException,
+            XPathExpressionException,
+            ParseException {
+        DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+        Document document = documentBuilder.parse(urlString);
+
+        Node dateNode = document.getElementsByTagName("P").item(2);
+        String descriprion = dateNode.getTextContent();
+        Pattern pattern = Pattern.compile("20\\d{2}");
+        Matcher matcher = pattern.matcher(descriprion);
+        matcher.find();
+        String[] descriprionParts = descriprion.substring(matcher.start() - 20, matcher.end()).split(" ");
+
+        String[] dateParts = {
+                descriprionParts[descriprionParts.length - 3],
+                descriprionParts[descriprionParts.length - 2],
+                descriprionParts[descriprionParts.length - 1]
+        };
+        DateFormat reportTimeFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.US);
+        Date reportDate = reportTimeFormatter.parse(String.format("%s %s %s", dateParts[0], dateParts[1], dateParts[2]));
+        String seriesDate = getSeriesDate(reportDate);
+
+        NodeList tableNode = document.getElementsByTagName("FP");
+        List<String> series = new ArrayList<>(tableNode.getLength());
+        for (int i = 0; i < tableNode.getLength(); i++) {
+            Node currentRow = tableNode.item(i);
+            String name = currentRow.getTextContent();
+
+            List<String> nameParts = new ArrayList<>(3);
+            String[] firstNameParts = name.split(",");
+            if (firstNameParts.length == 1) {
+                firstNameParts = name.split(" ");
+            }
+            nameParts.add(firstNameParts[0]);
+
+            if (firstNameParts.length > 1) {
+                String[] lastNameParts = firstNameParts[1].split(" ");
+                List<String> filteredLastNameParts = new ArrayList<>(lastNameParts.length);
+                for (String lastNamePart : lastNameParts) {
+                    if (lastNamePart == null) continue;
+                    lastNamePart = lastNamePart.replaceAll(" |\\.|\\n", "");
+                    if (lastNamePart.isEmpty()) continue;
+                    filteredLastNameParts.add(lastNamePart);
+                }
+
+                if (filteredLastNameParts.size() > 0) {
+                    nameParts.add(filteredLastNameParts.get(0));
+                }
+
+                if (filteredLastNameParts.size() > 1) {
+                    StringBuilder middleNameBuilder = new StringBuilder();
+                    String middleNamePart = filteredLastNameParts.get(1);
+                    if (middleNamePart != null && !middleNamePart.isEmpty()) {
+                        middleNameBuilder.append(middleNamePart);
+                    }
+
+                    for (int namePartIndex = 2; namePartIndex < filteredLastNameParts.size(); namePartIndex++) {
+                        middleNamePart = filteredLastNameParts.get(namePartIndex);
+                        if (middleNamePart == null || middleNamePart.isEmpty()) continue;
+                        middleNameBuilder.append(" ");
+                        middleNameBuilder.append(middleNamePart);
+                    }
+                    String middleName = middleNameBuilder.toString();
+                    if (!middleName.isEmpty()) {
+                        nameParts.add(middleName);
+                    }
+                }
+            }
+
+            StringBuilder seriesBuilder = new StringBuilder();
+            seriesBuilder.append("series e:us.irs m:us-expatriate-counter=1");
+            if (nameParts.size() > 0) {
+                seriesBuilder.append(String.format(" t:last_name=\"%s\"", nameParts.get(0)));
+            }
+            if (nameParts.size() > 1) {
+                seriesBuilder.append(String.format(" t:first_name=\"%s\"", nameParts.get(1)));
+            }
+            if (nameParts.size() > 2) {
+                seriesBuilder.append(String.format(" t:middle_name=\"%s\"", nameParts.get(2)));
+            }
+            seriesBuilder.append(String.format(" d:%s", seriesDate));
+            series.add(seriesBuilder.toString());
+        }
+
+        return series;
+    }
+
     private static String getSeriesDate(Date reportDate) {
         Calendar reportDateCalendar = Calendar.getInstance(Locale.US);
         reportDateCalendar.setTime(reportDate);
@@ -161,5 +268,15 @@ public class Crawler {
         int day = reportDateCalendar.get(Calendar.DAY_OF_MONTH);
 
         return String.format("%d-%02d-%2sT00:00:00Z", year, month, day);
+    }
+
+    private static class UrlsCollection {
+        public final String[] urls;
+        public final String[] obsoleteUrls;
+
+        private UrlsCollection(String[] urls, String[] obsoleteUrls) {
+            this.urls = urls;
+            this.obsoleteUrls = obsoleteUrls;
+        }
     }
 }
