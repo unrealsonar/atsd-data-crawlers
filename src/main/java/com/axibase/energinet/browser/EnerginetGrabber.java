@@ -23,8 +23,8 @@ import java.util.Map;
 public class EnerginetGrabber
         implements Grabber {
     private static final Logger logger = LoggerFactory.getLogger(EnerginetGrabber.class);
-    private static final String FORM_URI = "http://www.energinet.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en";
-    private static final String DOWNLOAD_XLS_URI = "http://www.energinet.dk/_layouts/Markedsdata/Framework/Integrations/MarkedsdataExcelOutput.aspx";
+    private static final String FORM_URI = "http://elforbrugspanel.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en";
+    private static final String DOWNLOAD_XLS_URI = "http://elforbrugspanel.dk/_layouts/Markedsdata/Framework/Integrations/MarkedsdataExcelOutput.aspx";
     private DesiredCapabilities caps;
     private PhantomJSDriver driver;
 
@@ -52,8 +52,8 @@ public class EnerginetGrabber
 
     private void fillForm(Date start, Date end) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        logger.info("Try to get Form from: {}", "http://www.energinet.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en");
-        this.driver.get("http://www.energinet.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en");
+        logger.info("Try to get Form from: {}", "http://elforbrugspanel.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en");
+        this.driver.get("http://elforbrugspanel.dk/_layouts/Markedsdata/framework/integrations/markedsdatatemplate.aspx?language=en");
 
         logger.info("Set up form params");
         WebElement startDate = this.driver.findElement(By.name("startDate"));
