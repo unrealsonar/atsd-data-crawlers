@@ -255,7 +255,7 @@ class Crawler {
         int productIndex = 0;
         for (ProductUrl productUrl : productUrls) {
             productIndex++;
-            Logger.log("Searching product info and price %1s/%2s", productIndex, productUrls.size());
+            Logger.log("Searching product info and price %1s/%2s %3s", productIndex, productUrls.size(), productUrl.id);
 
             if (productUrl.relativeUrl == null) {
                 Logger.log("Skip searching product %1s/%2s", productIndex, productUrls.size());

@@ -19,7 +19,7 @@ class AtsdTcpClient {
 
     void init() throws IOException {
         socket = new Socket(host, port);
-        writer = new PrintWriter(socket.getOutputStream(), true);
+        writer = new PrintWriter(socket.getOutputStream());
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
 

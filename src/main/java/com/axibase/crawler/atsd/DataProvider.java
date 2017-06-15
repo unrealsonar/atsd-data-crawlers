@@ -78,7 +78,9 @@ public class DataProvider {
             client.sendEntity(entity, product.info.name, entityTags);
 
             String propertyType = "okey";
-            client.sendProperty(dateString, entity, propertyType, product.info.attributes);
+            if (product.info.attributes != null && product.info.attributes.size() > 0) {
+                client.sendProperty(dateString, entity, propertyType, product.info.attributes);
+            }
 
             for (PriceData data : product.priceData) {
                 updatePrice(
