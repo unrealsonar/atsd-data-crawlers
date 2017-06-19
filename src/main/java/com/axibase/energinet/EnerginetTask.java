@@ -48,7 +48,8 @@ public class EnerginetTask extends TimerTask {
                 100000,
                 600000L,
                 true,
-                false
+                false,
+                true
         );
         ClientConfiguration clientConfiguration = configurationFactory.createClientConfiguration();
         HttpClientManager httpClientManager = new HttpClientManager(clientConfiguration);

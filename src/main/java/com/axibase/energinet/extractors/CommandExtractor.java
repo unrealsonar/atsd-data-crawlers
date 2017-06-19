@@ -61,7 +61,7 @@ public class CommandExtractor implements Extractor<Collection<PlainCommand>, Str
                 }
             }
         }
-        log.info("Exatracted commands: {}", commands.size());
+        log.info("Extracted commands: {}", commands.size());
         return commands;
     }
 }
