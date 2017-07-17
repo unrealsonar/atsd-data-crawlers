@@ -22,6 +22,10 @@ class BoiSeries {
         this.code = code;
     }
 
+    public String getCode() {
+        return code;
+    }
+
     void setLevel(String level) {
         this.level = level;
     }
@@ -60,5 +64,19 @@ class BoiSeries {
         }
 
         return document;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof BoiSeries) {
+            BoiSeries other = (BoiSeries) obj;
+            return code.equals(other.code);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
     }
 }

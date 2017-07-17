@@ -67,7 +67,7 @@ public class BoiToAtsdWriter {
             }
 
             String rowKey = rowKeyValue.get(0).text();
-            String rowValue = rowKeyValue.get(1).text();
+            String rowValue = cleanValue(rowKeyValue.get(1).text());
 
             switch (rowKey) {
                 case "Code":
@@ -134,5 +134,18 @@ public class BoiToAtsdWriter {
 
         if (sampleCount > 0)
             dataService.addSeries(addCommand);
+    }
+
+    private String cleanValue(String value) {
+        value = value.trim();
+        boolean alpha = false, numeric = false;
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            alpha |= Character.isAlphabetic(c);
+            numeric |= Character.isDigit(c);
+        }
+        if (!alpha && !numeric)
+            return "";
+        return value;
     }
 }
