@@ -180,8 +180,8 @@ public class AtsdWriter {
     }
 
     private String quoteString(String s) {
-        if (s == null)
-            return "";
+        if (s == null || s.isEmpty())
+            return "\"\"";
 
         boolean needQuote = false;
         StringBuilder sb = new StringBuilder();
