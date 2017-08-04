@@ -11,6 +11,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.*;
@@ -57,7 +59,7 @@ public class Crawler {
 
         ArrayList<ArrayList<Byte>> chunkedSeries = new ArrayList<>();
         int maxChunkSizeBytes = 750 * 1024;
-        chunkedSeries.add(new ArrayList<Byte>(maxChunkSizeBytes));
+        chunkedSeries.add(new ArrayList<>(maxChunkSizeBytes));
         for (String series : resultSeries) {
             series = series + LINE_SEPARATOR;
             byte[] seriesBytes = series.getBytes(Charset.forName("UTF-8"));
@@ -74,6 +76,11 @@ public class Crawler {
                 }
                 chunkedSeries.add(currentChunk);
             }
+        }
+
+        if (Files.notExists(Paths.get("result"))) {
+            File resultsDir = new File("result");
+            resultsDir.mkdirs();
         }
 
         try {
