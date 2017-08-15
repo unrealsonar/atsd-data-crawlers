@@ -1,79 +1,51 @@
 package com.axibase.crawler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.axibase.crawler.util.CommandLineUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.lang3.StringUtils;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+import static com.axibase.crawler.util.CommandLineUtils.OPT_API_KEY;
+import static com.axibase.crawler.util.CommandLineUtils.OPT_DIR;
+import static com.axibase.crawler.util.CommandLineUtils.OPT_IDS;
+
+@Slf4j
 public class Main {
-    public static final Logger logger = LoggerFactory.getLogger(Main.class);
-
-    private static FredClient client = new FredClient();
 
     public static void main(String[] args) throws Exception {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
-        long year2016 = sdf.parse("2016-01-01").getTime();
-
-        List<Integer> cats = withNestedCategories(Arrays.asList(1, 2, 9, 10));
-
-        Set<FredSeries> allSeries = new HashSet<>();
-
-        for (int cat : cats) {
-            logger.info("Fetching category #" + cat);
-            allSeries.addAll(Arrays.asList(client.categorySeries(cat)));
+        final CommandLine commandLine = CommandLineUtils.parseArguments(args);
+        final String apiKey = commandLine.getOptionValue(OPT_API_KEY.getLongOpt());
+        final List<Integer> categoryIds = toListOfInteger(commandLine.getOptionValues(OPT_IDS.getLongOpt()));
+        String directory = commandLine.getOptionValue(OPT_DIR.getLongOpt(), "./");
+        if (!StringUtils.endsWith(directory, File.separator)) {
+            directory += File.separator;
         }
 
-        AtsdWriter w = new AtsdWriter("commands.txt");
+        System.out.println("Starting to read data...");
+        final FredClient client = new FredClient(apiKey);
 
-        for (FredSeries series : allSeries) {
-            logger.info(series.getId());
-        }
-
-        int cnt = 0;
-        for (FredSeries series : allSeries) {
-            long endTime = sdf.parse(series.getObservationEnd()).getTime();
-            if (endTime < year2016)
-                continue;
-
-            cnt++;
-
-            FredCategory[] seriesCats = client.seriesCategories(series.getId());
-            int maxCatIndex = 0;
-            for (int i = 0; i < seriesCats.length; i++) {
-                if (seriesCats[maxCatIndex].getParentId() < seriesCats[i].getParentId()) {
-                    maxCatIndex = i;
-                }
-            }
-            FredCategory maxCategory = seriesCats[maxCatIndex];
-            FredCategory parentCategory = client.getCategory(maxCategory.getParentId());
-            String[] tags = client.seriesTags(series.getId());
-            FredObservation[] observations = client.seriesObservations(series.getId());
-
-            w.writeFredSeries(series, maxCategory, parentCategory, tags, observations);
-
-            System.out.printf("%d of %d\n", cnt, allSeries.size());
+        try (FredCategoryCrawler crawler = new FredCategoryCrawler(client, directory)) {
+            crawler.readAndWriterCategories(categoryIds);
+            System.out.print("...finished");
+        } catch (Exception exc) {
+            log.error("Error", exc);
         }
     }
 
-    private static List<Integer> withNestedCategories(List<Integer> catIds) {
-        Set<Integer> foundCategories = new HashSet<>(catIds);
-        List<Integer> discoveryQueue = new LinkedList<>(catIds);
-
-        while (!discoveryQueue.isEmpty()) {
-            int category = discoveryQueue.remove(0);
-
-            logger.info("Fetching subs #" + category);
-            int[] subs = client.subCategories(category);
-            for (int sub : subs) {
-                if (!foundCategories.contains(sub)) {
-                    foundCategories.add(sub);
-                    discoveryQueue.add(sub);
-                }
-            }
+    private static List<Integer> toListOfInteger(String[] strs) {
+        if (strs.length == 0) {
+            return Collections.emptyList();
         }
-
-        return new ArrayList<>(foundCategories);
+        List<Integer> result = new ArrayList<>(strs.length);
+        for (String str : strs) {
+            result.add(Integer.parseInt(str));
+        }
+        return result;
     }
+
 }
