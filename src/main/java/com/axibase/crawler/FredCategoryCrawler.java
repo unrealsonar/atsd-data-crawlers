@@ -19,8 +19,8 @@ class FredCategoryCrawler implements AutoCloseable {
     private final FredClient client;
     private final String targetDirectory;
     private final CsvWriter mainWriter;
-    private CsvWriter rootWriter;
-    private String rootFileName;
+    private CsvWriter nestedWriter;
+    private String nestedFileName;
 
     FredCategoryCrawler(FredClient client, String targetDirectory) throws IOException {
         FileWriter fw = new FileWriter(targetDirectory + "categories.csv");
@@ -30,16 +30,16 @@ class FredCategoryCrawler implements AutoCloseable {
         this.targetDirectory = targetDirectory;
     }
 
-    private void initRootWriter(Integer rootId) throws IOException {
-        this.rootFileName = targetDirectory + "categories_" + rootId + ".csv";
-        FileWriter fw = new FileWriter(rootFileName);
-        this.rootWriter = new CsvWriter(fw, new CsvWriterSettings());
-        rootWriter.writeHeaders(HEADERS);
+    private void initNestedWriter(Integer rootId) throws IOException {
+        this.nestedFileName = targetDirectory + "categories_" + rootId + "_nested.csv";
+        FileWriter fw = new FileWriter(nestedFileName);
+        this.nestedWriter = new CsvWriter(fw, new CsvWriterSettings());
+        nestedWriter.writeHeaders(HEADERS);
     }
 
     private void writeRow(CsvCategoryRow row) {
         mainWriter.writeRow(row.getData());
-        rootWriter.writeRow(row.getData());
+        nestedWriter.writeRow(row.getData());
     }
 
     @Override
@@ -51,27 +51,27 @@ class FredCategoryCrawler implements AutoCloseable {
         mainWriter.flush();
     }
 
-    private void closeRootWriter() {
-        if (rootWriter != null) {
-            rootWriter.close();
+    private void closeNestedWriter() {
+        if (nestedWriter != null) {
+            nestedWriter.close();
         }
     }
 
     public void readAndWriterCategories(List<Integer> categoryIds) throws IOException {
         List<FredCategory> rootCategories = client.getRootCategories(categoryIds);
         for (FredCategory root : rootCategories) {
-            initRootWriter(root.getId());
+            initNestedWriter(root.getId());
             try {
                 CsvCategoryRow row = new CsvCategoryRow();
                 row.setCategory(root);
                 row.setParentCategoryName("Categories");
                 row.setRoot(FredCategory.CATEGORIES);
-                writeRow(row);
+                mainWriter.writeRow(row.getData());
                 getAndWriteNestedCategories(root, root, root.getName());
-                System.out.println(MessageFormatter.format("File for category #{}: {}", root.getId(), rootFileName).getMessage());
+                System.out.println(MessageFormatter.format("File for category #{}: {}", root.getId(), nestedFileName).getMessage());
             } finally {
                 flush();
-                closeRootWriter();
+                closeNestedWriter();
             }
         }
     }
