@@ -12,7 +12,7 @@ public class FredCategory {
 
     public static final FredCategory CATEGORIES = createBase();
 
-    private Integer id;
+    private int id;
     private String name;
 
     @JsonProperty("parent_id")
@@ -24,4 +24,5 @@ public class FredCategory {
         category.setName("Categories");
         return category;
     }
+
 }

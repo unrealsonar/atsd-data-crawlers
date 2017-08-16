@@ -8,6 +8,8 @@ import java.util.List;
 
 public class CsvCategoryRow {
 
+    @Setter
+    private FredSeries series;
     private int categoryId;
     private String categoryName;
 
@@ -22,6 +24,20 @@ public class CsvCategoryRow {
     private List<String> pathNodes = new ArrayList<>();
     private String path;
     private Object[] data;
+
+    public CsvCategoryRow() {
+    }
+
+    public CsvCategoryRow(CsvCategoryRow row) {
+        this.series = row.series;
+        this.categoryId = row.categoryId;
+        this.categoryName = row.categoryName;
+        this.parentCategoryId = row.parentCategoryId;
+        this.parentCategoryName = row.parentCategoryName;
+        this.rootId = row.rootId;
+        this.rootName = row.rootName;
+        this.pathNodes = new ArrayList<>(row.pathNodes);
+    }
 
     public void setCategory(FredCategory category) {
         this.categoryId = category.getId();
@@ -48,7 +64,21 @@ public class CsvCategoryRow {
 
     public Object[] getData() {
         if (data == null) {
-            data = new Object[]{categoryId, categoryName, parentCategoryId, parentCategoryName, rootId, rootName, getPath()};
+            if (series  == null) {
+                data = new Object[]{categoryId, categoryName, parentCategoryId, parentCategoryName, rootId, rootName, getPath()};
+            } else {
+                data = new Object[]{series.getId(), categoryId, categoryName, parentCategoryId, parentCategoryName, rootId, rootName, getPath()};
+            }
+        }
+        return data;
+    }
+
+    public Object[] getDataWithSeries() {
+        if (data == null) {
+            data = new Object[]{series.getId(), categoryId, categoryName, parentCategoryId, parentCategoryName, rootId, rootName, getPath()
+                    , series.getFrequency(), series.getFrequencyShort(), series.getNotes(), series.getObservationStart(), series.getObservationEnd()
+                    , series.getPopilarity(), series.getGroupPopularity(), series.getSeasonalAdjustment(), series.getSeasonalAdjustmentShort()
+                    , series.getTitle(), series.getUnits(), series.getUnitsShort()};
         }
         return data;
     }

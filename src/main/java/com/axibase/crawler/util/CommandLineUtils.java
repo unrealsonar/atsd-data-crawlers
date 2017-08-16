@@ -22,6 +22,8 @@ public class CommandLineUtils {
     public static final Option OPT_IDS = Option.builder().longOpt("ids").hasArg(true).required(true).numberOfArgs(Option.UNLIMITED_VALUES)
             .valueSeparator(SEPARATOR).type(List.class).build();
     public static final Option OPT_DIR = Option.builder().longOpt("dir").hasArg(true).required(false).numberOfArgs(1).type(String.class).build();
+    public static final Option OPT_WITH_SERIES_ID = Option.builder().longOpt("with-series-id").hasArg(false).required(false).build();
+    public static final Option OPT_WITH_SERIES = Option.builder().longOpt("with-series").hasArg(false).required(false).build();
 
     private static final Options OPTIONS = new Options() {
 
@@ -31,6 +33,8 @@ public class CommandLineUtils {
             addOption(OPT_API_KEY);
             addOption(OPT_IDS);
             addOption(OPT_DIR);
+            addOption(OPT_WITH_SERIES_ID);
+            addOption(OPT_WITH_SERIES);
         }
     };
 

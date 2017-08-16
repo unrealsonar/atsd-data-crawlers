@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.axibase.crawler.util.CommandLineUtils.OPT_API_KEY;
-import static com.axibase.crawler.util.CommandLineUtils.OPT_DIR;
-import static com.axibase.crawler.util.CommandLineUtils.OPT_IDS;
+import static com.axibase.crawler.util.CommandLineUtils.*;
 
 @Slf4j
 public class Main {
@@ -30,6 +28,12 @@ public class Main {
         final FredClient client = new FredClient(apiKey);
 
         try (FredCategoryCrawler crawler = new FredCategoryCrawler(client, directory)) {
+            if (commandLine.hasOption(OPT_WITH_SERIES_ID.getLongOpt())) {
+                crawler.setWithSeriesId(true);
+            }
+            if (commandLine.hasOption(OPT_WITH_SERIES.getLongOpt())) {
+                crawler.setWithSeries(true);
+            }
             crawler.readAndWriterCategories(categoryIds);
             System.out.print("...finished");
         } catch (Exception exc) {
