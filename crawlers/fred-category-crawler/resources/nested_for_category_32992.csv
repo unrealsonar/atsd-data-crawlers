@@ -1,0 +1,95 @@
+category_id,category_name,parent_id,parent_name,root_id,root_name,path
+18,National Income & Product Accounts,32992,National Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts
+112,Domestic Capital Account (Saving & Investment),18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment)
+33042,Capital Transfers Paid,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Capital Transfers Paid
+33043,Capital Transfers Received,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Capital Transfers Received
+33040,Consumptions of Fixed Capital,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Consumptions of Fixed Capital
+33041,Corporate Capital Consumption,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Corporate Capital Consumption
+33037,Domestic Investments,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Domestic Investments
+33038,Inventories,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Inventories
+33044,Noncorporate Business,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Noncorporate Business
+33039,Private Fixed Investments,112,Domestic Capital Account (Saving & Investment),32992,National Accounts,National Accounts > National Income & Product Accounts > Domestic Capital Account (Saving & Investment) > Private Fixed Investments
+108,Foreign Transactions,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Foreign Transactions
+33018,Exports,108,Foreign Transactions,32992,National Accounts,National Accounts > National Income & Product Accounts > Foreign Transactions > Exports
+33019,Imports,108,Foreign Transactions,32992,National Accounts,National Accounts > National Income & Product Accounts > Foreign Transactions > Imports
+33697,Fixed Assets,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Fixed Assets
+33699,Net Stocks,33697,Fixed Assets,32992,National Accounts,National Accounts > National Income & Product Accounts > Fixed Assets > Net Stocks
+33701,Depreciation,33697,Fixed Assets,32992,National Accounts,National Accounts > National Income & Product Accounts > Fixed Assets > Depreciation
+33703,Fixed Investment,33697,Fixed Assets,32992,National Accounts,National Accounts > National Income & Product Accounts > Fixed Assets > Fixed Investment
+33122,Gross Domestic Income,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Gross Domestic Income
+106,GDP/GNP,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > GDP/GNP
+33020,Shares of GDP,106,GDP/GNP,32992,National Accounts,National Accounts > National Income & Product Accounts > GDP/GNP > Shares of GDP
+107,"Gov't Receipts, Expenditures & Investment",18,National Income & Product Accounts,32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment"
+33022,Gov't Consumption Expenditures,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Consumption Expenditures"
+33024,Gov't Current Expenditures,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Current Expenditures"
+33025,Gov't Current Transfer Receipts,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Current Transfer Receipts"
+33027,Gov't Fixed Investment,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Fixed Investment"
+33023,Gov't Investment,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Investment"
+33026,Gov't Social Benefits,107,"Gov't Receipts, Expenditures & Investment",32992,National Accounts,"National Accounts > National Income & Product Accounts > Gov't Receipts, Expenditures & Investment > Gov't Social Benefits"
+33719,Health Care Spending,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Health Care Spending
+33054,Imputations,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Imputations
+33045,Industry,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry
+33883,Administrative and Waste Management Services,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Administrative and Waste Management Services
+33859,"Agriculture, Forestry, Fishing, and Hunting",33045,Industry,32992,National Accounts,"National Accounts > National Income & Product Accounts > Industry > Agriculture, Forestry, Fishing, and Hunting"
+33887,"Arts, Entertainment, Recreation, Accommodation, and Food Services",33045,Industry,32992,National Accounts,"National Accounts > National Income & Product Accounts > Industry > Arts, Entertainment, Recreation, Accommodation, and Food Services"
+33046,Auto Output,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Auto Output
+33865,Construction,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Construction
+33885,"Educational Services, Health Care, and Social Assistance",33045,Industry,32992,National Accounts,"National Accounts > National Income & Product Accounts > Industry > Educational Services, Health Care, and Social Assistance"
+33047,Farm Output,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Farm Output
+33877,"Finance, Insurance, Real Estate, Rental, and Leasing",33045,Industry,32992,National Accounts,"National Accounts > National Income & Product Accounts > Industry > Finance, Insurance, Real Estate, Rental, and Leasing"
+33050,Full-time Equivalent Employees,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Full-time Equivalent Employees
+33049,Full-time & Part-time Employees,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Full-time & Part-time Employees
+33889,Government,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Government
+33048,Households,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Households
+33053,Imputed Interest,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Imputed Interest
+33875,Information,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Information
+33881,Management Of Companies and Enterprises,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Management Of Companies and Enterprises
+33867,Manufacturing,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Manufacturing
+33861,Mining,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Mining
+33052,Persons Engaged in Production,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Persons Engaged in Production
+33879,Professional and Business Services,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Professional and Business Services
+33871,Retail Trade,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Retail Trade
+33051,Self-employed Persons,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Self-employed Persons
+33873,Transportation and Warehousing,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Transportation and Warehousing
+33863,Utilities,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Utilities
+33869,Wholesale Trade,33045,Industry,32992,National Accounts,National Accounts > National Income & Product Accounts > Industry > Wholesale Trade
+110,Personal Income & Outlays,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays
+33029,Compensation of Employees,110,Personal Income & Outlays,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays > Compensation of Employees
+33031,Employer Contributions,110,Personal Income & Outlays,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays > Employer Contributions
+33028,Personal Consumption Expenditures,110,Personal Income & Outlays,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays > Personal Consumption Expenditures
+33032,Personal Current Taxes,110,Personal Income & Outlays,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays > Personal Current Taxes
+33030,Wage and Salary Accruals,110,Personal Income & Outlays,32992,National Accounts,National Accounts > National Income & Product Accounts > Personal Income & Outlays > Wage and Salary Accruals
+21,Price Indexes & Deflators,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Price Indexes & Deflators
+109,Private Enterprise Income,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Private Enterprise Income
+33035,Corporate Dividends,109,Private Enterprise Income,32992,National Accounts,National Accounts > National Income & Product Accounts > Private Enterprise Income > Corporate Dividends
+33033,Corporate Profits,109,Private Enterprise Income,32992,National Accounts,National Accounts > National Income & Product Accounts > Private Enterprise Income > Corporate Profits
+33036,Proprietorship,109,Private Enterprise Income,32992,National Accounts,National Accounts > National Income & Product Accounts > Private Enterprise Income > Proprietorship
+33034,Taxes on Corporate Income,109,Private Enterprise Income,32992,National Accounts,National Accounts > National Income & Product Accounts > Private Enterprise Income > Taxes on Corporate Income
+33021,Quantity Indexes,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Quantity Indexes
+33401,Effect of ARRA on Selected NIPA Estimates,18,National Income & Product Accounts,32992,National Accounts,National Accounts > National Income & Product Accounts > Effect of ARRA on Selected NIPA Estimates
+5,Federal Government Debt,32992,National Accounts,32992,National Accounts,National Accounts > Federal Government Debt
+32251,Flow of Funds,32992,National Accounts,32992,National Accounts,National Accounts > Flow of Funds
+32258,B.101 Balance Sheet of Households and Nonprofit Organizations,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > B.101 Balance Sheet of Households and Nonprofit Organizations
+32259,B.103 Balance Sheet of Nonfinancial Corporate Business,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > B.103 Balance Sheet of Nonfinancial Corporate Business
+32260,B.104 Balance Sheet of Nonfinancial Noncorporate Business,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > B.104 Balance Sheet of Nonfinancial Noncorporate Business
+32256,D.3 Credit Market Debt Outstanding by Sector,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > D.3 Credit Market Debt Outstanding by Sector
+32257,L.1 Credit Market Debt Outstanding,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > L.1 Credit Market Debt Outstanding
+33722,L.203 Net Interbank Transactions,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > L.203 Net Interbank Transactions
+33726,L.208 Debt Securities,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > L.208 Debt Securities
+33729,L.214 Loans,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > L.214 Loans
+33204,S.1 Total Economy - Current Account,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.1 Total Economy - Current Account
+33205,S.2 Selected Aggregates for Total Economy and Sectors,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.2 Selected Aggregates for Total Economy and Sectors
+33240,S.3 Households and Nonprofit Institutions Serving Households,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.3 Households and Nonprofit Institutions Serving Households
+33241,S.4 Nonfinancial Noncorporate Business,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.4 Nonfinancial Noncorporate Business
+33242,S.5 Nonfinancial Corporate Business,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.5 Nonfinancial Corporate Business
+33243,S.6 Financial Business,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.6 Financial Business
+33244,S.7 Federal Government,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.7 Federal Government
+33245,S.8 State and Local Governments,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.8 State and Local Governments
+33246,S.9 Rest of the World,32251,Flow of Funds,32992,National Accounts,National Accounts > Flow of Funds > S.9 Rest of the World
+13,U.S. Trade & International Transactions,32992,National Accounts,32992,National Accounts,National Accounts > U.S. Trade & International Transactions
+16,Exports,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > Exports
+17,Imports,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > Imports
+3000,Income Payments & Receipts,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > Income Payments & Receipts
+33705,International Investment Position,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > International Investment Position
+125,Trade Balance,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > Trade Balance
+127,U.S. International Finance,13,U.S. Trade & International Transactions,32992,National Accounts,National Accounts > U.S. Trade & International Transactions > U.S. International Finance

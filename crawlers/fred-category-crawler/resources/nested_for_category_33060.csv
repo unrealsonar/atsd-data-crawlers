@@ -1,0 +1,61 @@
+category_id,category_name,parent_id,parent_name,root_id,root_name,path
+33833,Banking and Monetary Statistics 1914-1941,33060,Academic Data,33060,Academic Data,Academic Data > Banking and Monetary Statistics 1914-1941
+33835,Section 1. General Statistics of All Banks in the United States,33833,Banking and Monetary Statistics 1914-1941,33060,Academic Data,Academic Data > Banking and Monetary Statistics 1914-1941 > Section 1. General Statistics of All Banks in the United States
+33837,Section 2. Assets and Liabilities of All Member Banks,33833,Banking and Monetary Statistics 1914-1941,33060,Academic Data,Academic Data > Banking and Monetary Statistics 1914-1941 > Section 2. Assets and Liabilities of All Member Banks
+33825,Data on the nominal term structure model from Kim and Wright,33060,Academic Data,33060,Academic Data,Academic Data > Data on the nominal term structure model from Kim and Wright
+33891,Historical Federal Reserve Data,33060,Academic Data,33060,Academic Data,Academic Data > Historical Federal Reserve Data
+33061,NBER Macrohistory Database,33060,Academic Data,33060,Academic Data,Academic Data > NBER Macrohistory Database
+33062,Production of Commodities,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Production of Commodities
+33063,Construction,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Construction
+33064,Transportation and Public Utilities,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Transportation and Public Utilities
+33065,Prices,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Prices
+33066,Stocks of Commodities,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Stocks of Commodities
+33067,Distribution of Commodities,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Distribution of Commodities
+33068,Foreign Trade,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Foreign Trade
+33069,Income and Employment,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Income and Employment
+33070,Financial Status of Business,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Financial Status of Business
+33071,Savings and Investment,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Savings and Investment
+33072,Security Markets,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Security Markets
+33073,Volume of Transactions,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Volume of Transactions
+33074,Interest Rates,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Interest Rates
+33075,Money and Banking,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Money and Banking
+33076,Government and Finance,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Government and Finance
+33077,Leading Indicators,33061,NBER Macrohistory Database,33060,Academic Data,Academic Data > NBER Macrohistory Database > Leading Indicators
+33100,Penn World Table 7.1,33060,Academic Data,33060,Academic Data,Academic Data > Penn World Table 7.1
+33107,Component Shares of GDP per Capita (Constant Prices),33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Component Shares of GDP per Capita (Constant Prices)
+33106,Component Shares of GDP per Capita (Current Prices),33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Component Shares of GDP per Capita (Current Prices)
+33102,Exchange Rates,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Exchange Rates
+33110,GDP per Capita (Current Prices),33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > GDP per Capita (Current Prices)
+33112,"Gross Domestic Income, Adjustments for Changes in Terms of Trade",33100,Penn World Table 7.1,33060,Academic Data,"Academic Data > Penn World Table 7.1 > Gross Domestic Income, Adjustments for Changes in Terms of Trade"
+33105,Openness,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Openness
+33101,Population,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Population
+33104,"Price Levels of GDP, Consumption, Government, and Investment",33100,Penn World Table 7.1,33060,Academic Data,"Academic Data > Penn World Table 7.1 > Price Levels of GDP, Consumption, Government, and Investment"
+33103,Purchasing Power Parity,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Purchasing Power Parity
+33118,Purchasing Power Parity Converted GDP,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Purchasing Power Parity Converted GDP
+33108,Ratio of GNP to GDP,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Ratio of GNP to GDP
+33111,Real GDP per Capita (Constant Prices),33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Capita (Constant Prices)
+33109,Real GDP per Capita Relative to U.S.,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Capita Relative to U.S.
+33113,Real GDP per Equivalent Adult,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Equivalent Adult
+33117,Real GDP per Hour Worked by Employees,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Hour Worked by Employees
+33115,Real GDP per Person Engaged,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Person Engaged
+33116,Real GDP per Person Counted in Total Employment,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Person Counted in Total Employment
+33114,Real GDP per Worker,33100,Penn World Table 7.1,33060,Academic Data,Academic Data > Penn World Table 7.1 > Real GDP per Worker
+33402,Penn World Table 9.0,33060,Academic Data,33060,Academic Data,Academic Data > Penn World Table 9.0
+33403,"Real GDP, Employment and Population Levels",33402,Penn World Table 9.0,33060,Academic Data,"Academic Data > Penn World Table 9.0 > Real GDP, Employment and Population Levels"
+33404,"Current Price GDP, Capital and Total Factor Productivity",33402,Penn World Table 9.0,33060,Academic Data,"Academic Data > Penn World Table 9.0 > Current Price GDP, Capital and Total Factor Productivity"
+33405,National Accounts-Based Variables,33402,Penn World Table 9.0,33060,Academic Data,Academic Data > Penn World Table 9.0 > National Accounts-Based Variables
+33406,Exchange Rates and GDP Price Levels,33402,Penn World Table 9.0,33060,Academic Data,Academic Data > Penn World Table 9.0 > Exchange Rates and GDP Price Levels
+33407,Shares in Output-side Real GDP at Current Purchasing Power Parities,33402,Penn World Table 9.0,33060,Academic Data,Academic Data > Penn World Table 9.0 > Shares in Output-side Real GDP at Current Purchasing Power Parities
+33408,"Price Levels, Expenditure Categories and Capital",33402,Penn World Table 9.0,33060,Academic Data,"Academic Data > Penn World Table 9.0 > Price Levels, Expenditure Categories and Capital"
+33120,Recession Probabilities,33060,Academic Data,33060,Academic Data,Academic Data > Recession Probabilities
+33123,"Weekly U.S. and State Bond Prices, 1855-1865",33060,Academic Data,33060,Academic Data,"Academic Data > Weekly U.S. and State Bond Prices, 1855-1865"
+33201,Economic Policy Uncertainty,33060,Academic Data,33060,Academic Data,Academic Data > Economic Policy Uncertainty
+33442,Sticky Wages and Comovement,33060,Academic Data,33060,Academic Data,Academic Data > Sticky Wages and Comovement
+33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom
+33845,National Accounts,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > National Accounts
+33843,"Labour, Capital and Productivity",33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,"Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Labour, Capital and Productivity"
+33847,Wages and Prices,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Wages and Prices
+33849,Financial Markets,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Financial Markets
+33851,Money and Credit,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Money and Credit
+33853,Fiscal,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Fiscal
+33855,Trade,33839,Three Centuries of Macroeconomic Data in the United Kingdom,33060,Academic Data,Academic Data > Three Centuries of Macroeconomic Data in the United Kingdom > Trade

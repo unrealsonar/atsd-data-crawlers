@@ -1,0 +1,459 @@
+category_id,category_name,parent_id,parent_name,root_id,root_name,path
+32264,Countries,32263,International Data,32263,International Data,International Data > Countries
+32641,Afghanistan,32264,Countries,32263,International Data,International Data > Countries > Afghanistan
+32643,Albania,32264,Countries,32263,International Data,International Data > Countries > Albania
+32644,Algeria,32264,Countries,32263,International Data,International Data > Countries > Algeria
+32645,American Samoa,32264,Countries,32263,International Data,International Data > Countries > American Samoa
+32646,Andorra,32264,Countries,32263,International Data,International Data > Countries > Andorra
+32647,Angola,32264,Countries,32263,International Data,International Data > Countries > Angola
+32648,Anguilla,32264,Countries,32263,International Data,International Data > Countries > Anguilla
+32650,Antigua and Barbuda,32264,Countries,32263,International Data,International Data > Countries > Antigua and Barbuda
+32651,Argentina,32264,Countries,32263,International Data,International Data > Countries > Argentina
+32652,Armenia,32264,Countries,32263,International Data,International Data > Countries > Armenia
+32653,Aruba,32264,Countries,32263,International Data,International Data > Countries > Aruba
+32269,Australia,32264,Countries,32263,International Data,International Data > Countries > Australia
+32282,Austria,32264,Countries,32263,International Data,International Data > Countries > Austria
+32654,Azerbaijan,32264,Countries,32263,International Data,International Data > Countries > Azerbaijan
+32655,Bahamas,32264,Countries,32263,International Data,International Data > Countries > Bahamas
+32656,Bahrain,32264,Countries,32263,International Data,International Data > Countries > Bahrain
+32657,Bangladesh,32264,Countries,32263,International Data,International Data > Countries > Bangladesh
+32658,Barbados,32264,Countries,32263,International Data,International Data > Countries > Barbados
+32659,Belarus,32264,Countries,32263,International Data,International Data > Countries > Belarus
+32270,Belgium,32264,Countries,32263,International Data,International Data > Countries > Belgium
+32660,Belize,32264,Countries,32263,International Data,International Data > Countries > Belize
+32661,Benin,32264,Countries,32263,International Data,International Data > Countries > Benin
+32662,Bermuda,32264,Countries,32263,International Data,International Data > Countries > Bermuda
+32663,Bhutan,32264,Countries,32263,International Data,International Data > Countries > Bhutan
+32664,"Bolivia, Plurinational State of",32264,Countries,32263,International Data,"International Data > Countries > Bolivia, Plurinational State of"
+32665,Caribbean Netherlands,32264,Countries,32263,International Data,International Data > Countries > Caribbean Netherlands
+32666,Bosnia and Herzegovina,32264,Countries,32263,International Data,International Data > Countries > Bosnia and Herzegovina
+32667,Botswana,32264,Countries,32263,International Data,International Data > Countries > Botswana
+32327,Brazil,32264,Countries,32263,International Data,International Data > Countries > Brazil
+32669,British Indian Ocean Territory,32264,Countries,32263,International Data,International Data > Countries > British Indian Ocean Territory
+32670,Brunei Darussalam,32264,Countries,32263,International Data,International Data > Countries > Brunei Darussalam
+32671,Bulgaria,32264,Countries,32263,International Data,International Data > Countries > Bulgaria
+32672,Burkina Faso,32264,Countries,32263,International Data,International Data > Countries > Burkina Faso
+32673,Burundi,32264,Countries,32263,International Data,International Data > Countries > Burundi
+32674,Cambodia,32264,Countries,32263,International Data,International Data > Countries > Cambodia
+32675,Cameroon,32264,Countries,32263,International Data,International Data > Countries > Cameroon
+32268,Canada,32264,Countries,32263,International Data,International Data > Countries > Canada
+32676,Cape Verde,32264,Countries,32263,International Data,International Data > Countries > Cape Verde
+32677,Cayman Islands,32264,Countries,32263,International Data,International Data > Countries > Cayman Islands
+32678,Central African Republic,32264,Countries,32263,International Data,International Data > Countries > Central African Republic
+32679,Chad,32264,Countries,32263,International Data,International Data > Countries > Chad
+32328,Chile,32264,Countries,32263,International Data,International Data > Countries > Chile
+32329,China,32264,Countries,32263,International Data,International Data > Countries > China
+32680,Christmas Island,32264,Countries,32263,International Data,International Data > Countries > Christmas Island
+32681,Cocos (Keeling) Islands,32264,Countries,32263,International Data,International Data > Countries > Cocos (Keeling) Islands
+32682,Colombia,32264,Countries,32263,International Data,International Data > Countries > Colombia
+32683,Comoros,32264,Countries,32263,International Data,International Data > Countries > Comoros
+32684,"Congo, Republic of the",32264,Countries,32263,International Data,"International Data > Countries > Congo, Republic of the"
+32685,"Congo, Democratic Republic of the",32264,Countries,32263,International Data,"International Data > Countries > Congo, Democratic Republic of the"
+32686,Cook Islands,32264,Countries,32263,International Data,International Data > Countries > Cook Islands
+32687,Costa Rica,32264,Countries,32263,International Data,International Data > Countries > Costa Rica
+32688,Côte d’Ivoire,32264,Countries,32263,International Data,International Data > Countries > Côte d’Ivoire
+32689,Croatia,32264,Countries,32263,International Data,International Data > Countries > Croatia
+32690,Cuba,32264,Countries,32263,International Data,International Data > Countries > Cuba
+32691,Curaçao,32264,Countries,32263,International Data,International Data > Countries > Curaçao
+32692,Cyprus,32264,Countries,32263,International Data,International Data > Countries > Cyprus
+32288,Czech Republic,32264,Countries,32263,International Data,International Data > Countries > Czech Republic
+32271,Denmark,32264,Countries,32263,International Data,International Data > Countries > Denmark
+32693,Djibouti,32264,Countries,32263,International Data,International Data > Countries > Djibouti
+32694,Dominica,32264,Countries,32263,International Data,International Data > Countries > Dominica
+32695,Dominican Republic,32264,Countries,32263,International Data,International Data > Countries > Dominican Republic
+32696,Ecuador,32264,Countries,32263,International Data,International Data > Countries > Ecuador
+32697,Egypt,32264,Countries,32263,International Data,International Data > Countries > Egypt
+32698,El Salvador,32264,Countries,32263,International Data,International Data > Countries > El Salvador
+32699,Equatorial Guinea,32264,Countries,32263,International Data,International Data > Countries > Equatorial Guinea
+32700,Eritrea,32264,Countries,32263,International Data,International Data > Countries > Eritrea
+32701,Estonia,32264,Countries,32263,International Data,International Data > Countries > Estonia
+32702,Ethiopia,32264,Countries,32263,International Data,International Data > Countries > Ethiopia
+32703,Falkland Islands,32264,Countries,32263,International Data,International Data > Countries > Falkland Islands
+32704,Faroe Islands,32264,Countries,32263,International Data,International Data > Countries > Faroe Islands
+32705,Fiji,32264,Countries,32263,International Data,International Data > Countries > Fiji
+32289,Finland,32264,Countries,32263,International Data,International Data > Countries > Finland
+32272,France,32264,Countries,32263,International Data,International Data > Countries > France
+32706,French Guiana,32264,Countries,32263,International Data,International Data > Countries > French Guiana
+32707,French Polynesia,32264,Countries,32263,International Data,International Data > Countries > French Polynesia
+32708,French Southern Territories,32264,Countries,32263,International Data,International Data > Countries > French Southern Territories
+32709,Gabon,32264,Countries,32263,International Data,International Data > Countries > Gabon
+32710,Republic of the Gambia,32264,Countries,32263,International Data,International Data > Countries > Republic of the Gambia
+32711,Georgia,32264,Countries,32263,International Data,International Data > Countries > Georgia
+32273,Germany,32264,Countries,32263,International Data,International Data > Countries > Germany
+32712,Ghana,32264,Countries,32263,International Data,International Data > Countries > Ghana
+32713,Gibraltar,32264,Countries,32263,International Data,International Data > Countries > Gibraltar
+32330,Greece,32264,Countries,32263,International Data,International Data > Countries > Greece
+32714,Greenland,32264,Countries,32263,International Data,International Data > Countries > Greenland
+32715,Grenada,32264,Countries,32263,International Data,International Data > Countries > Grenada
+32716,Guadeloupe,32264,Countries,32263,International Data,International Data > Countries > Guadeloupe
+32717,Guam,32264,Countries,32263,International Data,International Data > Countries > Guam
+32718,Guatemala,32264,Countries,32263,International Data,International Data > Countries > Guatemala
+32720,Guinea,32264,Countries,32263,International Data,International Data > Countries > Guinea
+32721,Guinea-Bissau,32264,Countries,32263,International Data,International Data > Countries > Guinea-Bissau
+32722,Guyana,32264,Countries,32263,International Data,International Data > Countries > Guyana
+32723,Haiti,32264,Countries,32263,International Data,International Data > Countries > Haiti
+32724,Heard Island and McDonald Islands,32264,Countries,32263,International Data,International Data > Countries > Heard Island and McDonald Islands
+32725,Holy See (Vatican City State),32264,Countries,32263,International Data,International Data > Countries > Holy See (Vatican City State)
+32726,Honduras,32264,Countries,32263,International Data,International Data > Countries > Honduras
+32727,Hong Kong,32264,Countries,32263,International Data,International Data > Countries > Hong Kong
+32331,Hungary,32264,Countries,32263,International Data,International Data > Countries > Hungary
+32334,Iceland,32264,Countries,32263,International Data,International Data > Countries > Iceland
+32333,India,32264,Countries,32263,International Data,International Data > Countries > India
+32332,Indonesia,32264,Countries,32263,International Data,International Data > Countries > Indonesia
+32728,"Iran, Islamic Republic of",32264,Countries,32263,International Data,"International Data > Countries > Iran, Islamic Republic of"
+32729,Iraq,32264,Countries,32263,International Data,International Data > Countries > Iraq
+32290,Ireland,32264,Countries,32263,International Data,International Data > Countries > Ireland
+32730,Isle of Man,32264,Countries,32263,International Data,International Data > Countries > Isle of Man
+32335,Israel,32264,Countries,32263,International Data,International Data > Countries > Israel
+32274,Italy,32264,Countries,32263,International Data,International Data > Countries > Italy
+32731,Jamaica,32264,Countries,32263,International Data,International Data > Countries > Jamaica
+32281,Japan,32264,Countries,32263,International Data,International Data > Countries > Japan
+32733,Jordan,32264,Countries,32263,International Data,International Data > Countries > Jordan
+32734,Kazakhstan,32264,Countries,32263,International Data,International Data > Countries > Kazakhstan
+32735,Kenya,32264,Countries,32263,International Data,International Data > Countries > Kenya
+32736,Kiribati,32264,Countries,32263,International Data,International Data > Countries > Kiribati
+32737,"Korea, Democratic People's Republic of (North Korea)",32264,Countries,32263,International Data,"International Data > Countries > Korea, Democratic People's Republic of (North Korea)"
+32286,"Korea, Republic of (South Korea)",32264,Countries,32263,International Data,"International Data > Countries > Korea, Republic of (South Korea)"
+32738,Kuwait,32264,Countries,32263,International Data,International Data > Countries > Kuwait
+32739,Kyrgyz Republic,32264,Countries,32263,International Data,International Data > Countries > Kyrgyz Republic
+32740,Lao People's Democratic Republic,32264,Countries,32263,International Data,International Data > Countries > Lao People's Democratic Republic
+32741,Latvia,32264,Countries,32263,International Data,International Data > Countries > Latvia
+32742,Lebanon,32264,Countries,32263,International Data,International Data > Countries > Lebanon
+32743,Lesotho,32264,Countries,32263,International Data,International Data > Countries > Lesotho
+32744,Liberia,32264,Countries,32263,International Data,International Data > Countries > Liberia
+32745,Libyan Arab Jamahiriya,32264,Countries,32263,International Data,International Data > Countries > Libyan Arab Jamahiriya
+32746,Liechtenstein,32264,Countries,32263,International Data,International Data > Countries > Liechtenstein
+32747,Lithuania,32264,Countries,32263,International Data,International Data > Countries > Lithuania
+32336,Luxembourg,32264,Countries,32263,International Data,International Data > Countries > Luxembourg
+32748,Macao,32264,Countries,32263,International Data,International Data > Countries > Macao
+32749,"Macedonia, Former Yugoslav Republic of",32264,Countries,32263,International Data,"International Data > Countries > Macedonia, Former Yugoslav Republic of"
+32750,Madagascar,32264,Countries,32263,International Data,International Data > Countries > Madagascar
+32751,Malawi,32264,Countries,32263,International Data,International Data > Countries > Malawi
+32752,Malaysia,32264,Countries,32263,International Data,International Data > Countries > Malaysia
+32753,Maldives,32264,Countries,32263,International Data,International Data > Countries > Maldives
+32754,Mali,32264,Countries,32263,International Data,International Data > Countries > Mali
+32755,Malta,32264,Countries,32263,International Data,International Data > Countries > Malta
+32756,Marshall Islands,32264,Countries,32263,International Data,International Data > Countries > Marshall Islands
+32757,Martinique,32264,Countries,32263,International Data,International Data > Countries > Martinique
+32758,Mauritania,32264,Countries,32263,International Data,International Data > Countries > Mauritania
+32759,Mauritius,32264,Countries,32263,International Data,International Data > Countries > Mauritius
+32760,Mayotte,32264,Countries,32263,International Data,International Data > Countries > Mayotte
+32337,Mexico,32264,Countries,32263,International Data,International Data > Countries > Mexico
+32761,"Micronesia, Federated States of",32264,Countries,32263,International Data,"International Data > Countries > Micronesia, Federated States of"
+32762,"Moldova, Republic of",32264,Countries,32263,International Data,"International Data > Countries > Moldova, Republic of"
+32763,Monaco,32264,Countries,32263,International Data,International Data > Countries > Monaco
+32764,Mongolia,32264,Countries,32263,International Data,International Data > Countries > Mongolia
+32765,Montenegro,32264,Countries,32263,International Data,International Data > Countries > Montenegro
+32766,Montserrat,32264,Countries,32263,International Data,International Data > Countries > Montserrat
+32767,Morocco,32264,Countries,32263,International Data,International Data > Countries > Morocco
+32768,Mozambique,32264,Countries,32263,International Data,International Data > Countries > Mozambique
+32769,Myanmar,32264,Countries,32263,International Data,International Data > Countries > Myanmar
+32770,Namibia,32264,Countries,32263,International Data,International Data > Countries > Namibia
+32771,Nauru,32264,Countries,32263,International Data,International Data > Countries > Nauru
+32772,Nepal,32264,Countries,32263,International Data,International Data > Countries > Nepal
+32275,Netherlands,32264,Countries,32263,International Data,International Data > Countries > Netherlands
+32773,New Caledonia,32264,Countries,32263,International Data,International Data > Countries > New Caledonia
+32338,New Zealand,32264,Countries,32263,International Data,International Data > Countries > New Zealand
+32774,Nicaragua,32264,Countries,32263,International Data,International Data > Countries > Nicaragua
+32775,Niger,32264,Countries,32263,International Data,International Data > Countries > Niger
+32776,Nigeria,32264,Countries,32263,International Data,International Data > Countries > Nigeria
+32777,Niue,32264,Countries,32263,International Data,International Data > Countries > Niue
+32778,Norfolk Island,32264,Countries,32263,International Data,International Data > Countries > Norfolk Island
+32779,Northern Mariana Islands,32264,Countries,32263,International Data,International Data > Countries > Northern Mariana Islands
+32276,Norway,32264,Countries,32263,International Data,International Data > Countries > Norway
+32780,Oman,32264,Countries,32263,International Data,International Data > Countries > Oman
+32781,Pakistan,32264,Countries,32263,International Data,International Data > Countries > Pakistan
+32782,Palau,32264,Countries,32263,International Data,International Data > Countries > Palau
+32783,"Palestinian Territory, Occupied",32264,Countries,32263,International Data,"International Data > Countries > Palestinian Territory, Occupied"
+32784,Panama,32264,Countries,32263,International Data,International Data > Countries > Panama
+32785,Papua New Guinea,32264,Countries,32263,International Data,International Data > Countries > Papua New Guinea
+32786,Paraguay,32264,Countries,32263,International Data,International Data > Countries > Paraguay
+32787,Peru,32264,Countries,32263,International Data,International Data > Countries > Peru
+32788,Philippines,32264,Countries,32263,International Data,International Data > Countries > Philippines
+32789,Pitcairn,32264,Countries,32263,International Data,International Data > Countries > Pitcairn
+32339,Poland,32264,Countries,32263,International Data,International Data > Countries > Poland
+32340,Portugal,32264,Countries,32263,International Data,International Data > Countries > Portugal
+32790,Puerto Rico,32264,Countries,32263,International Data,International Data > Countries > Puerto Rico
+32791,Qatar,32264,Countries,32263,International Data,International Data > Countries > Qatar
+32792,Reunion,32264,Countries,32263,International Data,International Data > Countries > Reunion
+32793,Romania,32264,Countries,32263,International Data,International Data > Countries > Romania
+32341,Russian Federation,32264,Countries,32263,International Data,International Data > Countries > Russian Federation
+32794,Rwanda,32264,Countries,32263,International Data,International Data > Countries > Rwanda
+32796,"Saint Helena, Ascension and Tristan da Cunha",32264,Countries,32263,International Data,"International Data > Countries > Saint Helena, Ascension and Tristan da Cunha"
+32797,Saint Kitts and Nevis,32264,Countries,32263,International Data,International Data > Countries > Saint Kitts and Nevis
+32798,Saint Lucia,32264,Countries,32263,International Data,International Data > Countries > Saint Lucia
+32799,"Saint Martin, Collectivity of",32264,Countries,32263,International Data,"International Data > Countries > Saint Martin, Collectivity of"
+32800,Saint Pierre and Miquelon,32264,Countries,32263,International Data,International Data > Countries > Saint Pierre and Miquelon
+32801,Saint Vincent and the Grenadines,32264,Countries,32263,International Data,International Data > Countries > Saint Vincent and the Grenadines
+32802,Samoa,32264,Countries,32263,International Data,International Data > Countries > Samoa
+32803,San Marino,32264,Countries,32263,International Data,International Data > Countries > San Marino
+32804,Sao Tome and Principe,32264,Countries,32263,International Data,International Data > Countries > Sao Tome and Principe
+32805,Saudi Arabia,32264,Countries,32263,International Data,International Data > Countries > Saudi Arabia
+32806,Senegal,32264,Countries,32263,International Data,International Data > Countries > Senegal
+32807,Serbia,32264,Countries,32263,International Data,International Data > Countries > Serbia
+32808,Seychelles,32264,Countries,32263,International Data,International Data > Countries > Seychelles
+32809,Sierra Leone,32264,Countries,32263,International Data,International Data > Countries > Sierra Leone
+32287,Singapore,32264,Countries,32263,International Data,International Data > Countries > Singapore
+32810,Sint Maarten (Dutch part),32264,Countries,32263,International Data,International Data > Countries > Sint Maarten (Dutch part)
+32342,Slovak Republic,32264,Countries,32263,International Data,International Data > Countries > Slovak Republic
+32343,Slovenia,32264,Countries,32263,International Data,International Data > Countries > Slovenia
+32811,Solomon Islands,32264,Countries,32263,International Data,International Data > Countries > Solomon Islands
+32812,Somalia,32264,Countries,32263,International Data,International Data > Countries > Somalia
+32345,South Africa,32264,Countries,32263,International Data,International Data > Countries > South Africa
+32814,South Sudan,32264,Countries,32263,International Data,International Data > Countries > South Sudan
+32277,Spain,32264,Countries,32263,International Data,International Data > Countries > Spain
+32815,Sri Lanka,32264,Countries,32263,International Data,International Data > Countries > Sri Lanka
+32816,Sudan,32264,Countries,32263,International Data,International Data > Countries > Sudan
+32817,Suriname,32264,Countries,32263,International Data,International Data > Countries > Suriname
+32818,Svalbard and Jan Mayen,32264,Countries,32263,International Data,International Data > Countries > Svalbard and Jan Mayen
+32819,Swaziland,32264,Countries,32263,International Data,International Data > Countries > Swaziland
+32278,Sweden,32264,Countries,32263,International Data,International Data > Countries > Sweden
+32279,Switzerland,32264,Countries,32263,International Data,International Data > Countries > Switzerland
+32820,Syrian Arab Republic,32264,Countries,32263,International Data,International Data > Countries > Syrian Arab Republic
+32438,Taiwan,32264,Countries,32263,International Data,International Data > Countries > Taiwan
+32821,Tajikistan,32264,Countries,32263,International Data,International Data > Countries > Tajikistan
+32822,"Tanzania, United Republic of",32264,Countries,32263,International Data,"International Data > Countries > Tanzania, United Republic of"
+32823,Thailand,32264,Countries,32263,International Data,International Data > Countries > Thailand
+32824,Timor-Leste,32264,Countries,32263,International Data,International Data > Countries > Timor-Leste
+32825,Togo,32264,Countries,32263,International Data,International Data > Countries > Togo
+32826,Tokelau,32264,Countries,32263,International Data,International Data > Countries > Tokelau
+32827,Tonga,32264,Countries,32263,International Data,International Data > Countries > Tonga
+32828,Trinidad and Tobago,32264,Countries,32263,International Data,International Data > Countries > Trinidad and Tobago
+32829,Tunisia,32264,Countries,32263,International Data,International Data > Countries > Tunisia
+32344,Turkey,32264,Countries,32263,International Data,International Data > Countries > Turkey
+32830,Turkmenistan,32264,Countries,32263,International Data,International Data > Countries > Turkmenistan
+32831,Turks and Caicos Islands,32264,Countries,32263,International Data,International Data > Countries > Turks and Caicos Islands
+32832,Tuvalu,32264,Countries,32263,International Data,International Data > Countries > Tuvalu
+32833,Uganda,32264,Countries,32263,International Data,International Data > Countries > Uganda
+32834,Ukraine,32264,Countries,32263,International Data,International Data > Countries > Ukraine
+32835,United Arab Emirates,32264,Countries,32263,International Data,International Data > Countries > United Arab Emirates
+32280,United Kingdom,32264,Countries,32263,International Data,International Data > Countries > United Kingdom
+32267,United States,32264,Countries,32263,International Data,International Data > Countries > United States
+32837,Uruguay,32264,Countries,32263,International Data,International Data > Countries > Uruguay
+32838,Uzbekistan,32264,Countries,32263,International Data,International Data > Countries > Uzbekistan
+32839,Vanuatu,32264,Countries,32263,International Data,International Data > Countries > Vanuatu
+32840,"Venezuela, Bolivarian Republic of",32264,Countries,32263,International Data,"International Data > Countries > Venezuela, Bolivarian Republic of"
+32841,Viet Nam,32264,Countries,32263,International Data,International Data > Countries > Viet Nam
+32842,"Virgin Islands, British",32264,Countries,32263,International Data,"International Data > Countries > Virgin Islands, British"
+32843,"Virgin Islands, U.S.",32264,Countries,32263,International Data,"International Data > Countries > Virgin Islands, U.S."
+32844,Wallis and Futuna,32264,Countries,32263,International Data,International Data > Countries > Wallis and Futuna
+32845,Western Sahara,32264,Countries,32263,International Data,International Data > Countries > Western Sahara
+32846,"Yemen, Republic of",32264,Countries,32263,International Data,"International Data > Countries > Yemen, Republic of"
+32946,Kosovo,32264,Countries,32263,International Data,International Data > Countries > Kosovo
+32847,Zambia,32264,Countries,32263,International Data,International Data > Countries > Zambia
+32848,Zimbabwe,32264,Countries,32263,International Data,International Data > Countries > Zimbabwe
+32955,Geography,32263,International Data,32263,International Data,International Data > Geography
+32963,Africa,32955,Geography,32263,International Data,International Data > Geography > Africa
+32968,Eastern Africa,32963,Africa,32263,International Data,International Data > Geography > Africa > Eastern Africa
+32969,Middle Africa,32963,Africa,32263,International Data,International Data > Geography > Africa > Middle Africa
+32970,Northern Africa,32963,Africa,32263,International Data,International Data > Geography > Africa > Northern Africa
+32971,Southern Africa,32963,Africa,32263,International Data,International Data > Geography > Africa > Southern Africa
+32972,Western Africa,32963,Africa,32263,International Data,International Data > Geography > Africa > Western Africa
+32964,Americas,32955,Geography,32263,International Data,International Data > Geography > Americas
+32973,Latin America and the Caribbean,32964,Americas,32263,International Data,International Data > Geography > Americas > Latin America and the Caribbean
+32988,Caribbean,32973,Latin America and the Caribbean,32263,International Data,International Data > Geography > Americas > Latin America and the Caribbean > Caribbean
+32989,Central America,32973,Latin America and the Caribbean,32263,International Data,International Data > Geography > Americas > Latin America and the Caribbean > Central America
+32990,South America,32973,Latin America and the Caribbean,32263,International Data,International Data > Geography > Americas > Latin America and the Caribbean > South America
+32974,Northern America,32964,Americas,32263,International Data,International Data > Geography > Americas > Northern America
+32965,Asia,32955,Geography,32263,International Data,International Data > Geography > Asia
+32975,Central Asia,32965,Asia,32263,International Data,International Data > Geography > Asia > Central Asia
+32976,Eastern Asia,32965,Asia,32263,International Data,International Data > Geography > Asia > Eastern Asia
+32977,Southern Asia,32965,Asia,32263,International Data,International Data > Geography > Asia > Southern Asia
+32978,South-Eastern Asia,32965,Asia,32263,International Data,International Data > Geography > Asia > South-Eastern Asia
+32979,Western Asia,32965,Asia,32263,International Data,International Data > Geography > Asia > Western Asia
+32966,Europe,32955,Geography,32263,International Data,International Data > Geography > Europe
+32980,Eastern Europe,32966,Europe,32263,International Data,International Data > Geography > Europe > Eastern Europe
+32981,Northern Europe,32966,Europe,32263,International Data,International Data > Geography > Europe > Northern Europe
+32982,Southern Europe,32966,Europe,32263,International Data,International Data > Geography > Europe > Southern Europe
+32983,Western Europe,32966,Europe,32263,International Data,International Data > Geography > Europe > Western Europe
+32967,Oceania,32955,Geography,32263,International Data,International Data > Geography > Oceania
+32984,Australia and New Zealand,32967,Oceania,32263,International Data,International Data > Geography > Oceania > Australia and New Zealand
+32985,Melanesia,32967,Oceania,32263,International Data,International Data > Geography > Oceania > Melanesia
+32986,Micronesia,32967,Oceania,32263,International Data,International Data > Geography > Oceania > Micronesia
+32987,Polynesia,32967,Oceania,32263,International Data,International Data > Geography > Oceania > Polynesia
+32459,World,32955,Geography,32263,International Data,International Data > Geography > World
+32265,Indicators,32263,International Data,32263,International Data,International Data > Indicators
+33000,"Money, Banking, & Finance",32265,Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance"
+33185,Banking,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Banking"
+33186,Condition of Banks,33185,Banking,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Banking > Condition of Banks"
+33195,Business Lending,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Business Lending"
+33099,Financial Indicators,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators"
+33187,Bond Market Data,33099,Financial Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Bond Market Data"
+33211,Financial Activity Measures,33099,Financial Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Financial Activity Measures"
+33497,Money Market Instruments,33099,Financial Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Money Market Instruments"
+33493,Securities,33099,Financial Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Securities"
+33494,Financial Sector,33493,Securities,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Securities > Financial Sector"
+33496,Government,33493,Securities,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Securities > Government"
+33495,Non-Financial Corporations,33493,Securities,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Securities > Non-Financial Corporations"
+33194,Stock Market Data,33099,Financial Indicators,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Indicators > Stock Market Data"
+33191,Financial Institutions,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Institutions"
+32954,Financial Stress Indicators,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Financial Stress Indicators"
+32949,Interest Rates,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Interest Rates"
+32950,Monetary Data,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data"
+33220,M3 and Components,32950,Monetary Data,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data > M3 and Components"
+33221,M1 and Components,32950,Monetary Data,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data > M1 and Components"
+33223,Reserves,32950,Monetary Data,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data > Reserves"
+33227,M2 and Components,32950,Monetary Data,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data > M2 and Components"
+33234,Monetary Base,32950,Monetary Data,32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Monetary Data > Monetary Base"
+32952,Reserves & Monetary Base,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Reserves & Monetary Base"
+33210,Exchange Rate,33000,"Money, Banking, & Finance",32263,International Data,"International Data > Indicators > Money, Banking, & Finance > Exchange Rate"
+32997,National Accounts,32265,Indicators,32263,International Data,International Data > Indicators > National Accounts
+32951,Balance of Payments,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > Balance of Payments
+32291,GDP,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > GDP
+33196,GNP,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > GNP
+33097,International Trade and Transactions,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > International Trade and Transactions
+32458,Government Debt,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > Government Debt
+33206,Trade & International Transactions,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > Trade & International Transactions
+33207,Trade Balance,33206,Trade & International Transactions,32263,International Data,International Data > Indicators > National Accounts > Trade & International Transactions > Trade Balance
+33208,International Finance,33206,Trade & International Transactions,32263,International Data,International Data > Indicators > National Accounts > Trade & International Transactions > International Finance
+33224,Exports,33206,Trade & International Transactions,32263,International Data,International Data > Indicators > National Accounts > Trade & International Transactions > Exports
+33225,Imports,33206,Trade & International Transactions,32263,International Data,International Data > Indicators > National Accounts > Trade & International Transactions > Imports
+33232,National Income & Product Accounts,32997,National Accounts,32263,International Data,International Data > Indicators > National Accounts > National Income & Product Accounts
+33233,"Govt Receipts, Expenditures & Investment",33232,National Income & Product Accounts,32263,International Data,"International Data > Indicators > National Accounts > National Income & Product Accounts > Govt Receipts, Expenditures & Investment"
+33237,Price Indexes & Deflators,33232,National Income & Product Accounts,32263,International Data,International Data > Indicators > National Accounts > National Income & Product Accounts > Price Indexes & Deflators
+33238,Personal Income & Outlays,33232,National Income & Product Accounts,32263,International Data,International Data > Indicators > National Accounts > National Income & Product Accounts > Personal Income & Outlays
+32999,"Population, Employment, & Labor Markets",32265,Indicators,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets"
+33526,Education,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Education"
+32283,Employment,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Employment"
+33218,Employment Population Ratio,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Employment Population Ratio"
+33525,Income Distribution,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Income Distribution"
+33215,Job Openings and Labor Turnover,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Job Openings and Labor Turnover"
+32285,Labor Force,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Labor Force"
+33217,Labor Force Participation Rate,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Labor Force Participation Rate"
+33213,Labor Compensation,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Labor Compensation"
+32292,Population,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population"
+33739,Birth Rate,32292,Population,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population > Birth Rate"
+33512,Fertility Rate,32292,Population,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population > Fertility Rate"
+33510,Infant Mortality,32292,Population,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population > Infant Mortality"
+33513,Life Expectancy,32292,Population,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population > Life Expectancy"
+33511,Literacy Rate,32292,Population,32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Population > Literacy Rate"
+33212,Productivity & Costs,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Productivity & Costs"
+32284,Unemployment,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Unemployment"
+33214,Unemployment Level,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Unemployment Level"
+33219,Unemployment Rate,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Unemployment Rate"
+33829,Migration,32999,"Population, Employment, & Labor Markets",32263,International Data,"International Data > Indicators > Population, Employment, & Labor Markets > Migration"
+32294,Production & Business Activity,32265,Indicators,32263,International Data,International Data > Indicators > Production & Business Activity
+33527,Cell Phone Usage,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Cell Phone Usage
+33092,Construction,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Construction
+33090,Industrial Production & Capacity Utilization,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Industrial Production & Capacity Utilization
+33192,Insurance,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Insurance
+33499,Internet Users,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Internet Users
+32437,Manufacturing,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Manufacturing
+33228,Inventories,32437,Manufacturing,32263,International Data,International Data > Indicators > Production & Business Activity > Manufacturing > Inventories
+32953,Real Estate,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Real Estate
+33088,Retail Sales,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Retail Sales
+33209,Business Tendency Surveys,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Business Tendency Surveys
+33222,Housing,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Housing
+33229,Wholesale,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Wholesale
+33827,Ease of Doing Business,32294,Production & Business Activity,32263,International Data,International Data > Indicators > Production & Business Activity > Ease of Doing Business
+32998,Prices,32265,Indicators,32263,International Data,International Data > Indicators > Prices
+32266,Consumer Price Indexes,32998,Prices,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes
+33006,Alcoholic Beverages and Tobacco,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Alcoholic Beverages and Tobacco
+33004,All Items,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > All Items
+33007,Clothing and Footwear,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Clothing and Footwear
+33012,Communications,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Communications
+33014,Education,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Education
+33005,Food and Non-Alcoholic Beverages,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Food and Non-Alcoholic Beverages
+33010,Health,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Health
+33009,Household Equipment,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Household Equipment
+33008,Housing,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Housing
+33015,Hotels and Restaurants,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Hotels and Restaurants
+33016,Miscellaneous Goods and Services,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Miscellaneous Goods and Services
+33013,Recreation and Culture,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Recreation and Culture
+33017,Special Indexes,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Special Indexes
+33011,Transport,32266,Consumer Price Indexes,32263,International Data,International Data > Indicators > Prices > Consumer Price Indexes > Transport
+32427,Producer Price Indexes,32998,Prices,32263,International Data,International Data > Indicators > Prices > Producer Price Indexes
+33129,Trade Indexes,32998,Prices,32263,International Data,International Data > Indicators > Prices > Trade Indexes
+33226,Wholesale,32998,Prices,32263,International Data,International Data > Indicators > Prices > Wholesale
+33503,House Prices,32998,Prices,32263,International Data,International Data > Indicators > Prices > House Prices
+33247,Consumer Price Index,32265,Indicators,32263,International Data,International Data > Indicators > Consumer Price Index
+33254,Work Started,32265,Indicators,32263,International Data,International Data > Indicators > Work Started
+33255,Construction,33254,Work Started,32263,International Data,International Data > Indicators > Work Started > Construction
+33256,Buildings,33255,Construction,32263,International Data,International Data > Indicators > Work Started > Construction > Buildings
+33257,Total Work Started,33256,Buildings,32263,International Data,International Data > Indicators > Work Started > Construction > Buildings > Total Work Started
+33258,Construction,33257,Total Work Started,32263,International Data,International Data > Indicators > Work Started > Construction > Buildings > Total Work Started > Construction
+33259,Buildings,33258,Construction,32263,International Data,International Data > Indicators > Work Started > Construction > Buildings > Total Work Started > Construction > Buildings
+33260,Total,33259,Buildings,32263,International Data,International Data > Indicators > Work Started > Construction > Buildings > Total Work Started > Construction > Buildings > Total
+33261,Consumer opinion surveys,32265,Indicators,32263,International Data,International Data > Indicators > Consumer opinion surveys
+33262,Economic Situation,33261,Consumer opinion surveys,32263,International Data,International Data > Indicators > Consumer opinion surveys > Economic Situation
+33263,Future tendency,33262,Economic Situation,32263,International Data,International Data > Indicators > Consumer opinion surveys > Economic Situation > Future tendency
+33398,EC Indicator,33263,Future tendency,32263,International Data,International Data > Indicators > Consumer opinion surveys > Economic Situation > Future tendency > EC Indicator
+33268,Consumer prices (inflation),33261,Consumer opinion surveys,32263,International Data,International Data > Indicators > Consumer opinion surveys > Consumer prices (inflation)
+33269,Future tendency,33268,Consumer prices (inflation),32263,International Data,International Data > Indicators > Consumer opinion surveys > Consumer prices (inflation) > Future tendency
+33399,EC and National Indicators,33269,Future tendency,32263,International Data,International Data > Indicators > Consumer opinion surveys > Consumer prices (inflation) > Future tendency > EC and National Indicators
+33274,Business tendency surveys (construction),32265,Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (construction)
+33275,Confidence indicators,33274,Business tendency surveys (construction),32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Confidence indicators
+33276,Composite indicators,33275,Confidence indicators,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Confidence indicators > Composite indicators
+33382,EC and National Indicators,33276,Composite indicators,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Confidence indicators > Composite indicators > EC and National Indicators
+33295,Order books,33274,Business tendency surveys (construction),32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Order books
+33296,Level,33295,Order books,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Order books > Level
+33384,EC Indicator,33296,Level,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Order books > Level > EC Indicator
+33313,Employment,33274,Business tendency surveys (construction),32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Employment
+33314,Future tendency,33313,Employment,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Employment > Future tendency
+33383,EC and National Indicators,33314,Future tendency,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Employment > Future tendency > EC and National Indicators
+33319,Selling prices,33274,Business tendency surveys (construction),32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Selling prices
+33320,Future tendency,33319,Selling prices,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Selling prices > Future tendency
+33385,EC Indicator,33320,Future tendency,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Selling prices > Future tendency > EC Indicator
+33325,Business situation - Activity,33274,Business tendency surveys (construction),32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Business situation - Activity
+33326,Present,33325,Business situation - Activity,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Business situation - Activity > Present
+33381,EC Indicator,33326,Present,32263,International Data,International Data > Indicators > Business tendency surveys (construction) > Business situation - Activity > Present > EC Indicator
+33281,Business tendency surveys (services),32265,Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (services)
+33282,Confidence Indicators,33281,Business tendency surveys (services),32263,International Data,International Data > Indicators > Business tendency surveys (services) > Confidence Indicators
+33283,Composite Indicators,33282,Confidence Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (services) > Confidence Indicators > Composite Indicators
+33396,EC and National Indicators,33283,Composite Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (services) > Confidence Indicators > Composite Indicators > EC and National Indicators
+33288,Business tendency surveys (manufacturing),32265,Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing)
+33289,Confidence indicators,33288,Business tendency surveys (manufacturing),32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Confidence indicators
+33290,Composite indicators,33289,Confidence indicators,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Confidence indicators > Composite indicators
+33393,EC and National Indicators,33290,Composite indicators,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Confidence indicators > Composite indicators > EC and National Indicators
+33301,Finished goods stocks,33288,Business tendency surveys (manufacturing),32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Finished goods stocks
+33302,Level,33301,Finished goods stocks,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Finished goods stocks > Level
+33394,EC and National Indicators,33302,Level,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Finished goods stocks > Level > EC and National Indicators
+33307,Order books,33288,Business tendency surveys (manufacturing),32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Order books
+33308,Level,33307,Order books,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Order books > Level
+33395,EC and National Indicators,33308,Level,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Order books > Level > EC and National Indicators
+33331,Business situation,33288,Business tendency surveys (manufacturing),32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Business situation
+33332,Current,33331,Business situation,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Business situation > Current
+33392,National Indicator,33332,Current,32263,International Data,International Data > Indicators > Business tendency surveys (manufacturing) > Business situation > Current > National Indicator
+33344,Business tendency surveys (retail trade),32265,Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade)
+33345,Employment,33344,Business tendency surveys (retail trade),32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Employment
+33346,Future tendency,33345,Employment,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Employment > Future tendency
+33390,EC and National Indicators,33346,Future tendency,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Employment > Future tendency > EC and National Indicators
+33351,Business situation - Activity,33344,Business tendency surveys (retail trade),32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Business situation - Activity
+33352,Present,33351,Business situation - Activity,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Business situation - Activity > Present
+33387,EC Indicator,33352,Present,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Business situation - Activity > Present > EC Indicator
+33363,Future tendency,33351,Business situation - Activity,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Business situation - Activity > Future tendency
+33388,EC Indicator,33363,Future tendency,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Business situation - Activity > Future tendency > EC Indicator
+33357,Volume of stocks,33344,Business tendency surveys (retail trade),32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Volume of stocks
+33358,Level,33357,Volume of stocks,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Volume of stocks > Level
+33391,EC Indicator,33358,Level,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Volume of stocks > Level > EC Indicator
+33375,Confidence indicators,33344,Business tendency surveys (retail trade),32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Confidence indicators
+33376,Composite indicators,33375,Confidence indicators,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Confidence indicators > Composite indicators
+33389,EC and National Indicators,33376,Composite indicators,32263,International Data,International Data > Indicators > Business tendency surveys (retail trade) > Confidence indicators > Composite indicators > EC and National Indicators
+33368,Business tendency surveys (non-manufacturing),32265,Indicators,32263,International Data,International Data > Indicators > Business tendency surveys (non-manufacturing)
+33369,Employment,33368,Business tendency surveys (non-manufacturing),32263,International Data,International Data > Indicators > Business tendency surveys (non-manufacturing) > Employment
+33370,Future Tendency,33369,Employment,32263,International Data,International Data > Indicators > Business tendency surveys (non-manufacturing) > Employment > Future Tendency
+33386,National Indicator,33370,Future Tendency,32263,International Data,International Data > Indicators > Business tendency surveys (non-manufacturing) > Employment > Future Tendency > National Indicator
+32956,Institutions,32263,International Data,32263,International Data,International Data > Institutions
+33903,Advanced Economies,32956,Institutions,32263,International Data,International Data > Institutions > Advanced Economies
+33127,Association of Southeast Asian Nations (ASEAN),32956,Institutions,32263,International Data,International Data > Institutions > Association of Southeast Asian Nations (ASEAN)
+33126,Bureau of Labor Statistics Asian Newly Industrialized Countries,32956,Institutions,32263,International Data,International Data > Institutions > Bureau of Labor Statistics Asian Newly Industrialized Countries
+33124,Bureau of Labor Statistics Industrialized Countries,32956,Institutions,32263,International Data,International Data > Institutions > Bureau of Labor Statistics Industrialized Countries
+33128,Bureau of Labor Statistics Latin America,32956,Institutions,32263,International Data,International Data > Institutions > Bureau of Labor Statistics Latin America
+33125,Bureau of Labor Statistics Pacific Rim,32956,Institutions,32263,International Data,International Data > Institutions > Bureau of Labor Statistics Pacific Rim
+33901,Emerging Markets,32956,Institutions,32263,International Data,International Data > Institutions > Emerging Markets
+32947,Euro Area,32956,Institutions,32263,International Data,International Data > Institutions > Euro Area
+33002,European Economic Area,32956,Institutions,32263,International Data,International Data > Institutions > European Economic Area
+32948,European Union,32956,Institutions,32263,International Data,International Data > Institutions > European Union
+32958,Four Big European Countries,32956,Institutions,32263,International Data,International Data > Institutions > Four Big European Countries
+32959,Group of Seven (G7),32956,Institutions,32263,International Data,International Data > Institutions > Group of Seven (G7)
+33083,Group of Twenty Finance Ministers and Central Bank Governors (G20),32956,Institutions,32263,International Data,International Data > Institutions > Group of Twenty Finance Ministers and Central Bank Governors (G20)
+33239,International Monetary Fund,32956,Institutions,32263,International Data,International Data > Institutions > International Monetary Fund
+33711,International Organizations,32956,Institutions,32263,International Data,International Data > Institutions > International Organizations
+32957,Major 5 Asia,32956,Institutions,32263,International Data,International Data > Institutions > Major 5 Asia
+32960,NAFTA,32956,Institutions,32263,International Data,International Data > Institutions > NAFTA
+33086,Non-OECD,32956,Institutions,32263,International Data,International Data > Institutions > Non-OECD
+33085,OECD Non-member Economies,32956,Institutions,32263,International Data,International Data > Institutions > OECD Non-member Economies
+32962,OECD Total,32956,Institutions,32263,International Data,International Data > Institutions > OECD Total
+32961,OECD + Non-member Economies,32956,Institutions,32263,International Data,International Data > Institutions > OECD + Non-member Economies
+33087,OECD - Europe,32956,Institutions,32263,International Data,International Data > Institutions > OECD - Europe
+33713,Unidentified Countries,32956,Institutions,32263,International Data,International Data > Institutions > Unidentified Countries
