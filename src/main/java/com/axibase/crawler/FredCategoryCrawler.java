@@ -23,7 +23,7 @@ class FredCategoryCrawler implements AutoCloseable {
     private String nestedFileName;
 
     FredCategoryCrawler(FredClient client, String targetDirectory) throws IOException {
-        FileWriter fw = new FileWriter(targetDirectory + "categories.csv");
+        FileWriter fw = new FileWriter(targetDirectory + "all_categories.csv");
         this.mainWriter = new CsvWriter(fw, new CsvWriterSettings());
         mainWriter.writeHeaders(HEADERS);
         this.client = client;
@@ -31,7 +31,7 @@ class FredCategoryCrawler implements AutoCloseable {
     }
 
     private void initNestedWriter(Integer rootId) throws IOException {
-        this.nestedFileName = targetDirectory + "categories_" + rootId + "_nested.csv";
+        this.nestedFileName = targetDirectory + "nested_categories_for_" + rootId + ".csv";
         FileWriter fw = new FileWriter(nestedFileName);
         this.nestedWriter = new CsvWriter(fw, new CsvWriterSettings());
         nestedWriter.writeHeaders(HEADERS);
