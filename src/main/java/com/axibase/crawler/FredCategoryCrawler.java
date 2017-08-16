@@ -59,7 +59,9 @@ class FredCategoryCrawler implements AutoCloseable {
 
     public void readAndWriterCategories(List<Integer> categoryIds) throws IOException {
         List<FredCategory> rootCategories = client.getRootCategories(categoryIds);
+        log.info("Root categories: {}", rootCategories);
         for (FredCategory root : rootCategories) {
+            log.info("Fetching root #{}", root.getId());
             initNestedWriter(root.getId());
             try {
                 CsvCategoryRow row = new CsvCategoryRow();
