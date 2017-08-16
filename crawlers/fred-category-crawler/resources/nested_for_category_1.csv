@@ -1,0 +1,26 @@
+category_id,category_name,parent_id,parent_name,root_id,root_name,path
+32262,Business Cycle Expansions & Contractions,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Business Cycle Expansions & Contractions
+32436,Construction,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Construction
+33490,Finance Companies,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Finance Companies
+32216,Health Insurance,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Health Insurance
+97,Housing,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Housing
+32300,Housing Units Authorized by Building Permits,97,Housing,1,Production & Business Activity,Production & Business Activity > Housing > Housing Units Authorized by Building Permits
+32301,"Housing Units Authorized, But Not Yet Started",97,Housing,1,Production & Business Activity,"Production & Business Activity > Housing > Housing Units Authorized, But Not Yet Started"
+32302,Housing Starts,97,Housing,1,Production & Business Activity,Production & Business Activity > Housing > Housing Starts
+32303,Housing Units Under Construction,97,Housing,1,Production & Business Activity,Production & Business Activity > Housing > Housing Units Under Construction
+32304,Housing Units Completed,97,Housing,1,Production & Business Activity,Production & Business Activity > Housing > Housing Units Completed
+32426,New Residential Sales,97,Housing,1,Production & Business Activity,Production & Business Activity > Housing > New Residential Sales
+3,Industrial Production & Capacity Utilization,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Industrial Production & Capacity Utilization
+32429,Manufacturing,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Manufacturing
+32432,Inventories,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > Inventories
+32431,New Orders,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > New Orders
+32433,Inventory to Shipments,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > Inventory to Shipments
+32435,Unfilled Orders,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > Unfilled Orders
+32434,Unfilled Orders to Shipments,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > Unfilled Orders to Shipments
+32430,Shipments,32429,Manufacturing,1,Production & Business Activity,Production & Business Activity > Manufacturing > Shipments
+6,Retail Trade,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Retail Trade
+33441,Services,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Services
+33492,Technology,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Technology
+33202,Transportation,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Transportation
+32993,Motor Vehicles,33202,Transportation,1,Production & Business Activity,Production & Business Activity > Transportation > Motor Vehicles
+33203,Wholesale Trade,1,Production & Business Activity,1,Production & Business Activity,Production & Business Activity > Wholesale Trade

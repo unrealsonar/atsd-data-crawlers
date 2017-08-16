@@ -1,0 +1,104 @@
+category_id,category_name,parent_id,parent_name,root_id,root_name,path
+32217,Commodities,32455,Prices,32455,Prices,Prices > Commodities
+9,Consumer Price Indexes (CPI and PCE),32455,Prices,32455,Prices,Prices > Consumer Price Indexes (CPI and PCE)
+32415,Food and Beverages,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Food and Beverages
+32416,Housing,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Housing
+32417,Apparel,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Apparel
+32418,Transportation,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Transportation
+32419,Medical Care,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Medical Care
+32420,Recreation,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Recreation
+32421,Education and Communication,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Education and Communication
+32422,Other Goods and Services,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Other Goods and Services
+32423,Commodity and Services Groups,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Commodity and Services Groups
+32424,Special Indexes,9,Consumer Price Indexes (CPI and PCE),32455,Prices,Prices > Consumer Price Indexes (CPI and PCE) > Special Indexes
+4,Employment Cost Index,32455,Prices,32455,Prices,Prices > Employment Cost Index
+33717,Health Care Indexes,32455,Prices,32455,Prices,Prices > Health Care Indexes
+32261,House Price Indexes,32455,Prices,32455,Prices,Prices > House Price Indexes
+31,Producer Price Indexes (PPI),32455,Prices,32455,Prices,Prices > Producer Price Indexes (PPI)
+33583,Commodity Based,31,Producer Price Indexes (PPI),32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based
+33564,Accommodation Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Accommodation Services
+33548,Advertising Space and Time Sales,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Advertising Space and Time Sales
+33533,Chemicals and Allied Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Chemicals and Allied Products
+33560,Cleaning and Building Maintenance Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Cleaning and Building Maintenance Services
+33573,Construction,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Construction
+33572,"Contract Work on Textile Products, Apparel, and Leather",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Contract Work on Textile Products, Apparel, and Leather"
+33551,Credit Intermediation Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Credit Intermediation Services
+33550,Data Processing and Related Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Data Processing and Related Services
+33574,Durability of Product,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Durability of Product
+33563,Educational Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Educational Services
+33557,Employment Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Employment Services
+33567,Entertainment Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Entertainment Services
+33528,Farm Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Farm Products
+33575,Final Demand,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Final Demand
+33565,Food and Beverage for Immediate Consumption Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Food and Beverage for Immediate Consumption Services
+33532,Fuels and Related Products and Power,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Fuels and Related Products and Power
+33539,Furniture and Household Durables,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Furniture and Household Durables
+33561,Health Care Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Health Care Services
+33531,"Hides, Skins, Leather, and Related Products",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Hides, Skins, Leather, and Related Products"
+33582,Inputs to Industries,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Inputs to Industries
+33553,Insurance and Annuities,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Insurance and Annuities
+33577,Intermediate Demand By Commodity Type,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Intermediate Demand By Commodity Type
+33576,Intermediate Demand By Production Flow,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Intermediate Demand By Production Flow
+33552,Investment Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Investment Services
+33535,Lumber and Wood Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Lumber and Wood Products
+33538,Machinery and Equipment,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Machinery and Equipment
+33570,Metal Treatment Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Metal Treatment Services
+33537,Metals and Metal Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Metals and Metal Products
+33571,Mining Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Mining Services
+33542,Miscellaneous Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Miscellaneous Products
+33547,Network Compensation from Broadcast and Cable Television and Radio,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Network Compensation from Broadcast and Cable Television and Radio
+33540,Nonmetallic Mineral Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Nonmetallic Mineral Products
+33529,Processed Foods and Feeds,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Processed Foods and Feeds
+33556,Professional Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Professional Services
+33545,"Publishing Sales, Excluding Software",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Publishing Sales, Excluding Software"
+33536,"Pulp, Paper, and Allied Products",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Pulp, Paper, and Allied Products"
+33554,Real Estate Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Real Estate Services
+33555,Rental and Leasing of Goods,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Rental and Leasing of Goods
+33566,Repair and Maintenance Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Repair and Maintenance Services
+33569,Retail Trade Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Retail Trade Services
+33534,Rubber and Plastic Products,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Rubber and Plastic Products
+33559,Selected Security Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Selected Security Services
+33546,Software Publishing,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Software Publishing
+33580,Special Indexes,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Special Indexes
+33581,Stage of Processing,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Stage of Processing
+33549,"Telecommunication, Cable, and Internet User Services",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Telecommunication, Cable, and Internet User Services"
+33530,Textile Products and Apparel,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Textile Products and Apparel
+33541,Transportation Equipment,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Transportation Equipment
+33543,Transportation Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Transportation Services
+33558,Travel Arrangement Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Travel Arrangement Services
+33544,"Warehousing, Storage, and Related Services",33583,Commodity Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Commodity Based > Warehousing, Storage, and Related Services"
+33562,Waste Collection and Remediation Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Waste Collection and Remediation Services
+33568,Wholesale Trade Services,33583,Commodity Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Commodity Based > Wholesale Trade Services
+33584,Industry Based,31,Producer Price Indexes (PPI),32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based
+33586,Accommodation and Food Services,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Accommodation and Food Services
+33588,Administrative and Support and Waste Management and Remediation Services,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Administrative and Support and Waste Management and Remediation Services
+33585,"Agriculture, Forestry, Fishing and Hunting",33584,Industry Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Industry Based > Agriculture, Forestry, Fishing and Hunting"
+33587,"Arts, Entertainment, and Recreation",33584,Industry Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Industry Based > Arts, Entertainment, and Recreation"
+33589,Construction,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Construction
+33591,Educational Services,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Educational Services
+33590,Finance and Insurance,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Finance and Insurance
+33593,Health Care and Social Assistance,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Health Care and Social Assistance
+33592,Information,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Information
+33597,Manufacturing,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Manufacturing
+33596,"Mining, Quarrying, and Oil and Gas Extraction",33584,Industry Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Industry Based > Mining, Quarrying, and Oil and Gas Extraction"
+33594,Other Services (except Public Administration),33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Other Services (except Public Administration)
+33599,"Professional, Scientific, and Technical Services",33584,Industry Based,32455,Prices,"Prices > Producer Price Indexes (PPI) > Industry Based > Professional, Scientific, and Technical Services"
+33595,Public Administration,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Public Administration
+33598,Real Estate and Rental and Leasing,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Real Estate and Rental and Leasing
+33600,Retail Trade,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Retail Trade
+33601,Transportation and Warehousing,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Transportation and Warehousing
+33602,Utilities,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Utilities
+33603,Wholesale Trade,33584,Industry Based,32455,Prices,Prices > Producer Price Indexes (PPI) > Industry Based > Wholesale Trade
+32220,Trade Indexes,32455,Prices,32455,Prices,Prices > Trade Indexes
+32221,Import Price Indexes,32220,Trade Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes
+32223,End Use Classification System,32221,Import Price Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes > End Use Classification System
+32229,By Harmonized System,32221,Import Price Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes > By Harmonized System
+32226,By NAICS,32221,Import Price Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes > By NAICS
+32230,By Locality of Origin,32221,Import Price Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes > By Locality of Origin
+33907,Standard International Trade Classification,32221,Import Price Indexes,32455,Prices,Prices > Trade Indexes > Import Price Indexes > Standard International Trade Classification
+32224,Export Price Indexes,32220,Trade Indexes,32455,Prices,Prices > Trade Indexes > Export Price Indexes
+32225,End Use Classification System,32224,Export Price Indexes,32455,Prices,Prices > Trade Indexes > Export Price Indexes > End Use Classification System
+32227,By NAICS,32224,Export Price Indexes,32455,Prices,Prices > Trade Indexes > Export Price Indexes > By NAICS
+32228,By Harmonized System,32224,Export Price Indexes,32455,Prices,Prices > Trade Indexes > Export Price Indexes > By Harmonized System
+33905,Standard International Trade Classification,32224,Export Price Indexes,32455,Prices,Prices > Trade Indexes > Export Price Indexes > Standard International Trade Classification
+32231,Services Price Indexes,32220,Trade Indexes,32455,Prices,Prices > Trade Indexes > Services Price Indexes
