@@ -1,5 +1,7 @@
 # FRED Category Crawler
 
+Application that collect categories from https://research.stlouisfed.org using the [API](https://research.stlouisfed.org/docs/api/fred/)
+
 [Source code](https://github.com/axibase/atsd-data-crawlers/tree/fred-category-crawler)
 
 ### Command Line Arguments
