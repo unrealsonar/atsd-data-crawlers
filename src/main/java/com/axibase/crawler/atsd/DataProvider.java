@@ -13,7 +13,8 @@ import java.util.*;
 import java.util.Date;
 
 public class DataProvider {
-    private String queryHost;
+    private String host;
+    private int queryPort;
     private String user;
     private String password;
 
@@ -21,15 +22,16 @@ public class DataProvider {
     private boolean started;
 
     public DataProvider(
-            String queryHost,
+            String host,
+            int queryPort,
+            int tcpPort,
             String user,
-            String password,
-            String tcpHost,
-            int tcpPort) {
-        this.queryHost = queryHost;
+            String password) {
+        this.host = host;
+        this.queryPort = queryPort;
         this.user = user;
         this.password = password;
-        client = new AtsdTcpClient(tcpHost, tcpPort);
+        client = new AtsdTcpClient(host, tcpPort);
         started = false;
     }
 
@@ -200,7 +202,7 @@ public class DataProvider {
     }
 
     public Result<HashMap<Integer, PriceStatistics>> getPriceStatistics() {
-        String sqlUrl = "jdbc:axibase:atsd:" + queryHost + "/api/sql;trustServerCertificate=true";
+        String sqlUrl = "jdbc:atsd://" + host + ":" + queryPort;
         String query = "SELECT \n" +
                         "    okey_price.entity, \n" +
                         "    LAST(okey_price.value),\n" +

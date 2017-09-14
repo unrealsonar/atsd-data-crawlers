@@ -25,7 +25,7 @@ class Crawler {
         }
         HashMap<Integer, OrderInfo> productsMap = ordersSetResult.result.products;
 
-        DataProvider provider = new DataProvider(config.queryHost, config.user, config.password, config.tcpHost, config.tcpPort);
+        DataProvider provider = new DataProvider(config.host, config.queryPort, config.tcpPort, config.user, config.password);
         Result<Boolean> providerStartResult = provider.start();
         if (providerStartResult.errorText != null) {
             Logger.log(providerStartResult.errorText);
@@ -70,7 +70,7 @@ class Crawler {
             return;
         }
 
-        DataProvider provider = new DataProvider(config.queryHost, config.user, config.password, config.tcpHost, config.tcpPort);
+        DataProvider provider = new DataProvider(config.host, config.queryPort, config.tcpPort, config.user, config.password);
         Result<Boolean> providerStartResult = provider.start();
         if (providerStartResult.errorText != null) {
             Logger.log(providerStartResult.errorText);
@@ -112,7 +112,7 @@ class Crawler {
         }
         HashMap<Integer, OrderInfo> productsMap = ordersSetResult.result.products;
 
-        DataProvider provider = new DataProvider(config.queryHost, config.user, config.password, config.tcpHost, config.tcpPort);
+        DataProvider provider = new DataProvider(config.host, config.queryPort, config.tcpPort, config.user, config.password);
         Result<Boolean> providerStartResult = provider.start();
         if (providerStartResult.errorText != null) {
             Logger.log(providerStartResult.errorText);

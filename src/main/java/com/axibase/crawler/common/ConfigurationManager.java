@@ -28,14 +28,14 @@ public class ConfigurationManager {
             System.out.println("Exception: " + e);
         }
 
-        String queryHost = prop.getProperty("query_host");
-        String tcpHost = prop.getProperty("tcp_host");
+        String host = prop.getProperty("host");
+        int queryPort = Integer.parseInt(prop.getProperty("query_port"));
         int tcpPort = Integer.parseInt(prop.getProperty("tcp_port"));
         String user = prop.getProperty("user");
         String password = prop.getProperty("password");
         String ordersDirectory = prop.getProperty("orders_dir");
         String[] baseUrls = prop.getProperty("base_urls").split(",");
 
-        return new Config(queryHost, tcpHost, tcpPort, user, password, ordersDirectory, baseUrls);
+        return new Config(host, queryPort, tcpPort, user, password, ordersDirectory, baseUrls);
     }
 }
