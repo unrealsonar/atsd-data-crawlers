@@ -11,6 +11,7 @@ import org.jsoup.select.Elements;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 class ProductSearcher {
 
@@ -34,7 +35,7 @@ class ProductSearcher {
         Document htmlDocument = Jsoup.parse(html);
         if (htmlDocument == null) return new Result<>("Html parse error", null);
 
-        ArrayList<Integer> storeIds = new ArrayList<>();
+        HashSet<Integer> storeIds = new HashSet<>();
 
         Elements storeIdsContainers = htmlDocument.select("ul.city-selection-description");
         if (storeIdsContainers == null || storeIdsContainers.size() == 0) return new Result<>("Stores not found", null);
@@ -51,10 +52,14 @@ class ProductSearcher {
                 String priceText = storeIdElement.id();
                 if (priceText == null) continue;
 
-                priceText = priceText.replace("storeId_", "");
+                String[] priceParts = priceText.split("_");
+                if (priceParts.length < 2) {
+                    continue;
+                }
+
                 int storeId;
                 try {
-                    storeId = Integer.parseInt(priceText);
+                    storeId = Integer.parseInt(priceParts[1]);
                 } catch (NumberFormatException ex) {
                     continue;
                 }
@@ -63,7 +68,7 @@ class ProductSearcher {
             }
         }
 
-        return new Result<>(null, storeIds);
+        return new Result<>(null, new ArrayList<>(storeIds));
     }
 
     Result<String> searchProductUrl(int storeId, String productName) {
@@ -72,11 +77,15 @@ class ProductSearcher {
         try {
             String[] nameParts = productName.split(" ");
             StringBuilder name = new StringBuilder();
-            for (int i = 0; i < 3; i ++) {
-                if (i == nameParts.length) break;
-                name.append(nameParts[i]);
-                if (i == 2) break;
-                name.append(" ");
+            if (nameParts.length <= 4) {
+                name.append(productName);
+            } else {
+                for (int i = 0; i < nameParts.length - 2; i++) {
+                    name.append(nameParts[i]);
+                    if (i != nameParts.length - 3) {
+                        name.append(" ");
+                    }
+                }
             }
 
             String request = URLEncoder.encode(name.toString(), "UTF-8");
