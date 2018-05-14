@@ -1,13 +1,13 @@
 package com.axibase.crawler;
 
-import com.axibase.tsd.client.ClientConfigurationFactory;
+import com.axibase.crawler.model.FredCategory;
+import com.axibase.crawler.model.FredObservation;
+import com.axibase.crawler.model.FredSeries;
 import com.axibase.tsd.client.DataService;
 import com.axibase.tsd.client.HttpClientManager;
 import com.axibase.tsd.client.MetaDataService;
 import com.axibase.tsd.model.data.command.AddSeriesCommand;
 import com.axibase.tsd.model.data.series.Sample;
-import com.axibase.tsd.model.meta.Metric;
-import com.axibase.tsd.model.system.ClientConfiguration;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -15,115 +15,77 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.TimeZone;
 
-public class AtsdWriter {
+class AtsdWriter {
+    private static final String COMMANDS_FILE = "commands.txt";
     private static final String ENTITY_NAME = "fred.stlouisfed.org";
+    private static final String EMPTY_VALUE = ".";
+
+    private static final MetricMapper fredSeriesMapper =
+            new MetricMapper()
+                    .setNameField("id")
+                    .setLabelField("title")
+                    .setDescriptionField("notes")
+                    .setUnitsField("units")
+                    .addFieldToTagMapping("id", "series_id")
+                    .excludeFromTags("title");
+
+    private static final MetricMapper categoryMapper =
+            new MetricMapper()
+                    .setTagAutoInclude(false)
+                    .addFieldToTagMapping("name", "category")
+                    .addFieldToTagMapping("id", "category_id");
+
+    private static final MetricMapper parentCategoryMapper =
+            new MetricMapper()
+                    .setTagAutoInclude(false)
+                    .addFieldToTagMapping("name", "parent_category")
+                    .addFieldToTagMapping("id", "parent_category_id");
 
     private DataService dataService;
     private MetaDataService metaDataService;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
     private BufferedWriter cmdOut;
+    private boolean tracing = false;
 
-    AtsdWriter(String commandsPath) throws IOException {
-        cmdOut = new BufferedWriter(new FileWriter(commandsPath));
+    AtsdWriter(HttpClientManager httpClientManager) throws IOException {
+        if (tracing) {
+            cmdOut = new BufferedWriter(new FileWriter(COMMANDS_FILE));
+        }
 
         dateFormat.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         isoFormat.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
-
-        System.getProperties()
-                .setProperty("axibase.tsd.api.client.properties", "client.properties");
-
-        ClientConfiguration clientConfiguration =
-                ClientConfigurationFactory.createInstance().createClientConfiguration();
-        HttpClientManager httpClientManager = new HttpClientManager(clientConfiguration);
 
         dataService = new DataService(httpClientManager);
         metaDataService = new MetaDataService(httpClientManager);
     }
 
+    void setTracing(boolean value) {
+        tracing = value;
+    }
+
+    private void trace(String command) throws IOException {
+        if (tracing) {
+            cmdOut.write(command);
+        }
+    }
+
     void writeFredSeries(FredSeries fredSeries,
                          FredCategory cat, FredCategory parent,
-                         String[] tags, FredObservation[] data) throws ParseException, IOException {
-        Metric met = new Metric(fredSeries.getId());
-        Map<String, String> mtags = new HashMap<>();
-        met.setTags(mtags);
+                         List<String> tags, FredObservation[] data) throws ParseException, IOException {
+        MetricBuilder metricBuilder = new MetricBuilder();
 
-        StringBuilder metricCmdBuilder = new StringBuilder("metric");
+        fredSeriesMapper.mapIntoBuilder(fredSeries, metricBuilder);
+        categoryMapper.mapIntoBuilder(cat, metricBuilder);
+        parentCategoryMapper.mapIntoBuilder(parent, metricBuilder);
+        metricBuilder.setTag("tags", tags);
 
-        met.setName(fredSeries.getId());
-        metricCmdBuilder.append(" m:").append(fredSeries.getId());
-        met.setLabel(fredSeries.getTitle());
-        metricCmdBuilder.append(" l:").append(quoteString(fredSeries.getTitle()));
-        met.setDescription(fredSeries.getNotes());
-        metricCmdBuilder.append(" d:").append(quoteString(fredSeries.getNotes()));
-        met.setUnits(fredSeries.getUnits());
-        metricCmdBuilder.append(" u:").append(quoteString(fredSeries.getUnits()));
-
-
-        mtags.put("series_id", fredSeries.getId());
-        metricCmdBuilder.append(" t:series_id=").append(quoteString(fredSeries.getId()));
-
-        mtags.put("category", cat.getName());
-        metricCmdBuilder.append(" t:category=").append(quoteString(cat.getName()));
-
-        mtags.put("category_id", String.valueOf(cat.getId()));
-        metricCmdBuilder.append(" t:category_id=").append(cat.getId());
-
-        mtags.put("parent_category", parent.getName());
-        metricCmdBuilder.append(" t:parent_category=").append(quoteString(parent.getName()));
-
-        mtags.put("parent_category_id", String.valueOf(parent.getId()));
-        metricCmdBuilder.append(" t:parent_category_id=").append(parent.getId());
-
-        mtags.put("frequency", fredSeries.getFrequency());
-        metricCmdBuilder.append(" t:frequency=").append(quoteString(fredSeries.getFrequency()));
-
-        mtags.put("frequency_short", fredSeries.getFrequencyShort());
-        metricCmdBuilder.append(" t:frequency_short=").append(quoteString(fredSeries.getFrequencyShort()));
-
-        mtags.put("seasonal_adjustment", fredSeries.getSeasonalAdjustment());
-        metricCmdBuilder.append(" t:seasonal_adjustment=").append(quoteString(fredSeries.getSeasonalAdjustment()));
-
-        mtags.put("seasonal_adjustment_short", fredSeries.getSeasonalAdjustmentShort());
-        metricCmdBuilder.append(" t:seasonal_adjustment_short=").append(quoteString(fredSeries.getSeasonalAdjustmentShort()));
-
-        mtags.put("units", fredSeries.getUnits());
-        metricCmdBuilder.append(" t:units=").append(quoteString(fredSeries.getUnits()));
-
-        mtags.put("units_short", fredSeries.getUnitsShort());
-        metricCmdBuilder.append(" t:units_short=").append(quoteString(fredSeries.getUnitsShort()));
-
-        mtags.put("popularity", String.valueOf(fredSeries.getPopilarity()));
-        metricCmdBuilder.append(" t:popularity=").append(fredSeries.getPopilarity());
-
-        mtags.put("notes", fredSeries.getNotes());
-        metricCmdBuilder.append(" t:notes=").append(quoteString(fredSeries.getNotes()));
-
-        mtags.put("observation_start", fredSeries.getObservationStart());
-        metricCmdBuilder.append(" t:observation_start=").append(quoteString(fredSeries.getObservationStart()));
-
-        mtags.put("observation_end", fredSeries.getObservationEnd());
-        metricCmdBuilder.append(" t:observation_end=").append(quoteString(fredSeries.getObservationEnd()));
-
-        StringBuilder tagsBuilder = new StringBuilder();
-        for (int i = 0; i < tags.length; i++) {
-            if (i > 0) {
-                tagsBuilder.append(',');
-            }
-            tagsBuilder.append(tags[i]);
-        }
-        String tagsString = tagsBuilder.toString();
-
-        mtags.put("tags", tagsString);
-        metricCmdBuilder.append(" t:tags=").append(quoteString(tagsString));
-        metricCmdBuilder.append('\n');
-
-        cmdOut.write(metricCmdBuilder.toString());
-        metaDataService.createOrReplaceMetric(met);
+        trace(metricBuilder.toCommand());
+        trace("\n");
+        metaDataService.createOrReplaceMetric(metricBuilder.toMetric());
 
         AddSeriesCommand addCommand = new AddSeriesCommand(ENTITY_NAME, fredSeries.getId());
         int k = 0;
@@ -133,13 +95,13 @@ public class AtsdWriter {
                 continue;
 
             String strValue = observation.getValue();
-            Double value = null;
+            double value = Double.NaN;
 
             boolean text = false;
 
             Sample observationSample;
 
-            if (!strValue.equals(".")) {
+            if (!strValue.equals(EMPTY_VALUE)) {
                 try {
                     value = Double.parseDouble(strValue);
                 } catch (NumberFormatException e) {
@@ -150,9 +112,9 @@ public class AtsdWriter {
             }
 
             if (!text) {
-                observationSample = new Sample(date, value);
+                observationSample = Sample.ofTimeDouble(date, value);
             } else {
-                observationSample = new Sample(date, value, strValue);
+                observationSample = new Sample(date, Double.NaN, strValue);
             }
 
             addCommand.addSeries(observationSample);
@@ -166,7 +128,7 @@ public class AtsdWriter {
             if (text)
                 seriesCmd += String.format(" x:%s=%s", fredSeries.getId(), quoteString(strValue));
 
-            cmdOut.write(seriesCmd);
+            trace(seriesCmd);
 
             if (k == 100) {
                 dataService.addSeries(addCommand);

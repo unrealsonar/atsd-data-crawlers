@@ -1,4 +1,4 @@
-package com.axibase.crawler;
+package com.axibase.crawler.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class FredSeries {
+public class FredSeries {
     private String id;
 
     private String title;
@@ -46,8 +46,8 @@ class FredSeries {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj.getClass() != FredClient.class)
-            return false;
-        return id.equals(((FredSeries) obj).id);
+        // Identifier-only equality
+        return (obj instanceof FredSeries) &&
+                id.equals(((FredSeries) obj).id);
     }
 }

@@ -1,4 +1,4 @@
-package com.axibase.crawler;
+package com.axibase.crawler.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class FredCategory {
+public class FredCategory {
     private int id;
     private String name;
 

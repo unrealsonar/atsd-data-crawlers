@@ -1,19 +1,26 @@
 package com.axibase.crawler;
 
+import com.axibase.crawler.model.FredCategory;
+import com.axibase.crawler.model.FredObservation;
+import com.axibase.crawler.model.FredSeries;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 class FredClient {
+    private static final Logger logger = LoggerFactory.getLogger(FredClient.class);
     private static final String BASE_URL = "https://api.stlouisfed.org/";
 
     private static final String CHILDREN_CATEGORIES = "fred/category/children";
@@ -22,35 +29,35 @@ class FredClient {
     private static final String SERIES_OBSERVATIONS = "fred/series/observations";
     private static final String SERIES_CATEGORIES = "fred/series/categories";
     private static final String CATEGORY = "fred/category";
+    private static final String SERIES = "fred/series";
 
     private ObjectMapper mapper = new ObjectMapper();
     private JsonFactory jsonFactory = mapper.getFactory();
-    private Client client = Client.create();
-    private WebResource resource;
+    private Client client = ClientBuilder.newClient();
+    private WebTarget resource;
 
-    FredClient() {
+    FredClient(String apiKey) {
         resource = client
-                .resource(BASE_URL)
-                .queryParam("api_key", "")
+                .target(BASE_URL)
+                .queryParam("api_key", apiKey)
                 .queryParam("file_type", "json");
     }
 
-    private JsonNode readJsonResponse(ClientResponse response) {
-        String jsonString = response.getEntity(String.class);
+    private JsonNode readJsonResponse(String response) {
         try {
-            JsonParser parser = jsonFactory.createParser(jsonString);
+            JsonParser parser = jsonFactory.createParser(response);
             return mapper.readTree(parser);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error parsing JSON", e);
             return null;
         }
     }
 
     private JsonNode requestWithParam(String path, String key, String value) {
-        ClientResponse response = resource.path(path)
+        String response = resource.path(path)
                 .queryParam(key, value)
-                .accept("application/json")
-                .get(ClientResponse.class);
+                .request(MediaType.APPLICATION_JSON)
+                .get(String.class);
 
         return readJsonResponse(response);
     }
@@ -72,34 +79,53 @@ class FredClient {
         return result;
     }
 
-    String[] seriesTags(String seriesId) {
+    List<String> seriesTags(String seriesId) {
         JsonNode json = requestWithParam(
                 SERIES_TAGS,
                 "series_id",
                 seriesId
         ).path("tags");
 
-        int size = json.size();
-        String[] result = new String[size];
+        List<String> result = new ArrayList<>();
 
-        for (int i = 0; i < size; i++) {
-            result[i] = json.get(i).get("name").asText();
+        for (int i = 0; i < json.size(); i++) {
+            result.add(json.get(i).get("name").asText());
         }
 
         return result;
     }
 
-    FredSeries[] categorySeries(int categoryId) {
+    FredSeries[] categorySeries(int categoryId, int offset) {
+        String response = resource.path(CATEGORY_SERIES)
+                .queryParam("category_id", String.valueOf(categoryId))
+                .queryParam("order_by", "series_id")
+                .queryParam("offset", String.valueOf(offset))
+                .request(MediaType.APPLICATION_JSON)
+                .get(String.class);
+        try {
+            JsonNode json = readJsonResponse(response);
+            if (json == null) {
+                return null;
+            }
+
+            return mapper.treeToValue(json.path("seriess"), FredSeries[].class);
+        } catch (JsonProcessingException e) {
+            logger.error("Error parsing JSON", e);
+            return null;
+        }
+    }
+
+    FredSeries singleSeries(String seriesId) {
         JsonNode json = requestWithParam(
-                CATEGORY_SERIES,
-                "category_id",
-                String.valueOf(categoryId)
+                SERIES,
+                "series_id",
+                String.valueOf(seriesId)
         ).path("seriess");
 
         try {
-            return mapper.treeToValue(json, FredSeries[].class);
+            return mapper.treeToValue(json, FredSeries[].class)[0];
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("Error parsing JSON", e);
             return null;
         }
     }
@@ -120,7 +146,7 @@ class FredClient {
                 FredObservation obs = mapper.treeToValue(singleObservation, FredObservation.class);
                 result.add(obs);
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("Error parsing JSON", e);
             }
         }
         FredObservation[] arrayResult = new FredObservation[result.size()];
@@ -138,7 +164,7 @@ class FredClient {
         try {
             return mapper.treeToValue(json, FredCategory[].class);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("Error parsing JSON", e);
             return null;
         }
     }
@@ -153,7 +179,7 @@ class FredClient {
         try {
             return mapper.treeToValue(json, FredCategory[].class)[0];
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("Error parsing JSON", e);
             return null;
         }
     }
