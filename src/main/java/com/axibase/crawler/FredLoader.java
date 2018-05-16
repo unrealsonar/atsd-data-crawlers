@@ -6,6 +6,7 @@ import com.axibase.crawler.model.FredSeries;
 import com.axibase.tsd.client.HttpClientManager;
 import com.axibase.tsd.client.MetaDataService;
 import com.axibase.tsd.model.meta.Metric;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +19,7 @@ class FredLoader {
     private static final SimpleDateFormat FRED_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     // For series pagination as given by FRED API
     private static final int MAX_SERIES_LIMIT = 1000;
+    private static final int MAX_RETRIES = 5;
 
     private Config config;
     private List<Integer> rootCategories;
@@ -26,6 +28,11 @@ class FredLoader {
     private Date filterLimit;
     private HttpClientManager httpClientManager;
     private MetaDataService metaDataService;
+
+    @Getter
+    private List<String> updatedSeries = new ArrayList<>();
+    @Getter
+    private List<String> newSeries = new ArrayList<>();
 
     FredLoader(Config config,
                 FredClient fredClient,
@@ -53,8 +60,23 @@ class FredLoader {
         }
 
         for (FredSeries series : allSeries) {
-            fetchAndWriteSeries(series);
+            int retries = MAX_RETRIES;
+            while (retries > 0) {
+                try {
+                    fetchAndWriteSeries(series);
+                    break;
+                } catch (Exception e) {
+                    logger.error("Error fetching series", e);
+                }
+                retries--;
+                if (retries == 0) {
+                    logger.info("Can't fetch series {}, giving up", series.getId());
+                } else {
+                    logger.info("Retrying to fetch {}", series.getId());
+                }
+            }
         }
+        logger.info("Finished loading series");
     }
 
     private List<Integer> fetchSubcategories(Collection<Integer> catIds) {
@@ -102,7 +124,7 @@ class FredLoader {
             return;
         }
         if (seriesObservationEndDate.before(filterLimit)) {
-            logger.info("Skip series {}, end year {}", series.getId(), seriesObservationEnd);
+            logger.info("Skip series {}, end date {}", series.getId(), seriesObservationEnd);
             return;
         }
 
@@ -110,18 +132,25 @@ class FredLoader {
         if (storedMetric != null) {
             Map<String, String> metricTags = storedMetric.getTags();
             String storedObservationEnd = metricTags.get("observation_end");
-            Date storedEndDate;
+            Date storedEndDate = null;
             try {
                 storedEndDate = FRED_DATE_FORMAT.parse(storedObservationEnd);
             } catch (ParseException e) {
                 logger.error("Error parsing observation_end", e);
-                return;
             }
 
-            if (!storedEndDate.before(seriesObservationEndDate)) {
-                logger.info("Skip series {}, end date {}", series.getId(), seriesObservationEnd);
+            if (storedEndDate == null || storedEndDate.before(seriesObservationEndDate)) {
+                logger.info("Updating series {}, stored end date {} is before retrieved date {}",
+                        series.getId(), FRED_DATE_FORMAT.format(storedEndDate), seriesObservationEnd);
+                updatedSeries.add(series.getId());
+            } else {
+                logger.info("Skip series {}, stored end date {} is not before retrieved date {}",
+                        series.getId(), FRED_DATE_FORMAT.format(storedEndDate), seriesObservationEnd);
                 return;
             }
+        } else {
+            logger.info("Storing new series {}", series.getId());
+            newSeries.add(series.getId());
         }
 
         FredCategory[] seriesCats = fredClient.seriesCategories(series.getId());
@@ -139,7 +168,7 @@ class FredLoader {
         try {
             atsdWriter.writeFredSeries(series, maxCategory, parentCategory, tags, observations);
         } catch (Exception e) {
-            logger.error("Error writing series " + series.getId());
+            logger.error("Error writing series " + series.getId(), e);
         }
     }
 }

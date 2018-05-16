@@ -138,7 +138,9 @@ class AtsdWriter {
         if (k > 0) {
             dataService.addSeries(addCommand);
         }
-        cmdOut.flush();
+        if (tracing) {
+            cmdOut.flush();
+        }
     }
 
     private String quoteString(String s) {
