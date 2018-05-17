@@ -24,8 +24,8 @@ public class Main {
 
             loader.runLoading();
 
-            List<String> newSeries = loader.getUpdatedSeries(),
-                    updatedSeries = loader.getNewSeries();
+            List<String> updatedSeries = loader.getUpdatedSeries(),
+                    newSeries = loader.getNewSeries();
             logger.info("Updated series {}", updatedSeries);
             logger.info("New series {} ", newSeries);
             logger.info("Total updated series {}", updatedSeries.size());

@@ -124,7 +124,7 @@ class FredLoader {
             return;
         }
         if (seriesObservationEndDate.before(filterLimit)) {
-            logger.info("Skip series {}, end date {}", series.getId(), seriesObservationEnd);
+            logger.info("{},skip,,{}", series.getId(), seriesObservationEnd);
             return;
         }
 
@@ -140,16 +140,16 @@ class FredLoader {
             }
 
             if (storedEndDate == null || storedEndDate.before(seriesObservationEndDate)) {
-                logger.info("Updating series {}, stored end date {} is before retrieved date {}",
+                logger.info("{},update,{},{}",
                         series.getId(), FRED_DATE_FORMAT.format(storedEndDate), seriesObservationEnd);
                 updatedSeries.add(series.getId());
             } else {
-                logger.info("Skip series {}, stored end date {} is not before retrieved date {}",
+                logger.info("{},skip,{},{}",
                         series.getId(), FRED_DATE_FORMAT.format(storedEndDate), seriesObservationEnd);
                 return;
             }
         } else {
-            logger.info("Storing new series {}", series.getId());
+            logger.info("{},create,,{}", series.getId(), seriesObservationEnd);
             newSeries.add(series.getId());
         }
 

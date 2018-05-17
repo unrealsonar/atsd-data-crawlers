@@ -100,3 +100,22 @@ Crawler reads configuration from two files
    axibase.tsd.api.username=axibase
    axibase.tsd.api.password=axibase
    ```
+
+## Logging
+
+Log file `crawler.log` contains contains information about series updates and creates in following format
+
+```text
+date,series_id,action,stored_end_date,available_end_date
+```
+
+Where `action` can be one of `skip`, `create` and `update`. `stored_end_date` is empty in case series wasn't stored into ATSD before.
+
+Examples
+
+```
+2018-05-17 07:10:36.366,REVENF523XALLEST,skip,,2007-01-01
+2018-05-17 07:10:36.488,LEU0254495800A,skip,2017-01-01,2017-01-01
+2018-05-17 07:10:36.574,LEU0254703700A,create,,2017-01-01
+2018-05-17 07:10:36.621,JTU5300TSR,update,2018-02-01,2018-03-01
+```
