@@ -1,0 +1,8 @@
+{
+  "apiKey": "d9bcf929c04d585b459a952aa5f6840e",
+  "traceCommands": false,
+  "filter":{
+    "minimalObservationEnd": "2008-01-01",
+    "idFilter": "MWACL"
+  }
+}
